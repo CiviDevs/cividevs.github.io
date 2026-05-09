@@ -35,11 +35,11 @@
     --text-small: clamp(0.75rem, 0.875vw, 0.875rem);
     --text-micro: clamp(0.625rem, 0.75vw, 0.75rem);
     
-    /* Line Heights */
-    --leading-tight: 0.9;
-    --leading-snug: 1.1;
-    --leading-normal: 1.5;
-    --leading-relaxed: 1.75;
+    /* Line Heights - Sharp Editorial */
+    --leading-tight: 0.85;
+    --leading-snug: 1.05;
+    --leading-normal: 1.4;
+    --leading-relaxed: 1.6;
     
     /* Letter Spacing */
     --tracking-tight: -0.02em;
@@ -48,14 +48,14 @@
     --tracking-wider: 0.1em;
     --tracking-widest: 0.2em;
     
-    /* Spacing Scale */
+    /* Spacing Scale - Enhanced Negative Space */
     --space-xs: clamp(0.5rem, 1vw, 0.75rem);
     --space-sm: clamp(0.75rem, 1.5vw, 1rem);
     --space-md: clamp(1rem, 2vw, 1.5rem);
     --space-lg: clamp(1.5rem, 3vw, 2.5rem);
-    --space-xl: clamp(2.5rem, 5vw, 4rem);
-    --space-2xl: clamp(4rem, 8vw, 6rem);
-    --space-3xl: clamp(6rem, 12vw, 10rem);
+    --space-xl: clamp(3rem, 6vw, 5rem);
+    --space-2xl: clamp(5rem, 10vw, 8rem);
+    --space-3xl: clamp(8rem, 16vw, 14rem);
     
     /* Layout */
     --container-max: 1400px;
@@ -66,14 +66,14 @@
     --cta-padding-x: clamp(2rem, 4vw, 3.5rem);
     --cta-padding-y: clamp(1rem, 2vw, 1.5rem);
     
-    /* Transitions */
-    --duration-fast: 150ms;
-    --duration-normal: 300ms;
-    --duration-slow: 500ms;
-    --duration-slower: 800ms;
-    --ease-out: cubic-bezier(0.25, 1, 0.5, 1);
-    --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
-    --ease-in-out: cubic-bezier(0.87, 0, 0.13, 1);
+    /* Transitions - Refined Bezier Curves */
+    --duration-fast: 200ms;
+    --duration-normal: 400ms;
+    --duration-slow: 600ms;
+    --duration-slower: 1000ms;
+    --ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
     
     /* Z-Index Scale */
     --z-preloader: 9999;

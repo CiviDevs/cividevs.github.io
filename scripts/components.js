@@ -389,6 +389,61 @@ export function initProjectPreview() {
 }
 
 /**
+ * Magnetic effect for buttons - pull elements toward cursor
+ */
+export function initMagneticEffect() {
+    if (prefersReducedMotion() || window.matchMedia('(pointer: coarse)').matches) return;
+
+    const magneticElements = document.querySelectorAll('.btn, .header__utility-btn');
+    
+    magneticElements.forEach(el => {
+        el.addEventListener('mousemove', (e) => {
+            const rect = el.getBoundingClientRect();
+            // Calculate distance from center (-1 to 1)
+            const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+            const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+            
+            // Subtle movement: 10px max
+            gsap.to(el, {
+                x: x * 10,
+                y: y * 10,
+                duration: 0.4,
+                ease: "power2.out"
+            });
+            
+            // Move child elements slightly more for parallax
+            const inner = el.querySelector('span, svg, .header__utility-icon');
+            if (inner) {
+                gsap.to(inner, {
+                    x: x * 4,
+                    y: y * 4,
+                    duration: 0.4,
+                    ease: "power2.out"
+                });
+            }
+        });
+
+        el.addEventListener('mouseleave', () => {
+            gsap.to(el, {
+                x: 0,
+                y: 0,
+                duration: 0.8,
+                ease: "elastic.out(1, 0.3)"
+            });
+            const inner = el.querySelector('span, svg, .header__utility-icon');
+            if (inner) {
+                gsap.to(inner, {
+                    x: 0,
+                    y: 0,
+                    duration: 0.8,
+                    ease: "elastic.out(1, 0.3)"
+                });
+            }
+        });
+    });
+}
+
+/**
  * Initialize all components
  */
 export function initComponents() {
@@ -396,5 +451,6 @@ export function initComponents() {
     initRippleEffect();
     initTiltEffect();
     initLinkSweep();
+    initMagneticEffect();
     // initProjectPreview(); // Disabled - floating project preview removed
 }

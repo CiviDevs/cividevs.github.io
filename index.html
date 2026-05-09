@@ -513,10 +513,33 @@
                 <div class="contact__content">
                     <span class="contact__label" data-i18n="contact_label">[ Ready to Dominate? ]</span>
                     <h2 class="contact__title" data-split-text data-i18n="contact_title">Let's build something that wins.</h2>
-                    <a href="mailto:hello@cividevs.com" class="contact__email">
-                        <span data-i18n="contact_email">hello@cividevs.com</span>
-                        <div class="contact__email-line"></div>
-                    </a>
+                    <form class="contact__form" id="contactForm" novalidate>
+                        <div class="form__group">
+                            <input type="text" class="form__input" id="formName" required placeholder=" " />
+                            <label for="formName" class="form__label">Your Name</label>
+                            <div class="form__line"></div>
+                        </div>
+                        <div class="form__group">
+                            <input type="email" class="form__input" id="formEmail" required placeholder=" " />
+                            <label for="formEmail" class="form__label">Email Address</label>
+                            <div class="form__line"></div>
+                        </div>
+                        <div class="form__group">
+                            <textarea class="form__input" id="formMessage" required placeholder=" " rows="1"></textarea>
+                            <label for="formMessage" class="form__label">Project Details</label>
+                            <div class="form__line"></div>
+                        </div>
+                        <button type="submit" class="btn btn--filled contact__submit">
+                            <span>Initialize Project</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </button>
+                        <div class="form__success">
+                            <span class="form__success-text">Transmission received. We will be in touch.</span>
+                        </div>
+                    </form>
                 </div>
                 <div class="contact__links">
                     <a href="#" class="contact__link" data-i18n="contact_linkedin">LinkedIn</a>
@@ -525,6 +548,19 @@
                 </div>
             </div>
         </section>
+        
+        <!-- ════════════════════════════════════════════════════════════════
+             FLOATING ACTION BUTTON (High Intent CTA)
+             ════════════════════════════════════════════════════════════════ -->
+        <a href="#contact" class="intent-cta" id="intentCta">
+            <div class="intent-cta__content">
+                <span class="intent-cta__text">Start Project</span>
+            </div>
+            <svg class="intent-cta__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+        </a>
     </main>
 
     <!-- Footer -->

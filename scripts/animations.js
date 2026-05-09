@@ -7,7 +7,7 @@
 'use strict';
 
 import { prefersReducedMotion } from './main.js';
-import { initRippleEffect, initTiltEffect, initLinkSweep } from './components.js';
+import { initRippleEffect, initTiltEffect, initLinkSweep, initMagneticEffect } from './components.js';
 
 /**
  * Split text into characters or words for animation
@@ -22,21 +22,39 @@ function splitText(element, type = 'chars') {
     if (type === 'chars') {
         const chars = text.split('');
         chars.forEach(char => {
+            const wrapper = document.createElement('span');
+            wrapper.className = 'char-wrap';
+            wrapper.style.display = 'inline-block';
+            wrapper.style.overflow = 'hidden';
+            wrapper.style.verticalAlign = 'top';
+
             const span = document.createElement('span');
             span.className = 'char';
             span.textContent = char === ' ' ? '\u00A0' : char;
             span.style.display = 'inline-block';
-            element.appendChild(span);
+            span.style.willChange = 'transform';
+            
+            wrapper.appendChild(span);
+            element.appendChild(wrapper);
         });
         return element.querySelectorAll('.char');
     } else {
         const words = text.split(' ');
         words.forEach((word, i) => {
+            const wrapper = document.createElement('span');
+            wrapper.className = 'word-wrap';
+            wrapper.style.display = 'inline-block';
+            wrapper.style.overflow = 'hidden';
+            wrapper.style.verticalAlign = 'top';
+
             const span = document.createElement('span');
             span.className = 'word';
             span.textContent = word;
             span.style.display = 'inline-block';
-            element.appendChild(span);
+            span.style.willChange = 'transform';
+            
+            wrapper.appendChild(span);
+            element.appendChild(wrapper);
             
             // Add space between words
             if (i < words.length - 1) {
@@ -72,18 +90,18 @@ function animateHero() {
         });
     }
 
-    // T+0.3s — Title lines stagger in
+    // T+0.3s — Title lines stagger in (Masked Skew Reveal)
     heroLines.forEach((line, i) => {
         const chars = splitText(line, 'chars');
-        gsap.set(chars, { y: '100%', opacity: 0 });
+        gsap.set(chars, { y: '110%', skewY: 10 });
         
         tl.to(chars, {
             y: '0%',
-            opacity: 1,
-            duration: 1,
+            skewY: 0,
+            duration: 1.2,
             stagger: i === 0 ? 0.04 : 0.06,
             ease: 'expo.out'
-        }, i === 0 ? '-=0.3' : '-=0.5');
+        }, i === 0 ? '-=0.3' : '-=0.6');
     });
 
     // T+1.2s — Divider draws from center
@@ -91,45 +109,35 @@ function animateHero() {
         gsap.set(heroDivider, { width: 0, opacity: 1 });
         tl.to(heroDivider, {
             width: 80,
-            duration: 0.6,
+            duration: 0.8,
             ease: 'expo.out'
-        }, '-=0.4');
+        }, '-=0.6');
     }
 
     // T+1.4s — Expertise statement words fade up
     if (heroExpertise) {
         const words = splitText(heroExpertise, 'words');
-        gsap.set(words, { y: 20, opacity: 0 });
+        gsap.set(words, { y: '100%', opacity: 0 });
         
         tl.to(words, {
-            y: 0,
+            y: '0%',
             opacity: 1,
-            duration: 0.6,
-            stagger: 0.08,
+            duration: 1,
+            stagger: 0.02,
             ease: 'expo.out'
-        }, '-=0.3');
+        }, '-=0.6');
     }
 
-    // T+1.6s — Qualifier fades up
-    if (heroQualifier) {
-        gsap.set(heroQualifier, { y: 15, opacity: 0 });
-        tl.to(heroQualifier, {
+    // T+1.6s — Qualifier & CTA fade up
+    if (heroQualifier && heroCta) {
+        gsap.set([heroQualifier, heroCta], { y: 20, opacity: 0 });
+        tl.to([heroQualifier, heroCta], {
             y: 0,
             opacity: 1,
-            duration: 0.5,
+            duration: 1,
+            stagger: 0.1,
             ease: 'expo.out'
-        }, '-=0.3');
-    }
-
-    // T+1.8s — CTA scales in
-    if (heroCta) {
-        gsap.set(heroCta, { scale: 0.9, opacity: 0 });
-        tl.to(heroCta, {
-            scale: 1,
-            opacity: 1,
-            duration: 0.6,
-            ease: 'expo.out'
-        }, '-=0.2');
+        }, '-=0.8');
     }
 
     // T+2.2s — Scroll indicator
@@ -599,6 +607,24 @@ function initParallax() {
 }
 
 /**
+ * Intent CTA visibility logic
+ */
+function animateIntentCta() {
+    const cta = document.getElementById('intentCta');
+    const triggerSection = document.getElementById('services'); // Show after passing services
+    
+    if (!cta || !triggerSection) return;
+
+    ScrollTrigger.create({
+        trigger: triggerSection,
+        start: 'top 30%', // When top of services hits 30% of viewport
+        end: () => `+=${document.documentElement.scrollHeight}`,
+        onEnter: () => cta.classList.add('is-visible'),
+        onLeaveBack: () => cta.classList.remove('is-visible')
+    });
+}
+
+/**
  * Initialize all animations
  */
 export function initAnimations() {
@@ -631,12 +657,14 @@ export function initAnimations() {
     animateFaq();
     animateContact();
     animateHeader();
+    animateIntentCta();
     initParallax();
 
     // Initialize interactive components
     initRippleEffect();
     initTiltEffect();
     initLinkSweep();
+    initMagneticEffect();
 
     // Global resize observer to fix ScrollTrigger bugs on dynamic height changes
     const ro = new ResizeObserver(() => {

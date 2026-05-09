@@ -450,6 +450,45 @@
     height: 100%;
 }
 
+/* --------------------------------------------------------------------------
+   Floating Intent CTA
+   -------------------------------------------------------------------------- */
+.intent-cta {
+    position: fixed;
+    bottom: var(--space-xl);
+    right: var(--space-lg);
+    background: var(--color-bg);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    padding: var(--space-sm) var(--space-md);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    z-index: 90;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all var(--duration-normal) var(--ease-out-expo);
+}
+
+.intent-cta.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.intent-cta:hover {
+    background: var(--color-text);
+    color: var(--color-bg);
+}
+
+@media (max-width: 768px) {
+    .intent-cta {
+        bottom: calc(var(--space-3xl) + env(safe-area-inset-bottom));
+        right: var(--space-md);
+    }
+}
+
 /* ==========================================================================
    Light Theme Adjustments
    ========================================================================== */
