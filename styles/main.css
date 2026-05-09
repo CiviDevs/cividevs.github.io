@@ -918,6 +918,14 @@ p {
         inset: 0;
         z-index: calc(var(--z-header) + 10);
         pointer-events: none;
+        visibility: hidden;
+        transition: visibility 0s linear 0.5s;
+    }
+
+    .mobile-menu.is-open {
+        pointer-events: auto;
+        visibility: visible;
+        transition: visibility 0s;
     }
 
     .mobile-menu__overlay {
@@ -950,9 +958,7 @@ p {
         will-change: transform;
     }
 
-    .mobile-menu.is-open {
-        pointer-events: auto;
-    }
+
 
     .mobile-menu.is-open .mobile-menu__overlay {
         opacity: 1;

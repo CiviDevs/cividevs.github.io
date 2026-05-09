@@ -9,6 +9,20 @@
 import { prefersReducedMotion } from './main.js';
 
 /**
+ * ════════════════════════════════════════════════════════════════
+ * AGENCY CONTACT CONFIGURATION
+ * Edit these values to instantly update all contact links across the site.
+ * ════════════════════════════════════════════════════════════════
+ */
+export const AGENCY_CONFIG = {
+    email: 'cividevs@gmail.com',
+    phone: '+1234567890',          // International format (e.g., +1234567890)
+    whatsapp: '1234567890',        // Just numbers, no spaces or plus signs
+    telegram: 'cividevs',          // Telegram username without '@'
+    github: 'cividevs'             // GitHub username
+};
+
+/**
  * Custom Cursor with inversion effect
  */
 export function initCustomCursor() {
@@ -18,7 +32,7 @@ export function initCustomCursor() {
 
     const cursor = document.getElementById('cursor');
     const cursorFollower = document.getElementById('cursor-follower');
-    
+
     if (!cursor) return;
 
     let mouseX = 0;
@@ -43,7 +57,7 @@ export function initCustomCursor() {
         // Smooth follow for main cursor
         cursorX += (mouseX - cursorX) * 0.15;
         cursorY += (mouseY - cursorY) * 0.15;
-        
+
         cursor.style.left = `${cursorX}px`;
         cursor.style.top = `${cursorY}px`;
 
@@ -51,7 +65,7 @@ export function initCustomCursor() {
         if (cursorFollower) {
             followerX += (mouseX - followerX) * 0.08;
             followerY += (mouseY - followerY) * 0.08;
-            
+
             cursorFollower.style.left = `${followerX}px`;
             cursorFollower.style.top = `${followerY}px`;
         }
@@ -62,13 +76,13 @@ export function initCustomCursor() {
     // Hover states
     const addHoverListeners = () => {
         const hoverElements = document.querySelectorAll('a, button, [role="button"], [data-magnetic], .bento-cell, .service-pillar, .project-item, .why__card, .testimonial, .process-step');
-        
+
         hoverElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
                 cursor.classList.add('is-hovering');
                 if (cursorFollower) cursorFollower.classList.add('is-hovering');
             });
-            
+
             el.addEventListener('mouseleave', () => {
                 cursor.classList.remove('is-hovering');
                 if (cursorFollower) cursorFollower.classList.remove('is-hovering');
@@ -96,10 +110,10 @@ export function initCustomCursor() {
     document.addEventListener('mousedown', onMouseDown);
     document.addEventListener('mouseup', onMouseUp);
     document.addEventListener('visibilitychange', onVisibilityChange);
-    
+
     // Initial hover listeners
     addHoverListeners();
-    
+
     // Re-apply hover listeners after preloader completes (new elements may appear)
     document.addEventListener('preloader:complete', addHoverListeners);
 
@@ -123,11 +137,11 @@ export function initRippleEffect() {
     if (window.matchMedia('(pointer: coarse)').matches) return;
 
     const rippleElements = document.querySelectorAll('[data-ripple], .btn, .bento-cell, .service-pillar, .project-item, .why__card');
-    
+
     rippleElements.forEach(el => {
         el.style.position = 'relative';
         el.style.overflow = 'hidden';
-        
+
         el.addEventListener('mouseenter', (e) => {
             // Remove any existing ripples first (prevents stacking)
             const existingRipples = el.querySelectorAll('.ripple');
@@ -157,16 +171,16 @@ export function initRippleEffect() {
                 top: ${y - rect.height / 2}px;
                 transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
             `;
-            
+
             el.appendChild(ripple);
-            
+
             // Trigger animation
             requestAnimationFrame(() => {
                 ripple.style.transform = 'scale(1)';
             });
         });
-        
-        el.addEventListener('mouseleave', function() {
+
+        el.addEventListener('mouseleave', function () {
             // Remove ALL ripples, not just the first one
             const ripples = el.querySelectorAll('.ripple');
             ripples.forEach(ripple => {
@@ -202,34 +216,34 @@ export function initTiltEffect() {
     const updateTilt = () => {
         activeElements.forEach((isActive, el) => {
             if (!isActive) return;
-            
+
             const rect = el.getBoundingClientRect();
             const x = mouseX - rect.left;
             const y = mouseY - rect.top;
-            
+
             // Проверка что курсор всё ещё над элементом
             if (x < 0 || x > rect.width || y < 0 || y > rect.height) {
                 activeElements.set(el, false);
                 el.style.transform = '';
                 return;
             }
-            
+
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-            
+
             const rotateX = ((y - centerY) / centerY) * -3;
             const rotateY = ((x - centerX) / centerX) * 3;
-            
+
             el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
         });
-        
+
         if (activeElements.size > 0) {
             rafId = requestAnimationFrame(updateTilt);
         } else {
             rafId = null;
         }
     };
-    
+
     tiltElements.forEach(el => {
         el.addEventListener('mouseenter', () => {
             activeElements.set(el, true);
@@ -237,12 +251,12 @@ export function initTiltEffect() {
                 rafId = requestAnimationFrame(updateTilt);
             }
         });
-        
+
         el.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
         });
-        
+
         el.addEventListener('mouseleave', () => {
             activeElements.set(el, false);
             el.style.transform = '';
@@ -269,13 +283,13 @@ export function initTiltEffect() {
  */
 export function initLinkSweep() {
     if (prefersReducedMotion()) return;
-    
+
     const links = document.querySelectorAll('.header__link:not(.header__link--cta), .contact__link');
-    
+
     links.forEach(link => {
         // Check if already has sweep element
         if (link.querySelector('.link-sweep')) return;
-        
+
         const sweep = document.createElement('span');
         sweep.className = 'link-sweep';
         sweep.style.cssText = `
@@ -289,15 +303,15 @@ export function initLinkSweep() {
             transform-origin: right;
             transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
         `;
-        
+
         link.style.position = 'relative';
         link.appendChild(sweep);
-        
+
         link.addEventListener('mouseenter', () => {
             sweep.style.transform = 'scaleX(1)';
             sweep.style.transformOrigin = 'left';
         });
-        
+
         link.addEventListener('mouseleave', () => {
             sweep.style.transform = 'scaleX(0)';
             sweep.style.transformOrigin = 'right';
@@ -312,7 +326,7 @@ export function initProjectPreview() {
     const preview = document.getElementById('projectPreview');
     const previewImg = preview?.querySelector('.project-preview__img');
     const projectItems = document.querySelectorAll('[data-project]');
-    
+
     if (!preview || !previewImg || projectItems.length === 0) return;
     if (window.matchMedia('(pointer: coarse)').matches) return;
     if (prefersReducedMotion()) return;
@@ -336,14 +350,14 @@ export function initProjectPreview() {
     const animate = () => {
         currentX += (targetX - currentX) * 0.1;
         currentY += (targetY - currentY) * 0.1;
-        
+
         // Offset preview from cursor
         const offsetX = 20;
         const offsetY = 20;
-        
+
         preview.style.left = `${currentX + offsetX}px`;
         preview.style.top = `${currentY + offsetY}px`;
-        
+
         if (isVisible) {
             rafId = requestAnimationFrame(animate);
         }
@@ -356,20 +370,20 @@ export function initProjectPreview() {
                 previewImg.src = projectImages[project];
                 previewImg.alt = `${project} project preview`;
                 currentProject = project;
-                
+
                 isVisible = true;
                 preview.classList.add('is-visible');
-                
+
                 // Get initial position
                 targetX = e.clientX;
                 targetY = e.clientY;
                 currentX = targetX;
                 currentY = targetY;
-                
+
                 animate();
             }
         });
-        
+
         item.addEventListener('mouseleave', () => {
             isVisible = false;
             preview.classList.remove('is-visible');
@@ -378,7 +392,7 @@ export function initProjectPreview() {
                 rafId = null;
             }
         });
-        
+
         item.addEventListener('mousemove', (e) => {
             if (isVisible) {
                 targetX = e.clientX;
@@ -395,14 +409,14 @@ export function initMagneticEffect() {
     if (prefersReducedMotion() || window.matchMedia('(pointer: coarse)').matches) return;
 
     const magneticElements = document.querySelectorAll('.btn, .header__utility-btn, .contact__node');
-    
+
     magneticElements.forEach(el => {
         el.addEventListener('mousemove', (e) => {
             const rect = el.getBoundingClientRect();
             // Calculate distance from center (-1 to 1)
             const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
             const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
-            
+
             // Subtle movement: 10px max
             gsap.to(el, {
                 x: x * 10,
@@ -410,7 +424,7 @@ export function initMagneticEffect() {
                 duration: 0.4,
                 ease: "power2.out"
             });
-            
+
             // Move child elements slightly more for parallax
             const inner = el.querySelector('span, svg, .header__utility-icon');
             if (inner) {
@@ -447,15 +461,28 @@ export function initMagneticEffect() {
  * Initialize Contact Hub specific interactions (Copy to Clipboard)
  */
 export function initContactHub() {
+    // 1. Inject links from AGENCY_CONFIG
+    const phoneLink = document.querySelector('.contact__node--phone');
+    if (phoneLink) phoneLink.href = `tel:${AGENCY_CONFIG.phone}`;
+
+    const waLink = document.querySelector('.contact__node--whatsapp');
+    if (waLink) waLink.href = `https://wa.me/${AGENCY_CONFIG.whatsapp}`;
+
+    const tgLink = document.querySelector('.contact__node--telegram');
+    if (tgLink) tgLink.href = `https://t.me/${AGENCY_CONFIG.telegram}`;
+
+    const ghLink = document.querySelector('.contact__node--github');
+    if (ghLink) ghLink.href = `https://github.com/${AGENCY_CONFIG.github}`;
+
+    // 2. Setup Email Copy-to-Clipboard
     const emailBtn = document.getElementById('emailCopyBtn');
     if (!emailBtn) return;
 
     emailBtn.addEventListener('click', async (e) => {
         e.preventDefault();
-        const email = 'hello@cividevs.com';
-        
+
         try {
-            await navigator.clipboard.writeText(email);
+            await navigator.clipboard.writeText(AGENCY_CONFIG.email);
             const tooltip = emailBtn.querySelector('.contact__tooltip');
             if (tooltip) {
                 tooltip.classList.add('is-active');
@@ -475,25 +502,25 @@ export function initContactHub() {
 export function initAboutModal() {
     const modal = document.getElementById('aboutModal');
     const openBtns = [
-        document.getElementById('openAboutModal'), 
+        document.getElementById('openAboutModal'),
         document.getElementById('openAboutModalMobile'),
         document.getElementById('openAboutModalDock')
     ];
     const closeBtn = document.getElementById('aboutModalClose');
     const overlay = document.getElementById('aboutModalOverlay');
-    
+
     if (!modal) return;
 
     function openModal(e) {
         if (e) e.preventDefault();
-        
+
         // Close mobile menu if open
         const mobileMenu = document.getElementById('mobileMenu');
         if (mobileMenu && mobileMenu.classList.contains('is-open')) {
             mobileMenu.classList.remove('is-open');
             document.body.style.overflow = '';
         }
-        
+
         modal.classList.add('is-open');
         document.body.style.overflow = 'hidden';
     }
@@ -506,10 +533,10 @@ export function initAboutModal() {
     openBtns.forEach(btn => {
         if (btn) btn.addEventListener('click', openModal);
     });
-    
+
     if (closeBtn) closeBtn.addEventListener('click', closeModal);
     if (overlay) overlay.addEventListener('click', closeModal);
-    
+
     // Close on Escape
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('is-open')) {
