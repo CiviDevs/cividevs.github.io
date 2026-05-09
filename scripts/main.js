@@ -93,18 +93,18 @@ function initPreloader() {
 
     tl.to(preloaderLine, {
         height: '100vh',
-        duration: 1.2,
+        duration: 0.5,
         ease: 'expo.inOut'
     })
     .to(preloaderLine, {
         width: '100vw',
         height: '100vh',
-        duration: 0.8,
+        duration: 0.4,
         ease: 'expo.inOut'
     })
     .to(preloaderLine, {
         opacity: 0,
-        duration: 0.3,
+        duration: 0.2,
         ease: 'power2.out'
     });
 }
@@ -194,12 +194,12 @@ const translations = {
         nav_cta: 'Start a Project',
 
         // Hero
-        hero_label: 'We Build',
-        hero_line1: 'Brands That',
-        hero_line2: 'Dominate',
+        hero_label: 'We Create',
+        hero_line1: 'Digital Products',
+        hero_line2: 'That Perform',
         hero_expertise: 'Strategy · Design · Engineering',
-        hero_qualifier: 'for brands that refuse to blend in.',
-        hero_cta: 'Request a Proposal',
+        hero_qualifier: 'for companies that demand excellence.',
+        hero_cta: 'Start a Project',
         hero_scroll: 'Scroll',
 
         // Services — Value Pillars
@@ -223,15 +223,15 @@ const translations = {
         services_nudge: 'See how these capabilities apply to your business →',
 
         // Why Us — Competitive Moat
-        why_title: 'The Competitive Moat',
-        why_lead: 'Other agencies sell templates. We engineer unfair advantages.',
-        why_speed_title: 'Speed as a Luxury',
-        why_speed_desc: 'Our framework-less approach isn\'t a limitation — it\'s a business weapon. Zero bloat means sub-second loads, perfect Core Web Vitals, and conversion rates your competitors can\'t touch.',
-        why_aesthetic_title: 'Bespoke, Not Template',
-        why_aesthetic_desc: 'Every project is architected from scratch. No themes. No plugins. No compromise. You\'re not buying a commodity — you\'re commissioning a strategic asset.',
-        why_ownership_title: 'Exclusive Access',
-        why_ownership_desc: 'We take 4 clients per quarter. No agency assembly line. Your project gets senior-level attention from discovery to deployment — and you own every line of code.',
-        why_nudge: 'Only 2 slots open this quarter — secure yours →',
+        why_title: 'Why CIVIDEVS',
+        why_lead: 'Other agencies sell templates. We build competitive advantages.',
+        why_speed_title: 'Performance First',
+        why_speed_desc: 'Hand-crafted code with zero framework overhead. Sub-second load times, perfect Core Web Vitals, and conversion rates that consistently outperform industry benchmarks.',
+        why_aesthetic_title: 'Custom Built',
+        why_aesthetic_desc: 'Every project is designed and developed from scratch. No themes, no plugins, no compromises. You receive a unique digital asset tailored to your business goals.',
+        why_ownership_title: 'Dedicated Attention',
+        why_ownership_desc: 'We take on a limited number of clients per quarter. Your project receives senior-level expertise from discovery to launch — and you own every line of code.',
+        why_nudge: 'Limited availability this quarter — get in touch →',
 
         // Work — Proof of Impact
         work_title: 'Proof of Impact',
@@ -291,16 +291,20 @@ const translations = {
         faq_4_a: 'Both. If you\'re serious about building a premium digital presence and have the budget to match, we\'re interested.',
 
         // Contact
-        contact_label: '[ Ready to Dominate? ]',
-        contact_title: "Let's build something that wins.",
+        contact_label: '[ Ready to Start? ]',
+        contact_title: "Let's build something exceptional.",
         contact_email: 'hello@cividevs.com',
         contact_linkedin: 'LinkedIn',
         contact_github: 'GitHub',
         contact_twitter: 'Twitter',
 
         // Footer
-        footer_copy: `© ${new Date().getFullYear()} All Rights Reserved`,
-        footer_location: 'Global · Remote · Available'
+        footer_copy: `© ${new Date().getFullYear()} CIVIDEVS`,
+        footer_rights: 'All Rights Reserved',
+        footer_location: 'Global · Remote · Available',
+        footer_tagline: 'Strategy · Design · Engineering',
+        footer_privacy: 'Privacy Policy',
+        footer_terms: 'Terms of Service'
     },
     it: {
         nav_services: 'Servizi',
@@ -308,12 +312,12 @@ const translations = {
         nav_process: 'Processo',
         nav_about: 'Chi Siamo',
         nav_cta: 'Inizia un Progetto',
-        hero_label: 'Costruiamo',
-        hero_line1: 'Brand Che',
-        hero_line2: 'Dominano',
+        hero_label: 'Creiamo',
+        hero_line1: 'Prodotti Digitali',
+        hero_line2: 'Che Performano',
         hero_expertise: 'Strategia · Design · Ingegneria',
-        hero_qualifier: 'per brand che rifiutano di confondersi.',
-        hero_cta: 'Richiedi una Proposta',
+        hero_qualifier: 'per aziende che pretendono eccellenza.',
+        hero_cta: 'Inizia un Progetto',
         hero_scroll: 'Scorri',
         services_title: 'Capacità Strategiche',
         services_intro: 'Non vendiamo ore. Consegniamo asset che crescono di valore nel tempo.',
@@ -333,15 +337,15 @@ const translations = {
         svc_mkt_result: 'Data-Driven · ROI Misurabile',
         svc_mkt_outcome: 'Marketing performante e ottimizzazione della conversione supportati da dati reali.',
         services_nudge: 'Scopri come queste capacità si applicano al tuo business →',
-        why_title: 'Il Vantaggio Competitivo',
-        why_lead: 'Le altre agenzie vendono template. Noi progettiamo vantaggi ingiusti.',
-        why_speed_title: 'Velocità come Lusso',
-        why_speed_desc: 'Il nostro approccio senza framework non è un limite — è un\'arma di business. Zero bloat significa caricamenti sotto il secondo e tassi di conversione che i tuoi competitor non possono toccare.',
-        why_aesthetic_title: 'Su Misura, Non Template',
-        why_aesthetic_desc: 'Ogni progetto è architettato da zero. Niente temi. Niente plugin. Nessun compromesso. Non stai comprando una commodity — stai commissionando un asset strategico.',
-        why_ownership_title: 'Accesso Esclusivo',
-        why_ownership_desc: 'Accettiamo 4 clienti a trimestre. Nessuna catena di montaggio. Il tuo progetto riceve attenzione senior dalla scoperta al deployment — e ogni riga di codice è tua.',
-        why_nudge: 'Solo 2 posti disponibili questo trimestre — assicurati il tuo →',
+        why_title: 'Perché CIVIDEVS',
+        why_lead: 'Le altre agenzie vendono template. Noi costruiamo vantaggi competitivi.',
+        why_speed_title: 'Performance First',
+        why_speed_desc: 'Codice scritto a mano senza dipendenze da framework. Tempi di caricamento sotto il secondo, Core Web Vitals perfetti e tassi di conversione che superano costantemente i benchmark di settore.',
+        why_aesthetic_title: 'Costruito Su Misura',
+        why_aesthetic_desc: 'Ogni progetto è progettato e sviluppato da zero. Niente temi, niente plugin, nessun compromesso. Ricevi un asset digitale unico, su misura per i tuoi obiettivi.',
+        why_ownership_title: 'Attenzione Dedicata',
+        why_ownership_desc: 'Accettiamo un numero limitato di clienti a trimestre. Il tuo progetto riceve competenze senior dalla scoperta al lancio — e ogni riga di codice è tua.',
+        why_nudge: 'Disponibilità limitata questo trimestre — contattaci →',
         work_title: 'Prove d\'Impatto',
         work_cat_fintech: 'Fintech',
         work_title_fintech: 'Quantum Banking',
@@ -391,14 +395,18 @@ const translations = {
         faq_3_a: 'I nostri ingaggi partono da €15.000 per siti brand e scalano a €80.000+ per piattaforme enterprise.',
         faq_4_q: 'Lavorate con startup o solo enterprise?',
         faq_4_a: 'Entrambi. Se sei serio nel costruire una presenza digitale premium, siamo interessati.',
-        contact_label: '[ Pronti a Dominare? ]',
-        contact_title: 'Costruiamo qualcosa che vince.',
+        contact_label: '[ Pronti a Iniziare? ]',
+        contact_title: 'Costruiamo qualcosa di eccezionale.',
         contact_email: 'hello@cividevs.com',
         contact_linkedin: 'LinkedIn',
         contact_github: 'GitHub',
         contact_twitter: 'Twitter',
-        footer_copy: `© ${new Date().getFullYear()} Tutti i Diritti Riservati`,
-        footer_location: 'Globale · Remoto · Disponibile'
+        footer_copy: `© ${new Date().getFullYear()} CIVIDEVS`,
+        footer_rights: 'Tutti i Diritti Riservati',
+        footer_location: 'Globale · Remoto · Disponibile',
+        footer_tagline: 'Strategia · Design · Ingegneria',
+        footer_privacy: 'Privacy Policy',
+        footer_terms: 'Termini di Servizio'
     }
 };
 
@@ -440,7 +448,15 @@ function initLanguageToggle() {
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (t[key] !== undefined) {
-                el.textContent = t[key];
+                // If this element was split-text animated, clear the spans first
+                if (el.hasAttribute('data-split-text') || el.querySelector('.char, .word')) {
+                    el.innerHTML = t[key];
+                    // Reset opacity/transform in case animation left them invisible
+                    el.style.opacity = '1';
+                    el.style.transform = 'none';
+                } else {
+                    el.textContent = t[key];
+                }
             }
         });
     };

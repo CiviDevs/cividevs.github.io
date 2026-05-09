@@ -487,8 +487,8 @@ function animateContact() {
         tl.to(words, {
             y: '0%',
             opacity: 1,
-            duration: 0.8,
-            stagger: 0.05,
+            duration: 0.5,
+            stagger: 0.03,
             ease: 'expo.out'
         });
     }
@@ -498,20 +498,20 @@ function animateContact() {
         tl.to(subheadline, {
             y: 0,
             opacity: 1,
-            duration: 0.6,
+            duration: 0.4,
             ease: 'expo.out'
-        }, '-=0.4');
+        }, '-=0.3');
     }
 
     if (nodes.length) {
-        gsap.set(nodes, { y: 40, opacity: 0 });
+        gsap.set(nodes, { y: 30, opacity: 0 });
         tl.to(nodes, {
             y: 0,
             opacity: 1,
-            duration: 0.8,
-            stagger: 0.1,
+            duration: 0.5,
+            stagger: 0.06,
             ease: 'expo.out'
-        }, '-=0.4');
+        }, '-=0.3');
     }
 }
 
