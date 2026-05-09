@@ -77,7 +77,7 @@ function animateHero() {
     const heroCta = document.querySelector('.hero__cta');
     const heroScroll = document.querySelector('.hero__scroll-indicator');
 
-    const tl = gsap.timeline({ delay: 0.3 });
+    const tl = gsap.timeline({ delay: 0.15 });
 
     // T+0.0s — Label fades up
     if (heroLabel) {
@@ -85,7 +85,7 @@ function animateHero() {
         tl.to(heroLabel, {
             y: 0,
             opacity: 1,
-            duration: 0.6,
+            duration: 0.4,
             ease: 'expo.out'
         });
     }
@@ -98,8 +98,8 @@ function animateHero() {
         tl.to(chars, {
             y: '0%',
             skewY: 0,
-            duration: 1.2,
-            stagger: i === 0 ? 0.04 : 0.06,
+            duration: 0.7,
+            stagger: i === 0 ? 0.025 : 0.04,
             ease: 'expo.out'
         }, i === 0 ? '-=0.3' : '-=0.6');
     });
@@ -109,7 +109,7 @@ function animateHero() {
         gsap.set(heroDivider, { width: 0, opacity: 1 });
         tl.to(heroDivider, {
             width: 80,
-            duration: 0.8,
+            duration: 0.5,
             ease: 'expo.out'
         }, '-=0.6');
     }
@@ -122,8 +122,8 @@ function animateHero() {
         tl.to(words, {
             y: '0%',
             opacity: 1,
-            duration: 1,
-            stagger: 0.02,
+            duration: 0.6,
+            stagger: 0.015,
             ease: 'expo.out'
         }, '-=0.6');
     }
@@ -134,8 +134,8 @@ function animateHero() {
         tl.to([heroQualifier, heroCta], {
             y: 0,
             opacity: 1,
-            duration: 1,
-            stagger: 0.1,
+            duration: 0.6,
+            stagger: 0.06,
             ease: 'expo.out'
         }, '-=0.8');
     }
@@ -146,7 +146,7 @@ function animateHero() {
         tl.to(heroScroll, {
             opacity: 1,
             y: 0,
-            duration: 0.6,
+            duration: 0.4,
             ease: 'expo.out'
         }, '-=0.1');
     }
@@ -163,7 +163,7 @@ function animateSectionDividers() {
             { width: '0%' },
             {
                 width: '100%',
-                duration: 1.2,
+                duration: 0.7,
                 ease: 'expo.out',
                 scrollTrigger: {
                     trigger: divider,
@@ -198,7 +198,7 @@ function animateSectionHeaders() {
             tl.to(label, {
                 y: 0,
                 opacity: 1,
-                duration: 0.6,
+                duration: 0.4,
                 ease: 'expo.out'
             });
         }
@@ -208,7 +208,7 @@ function animateSectionHeaders() {
             tl.to(title, {
                 y: 0,
                 opacity: 1,
-                duration: 0.8,
+                duration: 0.5,
                 ease: 'expo.out'
             }, '-=0.4');
         }
@@ -228,8 +228,8 @@ function animateServices() {
         {
             y: 0,
             opacity: 1,
-            duration: 0.6,
-            stagger: 0.08,
+            duration: 0.4,
+            stagger: 0.05,
             ease: 'expo.out',
             scrollTrigger: {
                 trigger: '.services__list',
@@ -295,7 +295,7 @@ function animateWhy() {
             {
                 y: 0,
                 opacity: 1,
-                duration: 0.6,
+                duration: 0.4,
                 ease: 'expo.out',
                 scrollTrigger: {
                     trigger: lead,
@@ -312,8 +312,8 @@ function animateWhy() {
             {
                 y: 0,
                 opacity: 1,
-                duration: 0.6,
-                stagger: 0.1,
+                duration: 0.4,
+                stagger: 0.06,
                 ease: 'expo.out',
                 scrollTrigger: {
                     trigger: '.why__grid',
@@ -349,8 +349,8 @@ function animateProjects() {
             {
                 x: 0,
                 opacity: 1,
-                duration: 0.8,
-                delay: index * 0.1,
+                duration: 0.5,
+                delay: index * 0.06,
                 ease: 'expo.out',
                 scrollTrigger: {
                     trigger: item,
@@ -394,8 +394,8 @@ function animateTestimonials() {
         {
             y: 0,
             opacity: 1,
-            duration: 0.7,
-            stagger: 0.12,
+            duration: 0.45,
+            stagger: 0.08,
             ease: 'expo.out',
             scrollTrigger: {
                 trigger: '.testimonials__grid',
@@ -418,8 +418,8 @@ function animateProcess() {
         {
             y: 0,
             opacity: 1,
-            duration: 0.6,
-            stagger: 0.1,
+            duration: 0.4,
+            stagger: 0.06,
             ease: 'expo.out',
             scrollTrigger: {
                 trigger: '.process__steps',
@@ -442,8 +442,8 @@ function animateFaq() {
         {
             y: 0,
             opacity: 1,
-            duration: 0.5,
-            stagger: 0.08,
+            duration: 0.35,
+            stagger: 0.05,
             ease: 'expo.out',
             scrollTrigger: {
                 trigger: '.faq__list',
