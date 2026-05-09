@@ -1,5 +1,5 @@
 # CIVIDEVS
-Gay
+
 **Premium Digital Agency — Brutalist Luxury Framework**
 
 A high-performance, ultra-premium agency website built with pure HTML5, CSS3, and Vanilla JavaScript (ES Modules).
