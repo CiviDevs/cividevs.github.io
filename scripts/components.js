@@ -491,12 +491,12 @@ export function initAboutModal() {
         }
         
         modal.classList.add('is-open');
-        window.lenis.stop(); // Stop background scrolling
+        document.body.style.overflow = 'hidden';
     }
 
     function closeModal() {
         modal.classList.remove('is-open');
-        window.lenis.start(); // Resume background scrolling
+        document.body.style.overflow = '';
     }
 
     openBtns.forEach(btn => {
