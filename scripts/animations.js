@@ -7,7 +7,7 @@
 'use strict';
 
 import { prefersReducedMotion } from './main.js';
-import { initRippleEffect, initTiltEffect, initLinkSweep, initMagneticEffect, initContactHub } from './components.js';
+import { initRippleEffect, initTiltEffect, initLinkSweep, initMagneticEffect, initContactHub, initAboutModal } from './components.js';
 
 /**
  * Split text into characters or words for animation
@@ -654,6 +654,8 @@ export function initAnimations() {
     initTiltEffect();
     initLinkSweep();
     initMagneticEffect();
+    initContactHub();
+    initAboutModal();
 
     // Global resize observer to fix ScrollTrigger bugs on dynamic height changes
     const ro = new ResizeObserver(() => {

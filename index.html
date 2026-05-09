@@ -63,7 +63,8 @@
                     <a href="#services" class="header__link" data-i18n="nav_services">Services</a>
                     <a href="#work" class="header__link" data-i18n="nav_work">Work</a>
                     <a href="#process" class="header__link" data-i18n="nav_process">Process</a>
-                    <a href="#about" class="header__link" data-i18n="nav_about">About</a>
+                    <a href="#testimonials" class="header__link" data-i18n="nav_reviews">Reviews</a>
+                    <button class="header__link" id="openAboutModal" data-i18n="nav_about">About</button>
                 </div>
                 <a href="#contact" class="header__link header__link--cta" id="navCta" data-i18n="nav_cta">Start a Project</a>
                 <div class="header__divider"></div>
@@ -645,7 +646,8 @@
                     <a href="#services" class="mobile-menu__link mobile-menu__link--nav" data-i18n="nav_services">Services</a>
                     <a href="#work" class="mobile-menu__link mobile-menu__link--nav" data-i18n="nav_work">Work</a>
                     <a href="#process" class="mobile-menu__link mobile-menu__link--nav" data-i18n="nav_process">Process</a>
-                    <a href="#about" class="mobile-menu__link mobile-menu__link--nav" data-i18n="nav_about">About</a>
+                    <a href="#testimonials" class="mobile-menu__link mobile-menu__link--nav" data-i18n="nav_reviews">Reviews</a>
+                    <button class="mobile-menu__link mobile-menu__link--nav" id="openAboutModalMobile" data-i18n="nav_about">About</button>
                     <a href="#contact" class="mobile-menu__link mobile-menu__link--nav" data-i18n="nav_cta">Start a Project</a>
                 </div>
                 <div class="mobile-menu__footer">
@@ -671,6 +673,41 @@
                                 <button class="header__utility-option js-lang-option" data-lang="en">EN — English</button>
                                 <button class="header__utility-option js-lang-option" data-lang="it">IT — Italiano</button>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════════════
+         ABOUT US MODAL (Full Screen Overlay)
+         ════════════════════════════════════════════════════════════════ -->
+    <div class="about-modal" id="aboutModal">
+        <div class="about-modal__overlay" id="aboutModalOverlay"></div>
+        <div class="about-modal__panel">
+            <div class="about-modal__header">
+                <span class="about-modal__label">[ The Agency ]</span>
+                <button class="about-modal__close" id="aboutModalClose">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="about-modal__content">
+                <h2 class="about-modal__title">We engineer digital supremacy.</h2>
+                <div class="about-modal__grid">
+                    <div class="about-modal__text">
+                        <p>CIVIDEVS is an independent digital product agency founded by engineers and designers who were tired of bloated frameworks, slow deliveries, and generic templates.</p>
+                        <p>We build with raw code and mathematical precision. Our zero-framework philosophy guarantees perfect Lighthouse scores, sub-100ms interactions, and architectures that scale without the technical debt of passing trends.</p>
+                        <p>For us, performance isn't a feature. It's the foundation of luxury.</p>
+                    </div>
+                    <div class="about-modal__stats">
+                        <div class="about-modal__stat">
+                            <span class="about-modal__stat-num">8+</span>
+                            <span class="about-modal__stat-label">Years of Mastery</span>
+                        </div>
+                        <div class="about-modal__stat">
+                            <span class="about-modal__stat-num">0</span>
+                            <span class="about-modal__stat-label">Frameworks Used</span>
                         </div>
                     </div>
                 </div>

@@ -470,6 +470,51 @@ export function initContactHub() {
 }
 
 /**
+ * Initialize About Us Modal
+ */
+export function initAboutModal() {
+    const modal = document.getElementById('aboutModal');
+    const openBtns = [document.getElementById('openAboutModal'), document.getElementById('openAboutModalMobile')];
+    const closeBtn = document.getElementById('aboutModalClose');
+    const overlay = document.getElementById('aboutModalOverlay');
+    
+    if (!modal) return;
+
+    function openModal(e) {
+        if (e) e.preventDefault();
+        
+        // Close mobile menu if open
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenu && mobileMenu.classList.contains('is-open')) {
+            mobileMenu.classList.remove('is-open');
+            document.body.style.overflow = '';
+        }
+        
+        modal.classList.add('is-open');
+        window.lenis.stop(); // Stop background scrolling
+    }
+
+    function closeModal() {
+        modal.classList.remove('is-open');
+        window.lenis.start(); // Resume background scrolling
+    }
+
+    openBtns.forEach(btn => {
+        if (btn) btn.addEventListener('click', openModal);
+    });
+    
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (overlay) overlay.addEventListener('click', closeModal);
+    
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+            closeModal();
+        }
+    });
+}
+
+/**
  * Initialize all components
  */
 export function initComponents() {
@@ -479,5 +524,6 @@ export function initComponents() {
     initLinkSweep();
     initMagneticEffect();
     initContactHub();
+    initAboutModal();
     // initProjectPreview(); // Disabled - floating project preview removed
 }
