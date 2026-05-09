@@ -1,0 +1,539 @@
+/* ==========================================================================
+   CIVIDEVS — Component Styles
+   Buttons, Lines, Interactive Elements
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Ripple Effect
+   -------------------------------------------------------------------------- */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    transform: scale(0);
+    pointer-events: none;
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1),
+                opacity 0.3s ease;
+}
+
+/* Light theme ripple - more visible */
+[data-theme="light"] .ripple {
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.02) 100%);
+}
+
+/* --------------------------------------------------------------------------
+   Interactive Elements Base
+   -------------------------------------------------------------------------- */
+[data-interactive] {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   Button Components
+   -------------------------------------------------------------------------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    font-family: var(--font-heading);
+    font-size: var(--text-small);
+    font-weight: 500;
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    padding: var(--space-sm) var(--space-lg);
+    border: 1px solid var(--color-border);
+    background: transparent;
+    color: var(--color-text);
+    transition: border-color var(--duration-normal) var(--ease-out),
+                background-color var(--duration-normal) var(--ease-out);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--color-text);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform var(--duration-normal) var(--ease-out);
+    z-index: -1;
+}
+
+.btn:hover {
+    border-color: var(--color-border-hover);
+    color: var(--color-bg);
+}
+
+.btn:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Button variant — filled */
+.btn--filled {
+    background: var(--color-text);
+    color: var(--color-bg);
+    border-color: var(--color-text);
+}
+
+.btn--filled::before {
+    background: var(--color-bg);
+}
+
+.btn--filled:hover {
+    color: var(--color-text);
+}
+
+/* Button variant — minimal */
+.btn--minimal {
+    border-color: transparent;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.btn--minimal::before {
+    display: none;
+}
+
+.btn--minimal:hover {
+    background: transparent;
+    color: var(--color-text);
+}
+
+.btn--minimal::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform var(--duration-normal) var(--ease-out);
+}
+
+.btn--minimal:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* --------------------------------------------------------------------------
+   Line Components
+   -------------------------------------------------------------------------- */
+.line {
+    width: 100%;
+    height: 1px;
+    background: var(--color-border);
+}
+
+.line--vertical {
+    width: 1px;
+    height: 100%;
+}
+
+.line--animated {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--duration-slower) var(--ease-out-expo);
+}
+
+.line--animated.is-visible {
+    transform: scaleX(1);
+}
+
+.line--white {
+    background: var(--color-text);
+}
+
+/* --------------------------------------------------------------------------
+   Animated Border Box
+   -------------------------------------------------------------------------- */
+.border-box {
+    position: relative;
+    border: 1px solid var(--color-border);
+    transition: border-color var(--duration-normal) var(--ease-out);
+}
+
+.border-box::before,
+.border-box::after {
+    content: '';
+    position: absolute;
+    background: var(--color-border-hover);
+    transition: transform var(--duration-slow) var(--ease-out-expo);
+}
+
+/* Corner accents */
+.border-box--corners::before {
+    top: -1px;
+    left: -1px;
+    width: 20px;
+    height: 1px;
+}
+
+.border-box--corners::after {
+    top: -1px;
+    left: -1px;
+    width: 1px;
+    height: 20px;
+}
+
+.border-box:hover {
+    border-color: var(--color-border-hover);
+}
+
+/* --------------------------------------------------------------------------
+   Tag/Label Component
+   -------------------------------------------------------------------------- */
+.tag {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-heading);
+    font-size: var(--text-micro);
+    font-weight: 500;
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    padding: var(--space-xs) var(--space-sm);
+    border: 1px solid var(--color-border);
+}
+
+.tag--minimal {
+    border-color: transparent;
+    padding-left: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Arrow Link
+   -------------------------------------------------------------------------- */
+.arrow-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-family: var(--font-heading);
+    font-size: var(--text-small);
+    font-weight: 500;
+    letter-spacing: var(--tracking-wide);
+    position: relative;
+}
+
+.arrow-link__arrow {
+    width: 20px;
+    height: 1px;
+    background: currentColor;
+    position: relative;
+    transition: width var(--duration-normal) var(--ease-out);
+}
+
+.arrow-link__arrow::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    border-top: 1px solid currentColor;
+    border-right: 1px solid currentColor;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.arrow-link:hover .arrow-link__arrow {
+    width: 30px;
+}
+
+/* --------------------------------------------------------------------------
+   Number Display Component
+   -------------------------------------------------------------------------- */
+.number-display {
+    font-family: var(--font-heading);
+    font-variant-numeric: tabular-nums;
+}
+
+.number-display__value {
+    font-size: var(--text-h1);
+    font-weight: 300;
+    line-height: var(--leading-tight);
+}
+
+.number-display__suffix {
+    font-size: var(--text-h3);
+    font-weight: 300;
+    margin-left: 0.1em;
+}
+
+.number-display__label {
+    display: block;
+    font-size: var(--text-micro);
+    font-weight: 500;
+    letter-spacing: var(--tracking-widest);
+    color: var(--color-text-muted);
+    margin-top: var(--space-xs);
+}
+
+/* --------------------------------------------------------------------------
+   Card Component
+   -------------------------------------------------------------------------- */
+.card {
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    padding: var(--space-lg);
+    transition: border-color var(--duration-normal) var(--ease-out),
+                transform var(--duration-normal) var(--ease-out),
+                background-color var(--duration-normal) var(--ease-out);
+}
+
+.card:hover {
+    border-color: var(--color-border-hover);
+    background: var(--color-surface);
+    transform: translateY(-5px);
+}
+
+.card__label {
+    font-family: var(--font-heading);
+    font-size: var(--text-micro);
+    font-weight: 500;
+    letter-spacing: var(--tracking-widest);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-sm);
+    display: block;
+}
+
+.card__title {
+    font-size: var(--text-h4);
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+}
+
+.card__desc {
+    font-size: var(--text-small);
+    color: var(--color-text-muted);
+    line-height: var(--leading-relaxed);
+}
+
+/* --------------------------------------------------------------------------
+   List Component
+   -------------------------------------------------------------------------- */
+.list {
+    list-style: none;
+}
+
+.list__item {
+    display: flex;
+    align-items: center;
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--color-border);
+    font-family: var(--font-heading);
+    font-size: var(--text-body);
+    transition: padding var(--duration-normal) var(--ease-out);
+}
+
+.list__item:first-child {
+    border-top: 1px solid var(--color-border);
+}
+
+.list__item:hover {
+    padding-left: var(--space-md);
+    border-bottom-color: var(--color-border-hover);
+}
+
+.list__item-num {
+    font-size: var(--text-micro);
+    color: var(--color-text-muted);
+    margin-right: var(--space-md);
+    min-width: 2ch;
+}
+
+/* --------------------------------------------------------------------------
+   Reveal Animation Classes (for JS triggering)
+   -------------------------------------------------------------------------- */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity var(--duration-slow) var(--ease-out),
+                transform var(--duration-slow) var(--ease-out);
+}
+
+.reveal--scale {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.reveal--scale.is-visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Stagger children */
+.reveal-children > * {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.reveal-children.is-visible > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-children.is-visible > *:nth-child(1) { transition-delay: 0ms; }
+.reveal-children.is-visible > *:nth-child(2) { transition-delay: 100ms; }
+.reveal-children.is-visible > *:nth-child(3) { transition-delay: 200ms; }
+.reveal-children.is-visible > *:nth-child(4) { transition-delay: 300ms; }
+.reveal-children.is-visible > *:nth-child(5) { transition-delay: 400ms; }
+.reveal-children.is-visible > *:nth-child(6) { transition-delay: 500ms; }
+
+/* --------------------------------------------------------------------------
+   Floating Image (Project Preview)
+   -------------------------------------------------------------------------- */
+.project-preview {
+    position: fixed;
+    width: 300px;
+    height: 200px;
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity var(--duration-normal) var(--ease-out),
+                transform var(--duration-normal) var(--ease-out);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+}
+
+.project-preview.is-visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.project-preview__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: filter var(--duration-normal) var(--ease-out);
+}
+
+.project-preview:hover .project-preview__img {
+    filter: grayscale(0%);
+}
+
+/* --------------------------------------------------------------------------
+   Grid Lines (Decorative)
+   -------------------------------------------------------------------------- */
+.grid-lines {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: var(--z-back);
+}
+
+.grid-lines__line {
+    position: absolute;
+    background: var(--color-border);
+}
+
+.grid-lines__line--h {
+    width: 100%;
+    height: 1px;
+}
+
+.grid-lines__line--v {
+    width: 1px;
+    height: 100%;
+}
+
+/* ==========================================================================
+   Light Theme Adjustments
+   ========================================================================== */
+
+/* Project preview - reduce grayscale intensity in light theme */
+[data-theme="light"] .project-preview__img {
+    filter: grayscale(60%) contrast(1.05);
+    transition: filter 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+}
+
+[data-theme="light"] .project-preview:hover .project-preview__img {
+    filter: grayscale(0%) contrast(1);
+    transform: scale(1.02);
+}
+
+[data-theme="light"] .project-preview {
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Card hover shadow for light theme - enhanced */
+[data-theme="light"] .bento-cell:hover::before,
+[data-theme="light"] .card:hover {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.12),
+                0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .card {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.1);
+    transition: all 0.4s var(--ease-out);
+}
+
+[data-theme="light"] .card:hover {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.4);
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.15);
+}
+
+/* Ensure buttons have proper contrast */
+[data-theme="light"] .btn:hover {
+    color: var(--color-bg);
+}
+
+[data-theme="light"] .btn--filled:hover {
+    color: var(--color-text);
+}
+
+/* Section header border visibility */
+[data-theme="light"] .section-header {
+    border-bottom-color: rgba(0, 0, 0, 0.2);
+}
+
+/* List item borders */
+[data-theme="light"] .list__item {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .list__item:first-child {
+    border-top-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Border box visibility */
+[data-theme="light"] .border-box {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Tag border */
+[data-theme="light"] .tag {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Project preview border */
+[data-theme="light"] .project-preview {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Line components */
+[data-theme="light"] .line {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* Grid lines */
+[data-theme="light"] .grid-lines__line {
+    background: rgba(0, 0, 0, 0.15);
+}

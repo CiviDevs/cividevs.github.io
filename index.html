@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIVIDEVS — Digital Excellence</title>
+    <meta name="description" content="CIVIDEVS — Lead Development & Project Management. Premium digital solutions.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/sections.css">
+
+    <!-- Theme anti-flash script -->
+    <script>
+        (function() {
+            try {
+                const theme = localStorage.getItem('cividevs-theme');
+                if (theme === 'light') {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                }
+            } catch (e) {}
+        })();
+    </script>
+
+    <!-- Language anti-flash script -->
+    <script>
+        (function() {
+            try {
+                const lang = localStorage.getItem('cividevs-lang');
+                if (lang) {
+                    document.documentElement.setAttribute('lang', lang);
+                }
+            } catch (e) {}
+        })();
+    </script>
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="preloader__line"></div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div id="cursor" class="cursor">
+        <div class="cursor__dot"></div>
+    </div>
+    <div id="cursor-follower" class="cursor-follower"></div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header__container">
+            <a href="#" class="header__logo" >
+                <span class="header__logo-text">CIVIDEVS</span>
+            </a>
+            <nav class="header__nav">
+                <div class="header__links">
+                    <a href="#solutions" class="header__link">Solutions</a>
+                    <a href="#work" class="header__link">Work</a>
+                    <a href="#about" class="header__link">About</a>
+                </div>
+                <a href="#contact" class="header__link header__link--cta">Contact</a>
+                <div class="header__divider"></div>
+                <div class="header__utility">
+                    <button class="header__utility-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+                        <svg class="header__utility-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="5"/>
+                            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                        </svg>
+                    </button>
+                    <div class="header__utility-dropdown" id="langToggle">
+                        <button class="header__utility-btn" id="langBtn" aria-label="Select language" title="Select language">
+                            <svg class="header__utility-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+                                <path d="M2 12h20"/>
+                            </svg>
+                            <svg class="header__utility-chevron" width="10" height="10" viewBox="0 0 12 12" fill="none">
+                                <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1" stroke-linecap="square"/>
+                            </svg>
+                        </button>
+                        <div class="header__utility-menu" id="langDropdown">
+                            <button class="header__utility-option" data-lang="en">EN — English</button>
+                            <button class="header__utility-option" data-lang="it">IT — Italiano</button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="hero__container">
+                <div class="hero__content">
+                    <h1 class="hero__title">
+                        <span class="hero__title-line" data-split-text>CIVIDEVS</span>
+                    </h1>
+                    <div class="hero__signature">
+                        <span class="hero__name">NIK</span>
+                        <div class="hero__line"></div>
+                        <span class="hero__name">TOMA</span>
+                    </div>
+                    <p class="hero__role" data-split-text>Lead Developer / Project Manager</p>
+                </div>
+                <div class="hero__scroll-indicator">
+                    <div class="hero__scroll-line"></div>
+                    <span class="hero__scroll-text">Scroll</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Divider -->
+        <div class="section-divider" data-animate-line></div>
+
+        <!-- Stats Bar -->
+        <section class="stats" id="stats">
+            <div class="stats__container">
+                <div class="stats__bar">
+                    <div class="stat__item" data-interactive data-reveal>
+                        <div class="stat__value">
+                            <span class="stat__number" data-count="40">0</span>
+                            <span class="stat__suffix">+</span>
+                        </div>
+                        <span class="stat__label">PROJECTS</span>
+                        <div class="stat__underline"></div>
+                    </div>
+                    <div class="stat__item" data-interactive data-reveal>
+                        <div class="stat__value">
+                            <span class="stat__number" data-count="8">0</span>
+                            <span class="stat__suffix">+</span>
+                        </div>
+                        <span class="stat__label">YEARS</span>
+                        <div class="stat__underline"></div>
+                    </div>
+                    <div class="stat__item" data-interactive data-reveal>
+                        <div class="stat__value">
+                            <span class="stat__number" data-count="99">0</span>
+                            <span class="stat__suffix">%</span>
+                        </div>
+                        <span class="stat__label">SATISFACTION</span>
+                        <div class="stat__underline"></div>
+                    </div>
+                    <div class="stat__item" data-interactive data-reveal>
+                        <div class="stat__value">
+                            <span class="stat__number" data-count="24">0</span>
+                            <span class="stat__suffix">/7</span>
+                        </div>
+                        <span class="stat__label">SUPPORT</span>
+                        <div class="stat__underline"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Divider -->
+        <div class="section-divider" data-animate-line></div>
+
+        <!-- Solutions Bento Grid -->
+        <section class="solutions" id="solutions">
+            <div class="solutions__container">
+                <div class="section-header">
+                    <span class="section-header__label">[ 01 ]</span>
+                    <h2 class="section-header__title">Solutions</h2>
+                </div>
+                <div class="bento-grid">
+                    <article class="bento-cell bento-cell--large" >
+                        <div class="bento-cell__content">
+                            <span class="bento-cell__label">Strategy</span>
+                            <h3 class="bento-cell__title">Digital Transformation</h3>
+                            <p class="bento-cell__desc">End-to-end digital strategy and implementation for enterprise-scale solutions.</p>
+                            <div class="bento-cell__line"></div>
+                        </div>
+                    </article>
+                    <article class="bento-cell" >
+                        <div class="bento-cell__content">
+                            <span class="bento-cell__label">Development</span>
+                            <h3 class="bento-cell__title">Full-Stack Engineering</h3>
+                            <p class="bento-cell__desc">React, Node, Python, cloud-native architectures.</p>
+                            <div class="bento-cell__line"></div>
+                        </div>
+                    </article>
+                    <article class="bento-cell" >
+                        <div class="bento-cell__content">
+                            <span class="bento-cell__label">Design</span>
+                            <h3 class="bento-cell__title">UI/UX Excellence</h3>
+                            <p class="bento-cell__desc">Interface design that converts users into customers.</p>
+                            <div class="bento-cell__line"></div>
+                        </div>
+                    </article>
+                    <article class="bento-cell bento-cell--wide" >
+                        <div class="bento-cell__content">
+                            <span class="bento-cell__label">Management</span>
+                            <h3 class="bento-cell__title">Agile Project Delivery</h3>
+                            <p class="bento-cell__desc">Certified Scrum Master. On-time, on-budget, every time.</p>
+                            <div class="bento-cell__line"></div>
+                        </div>
+                    </article>
+                    <article class="bento-cell" >
+                        <div class="bento-cell__content">
+                            <span class="bento-cell__label">Performance</span>
+                            <h3 class="bento-cell__title">Speed Optimization</h3>
+                            <p class="bento-cell__desc">Core Web Vitals mastery. Sub-100ms interactions.</p>
+                            <div class="bento-cell__line"></div>
+                        </div>
+                    </article>
+                    <article class="bento-cell" >
+                        <div class="bento-cell__content">
+                            <span class="bento-cell__label">Security</span>
+                            <h3 class="bento-cell__title">Enterprise Security</h3>
+                            <p class="bento-cell__desc">SOC 2, GDPR, penetration testing, compliance.</p>
+                            <div class="bento-cell__line"></div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Divider -->
+        <div class="section-divider" data-animate-line></div>
+
+        <!-- Project Showcase -->
+        <section class="projects" id="work">
+            <div class="projects__container">
+                <div class="section-header">
+                    <span class="section-header__label">[ 02 ]</span>
+                    <h2 class="section-header__title">Selected Work</h2>
+                </div>
+                <div class="projects__list">
+                    <article class="project-item" data-project="fintech" >
+                        <div class="project-item__meta">
+                            <span class="project-item__num">01</span>
+                            <span class="project-item__cat">Fintech</span>
+                        </div>
+                        <h3 class="project-item__title">Quantum Banking</h3>
+                        <div class="project-item__line"></div>
+                        <span class="project-item__year">2024</span>
+                    </article>
+                    <article class="project-item" data-project="healthcare" >
+                        <div class="project-item__meta">
+                            <span class="project-item__num">02</span>
+                            <span class="project-item__cat">Healthcare</span>
+                        </div>
+                        <h3 class="project-item__title">MedSync Platform</h3>
+                        <div class="project-item__line"></div>
+                        <span class="project-item__year">2024</span>
+                    </article>
+                    <article class="project-item" data-project="ecommerce" >
+                        <div class="project-item__meta">
+                            <span class="project-item__num">03</span>
+                            <span class="project-item__cat">E-Commerce</span>
+                        </div>
+                        <h3 class="project-item__title">Luxe Retail OS</h3>
+                        <div class="project-item__line"></div>
+                        <span class="project-item__year">2023</span>
+                    </article>
+                    <article class="project-item" data-project="ai" >
+                        <div class="project-item__meta">
+                            <span class="project-item__num">04</span>
+                            <span class="project-item__cat">AI/ML</span>
+                        </div>
+                        <h3 class="project-item__title">Neural Analytics</h3>
+                        <div class="project-item__line"></div>
+                        <span class="project-item__year">2023</span>
+                    </article>
+                </div>
+            </div>
+            <!-- Floating Project Preview -->
+            <div class="project-preview" id="projectPreview">
+                <img src="" alt="" class="project-preview__img" loading="lazy">
+            </div>
+        </section>
+
+        <!-- Section Divider -->
+        <div class="section-divider" data-animate-line></div>
+
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="about__container">
+                <div class="section-header">
+                    <span class="section-header__label">[ 03 ]</span>
+                    <h2 class="section-header__title">Approach</h2>
+                </div>
+                <div class="about__content">
+                    <div class="about__text">
+                        <p class="about__lead" data-split-text>
+                            Precision engineering meets bold creativity. Every project is a balance of technical excellence and human-centered design.
+                        </p>
+                        <p class="about__body">
+                            With over 8 years leading cross-functional teams, I bring a rare combination of deep technical expertise and strategic vision. From Fortune 500 enterprises to disruptive startups, the focus remains constant: deliver digital products that perform at scale.
+                        </p>
+                    </div>
+                    <div class="about__principles">
+                        <div class="principle">
+                            <span class="principle__num">01</span>
+                            <h4 class="principle__title">Performance First</h4>
+                            <p class="principle__desc">Speed is a feature. Every millisecond matters.</p>
+                        </div>
+                        <div class="principle">
+                            <span class="principle__num">02</span>
+                            <h4 class="principle__title">Clean Architecture</h4>
+                            <p class="principle__desc">Code that scales, maintains, and evolves.</p>
+                        </div>
+                        <div class="principle">
+                            <span class="principle__num">03</span>
+                            <h4 class="principle__title">Transparent Process</h4>
+                            <p class="principle__desc">No black boxes. Full visibility, always.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Divider -->
+        <div class="section-divider" data-animate-line></div>
+
+        <!-- Contact CTA -->
+        <section class="contact" id="contact">
+            <div class="contact__container">
+                <div class="contact__content">
+                    <span class="contact__label">[ Start a Project ]</span>
+                    <h2 class="contact__title" data-split-text>Let's build something exceptional.</h2>
+                    <a href="mailto:hello@cividevs.com" class="contact__email" >
+                        <span>hello@cividevs.com</span>
+                        <div class="contact__email-line"></div>
+                    </a>
+                </div>
+                <div class="contact__links">
+                    <a href="#" class="contact__link" >LinkedIn</a>
+                    <a href="#" class="contact__link" >GitHub</a>
+                    <a href="#" class="contact__link" >Twitter</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__line"></div>
+            <div class="footer__content">
+                <span class="footer__logo">CIVIDEVS</span>
+                <span class="footer__copy">© 2024 All Rights Reserved</span>
+                <span class="footer__location">Global · Remote · Available</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script type="module" src="scripts/main.js"></script>
+</body>
+</html>
