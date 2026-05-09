@@ -98,6 +98,26 @@
     --color-accent: #111111;
 }
 
+/* --------------------------------------------------------------------------
+   Mobile Overrides (Typography & Spacing for <480px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+    :root {
+        --text-display: clamp(2.5rem, 10vw, 4rem);
+        --text-hero: clamp(2.5rem, 10vw, 4rem);
+        --text-h1: clamp(2rem, 8vw, 3rem);
+        --text-h2: clamp(1.5rem, 6vw, 2.25rem);
+        
+        --space-md: clamp(0.75rem, 4vw, 1.25rem);
+        --space-lg: clamp(1.25rem, 6vw, 2rem);
+        --space-xl: clamp(2rem, 8vw, 3rem);
+        --space-2xl: clamp(3rem, 10vw, 4rem);
+        --space-3xl: clamp(4rem, 12vw, 6rem);
+        
+        --gutter: 1rem;
+    }
+}
+
 /* Light theme specific adjustments - Cursor with enhanced visibility */
 [data-theme="light"] .cursor {
     mix-blend-mode: normal;
@@ -797,5 +817,214 @@ p {
     .footer__content {
         flex-direction: column;
         text-align: center;
+    }
+}
+
+/* ==========================================================================
+   MOBILE APP EXPERIENCE
+   Bottom Navigation Dock & Fluid Full-Screen Menu
+   ========================================================================== */
+.mobile-dock { display: none; }
+.mobile-menu { display: none; }
+
+@media (max-width: 768px) {
+    /* Hide desktop header completely on mobile to use Bottom Dock */
+    .header {
+        display: none !important;
+    }
+
+    /* Mobile Bottom Navigation Dock */
+    .mobile-dock {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: var(--z-header);
+        padding-bottom: env(safe-area-inset-bottom);
+        background: rgba(10, 10, 10, 0.85);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-top: 1px solid var(--color-border);
+        transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        transform: translate3d(0, 0, 0);
+        will-change: transform;
+    }
+
+    [data-theme="light"] .mobile-dock {
+        background: rgba(250, 250, 250, 0.85);
+    }
+
+    .mobile-dock.is-hidden {
+        transform: translate3d(0, 150%, 0);
+    }
+
+    .mobile-dock__container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 64px;
+        position: relative;
+    }
+
+    .mobile-dock__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        flex: 1;
+        height: 100%;
+        color: var(--color-text-subtle);
+        font-family: var(--font-heading);
+        font-size: 0.65rem;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        background: transparent;
+        border: none;
+        padding: 0;
+        text-transform: uppercase;
+        transition: color 0.2s ease;
+        /* Increase touch target size */
+        min-width: 44px;
+    }
+
+    .mobile-dock__item.is-active {
+        color: var(--color-text);
+    }
+
+    .mobile-dock__item svg {
+        transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .mobile-dock__item:active svg {
+        transform: scale(0.85);
+    }
+
+    .mobile-dock__indicator {
+        position: absolute;
+        top: -1px;
+        left: 0;
+        height: 2px;
+        background: var(--color-text);
+        width: 25%; /* 4 items = 25% */
+        transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        will-change: transform;
+    }
+
+    /* Mobile Full-Screen Overlay Menu */
+    .mobile-menu {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: calc(var(--z-header) + 10);
+        pointer-events: none;
+    }
+
+    .mobile-menu__overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+
+    [data-theme="light"] .mobile-menu__overlay {
+        background: rgba(255, 255, 255, 0.4);
+    }
+
+    .mobile-menu__sheet {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 85vh; /* iOS sheet style */
+        background: var(--color-bg);
+        border-top: 1px solid var(--color-border);
+        border-radius: 24px 24px 0 0;
+        display: flex;
+        flex-direction: column;
+        transform: translate3d(0, 100%, 0);
+        transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        will-change: transform;
+    }
+
+    .mobile-menu.is-open {
+        pointer-events: auto;
+    }
+
+    .mobile-menu.is-open .mobile-menu__overlay {
+        opacity: 1;
+    }
+
+    .mobile-menu.is-open .mobile-menu__sheet {
+        transform: translate3d(0, 0, 0);
+    }
+
+    .mobile-menu__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--space-xl) var(--space-xl) var(--space-md);
+    }
+
+    .mobile-menu__logo {
+        font-family: var(--font-heading);
+        font-size: var(--text-base);
+        font-weight: 700;
+        color: var(--color-text);
+        letter-spacing: var(--tracking-wide);
+    }
+
+    .mobile-menu__close {
+        background: transparent;
+        border: none;
+        color: var(--color-text);
+        padding: 8px;
+        margin: -8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .mobile-menu__content {
+        flex: 1;
+        padding: var(--space-xl);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .mobile-menu__nav {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-lg);
+    }
+
+    .mobile-menu__link {
+        font-family: var(--font-heading);
+        font-size: clamp(2rem, 8vw, 3rem);
+        font-weight: 600;
+        color: var(--color-text);
+        text-transform: uppercase;
+        letter-spacing: var(--tracking-wide);
+        text-decoration: none;
+        opacity: 0;
+        transform: translate3d(0, 20px, 0);
+    }
+    
+    .mobile-menu__footer {
+        padding-top: var(--space-xl);
+        opacity: 0;
+        transform: translate3d(0, 20px, 0);
+    }
+    
+    .mobile-menu__footer .header__utility-menu {
+        bottom: calc(100% + 8px);
+        top: auto;
     }
 }

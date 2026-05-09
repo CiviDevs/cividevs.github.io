@@ -61,7 +61,7 @@ export function initCustomCursor() {
 
     // Hover states
     const addHoverListeners = () => {
-        const hoverElements = document.querySelectorAll('a, button, [role="button"], [data-magnetic], .bento-cell, .service-card, .project-item, .why__card, .testimonial, .process-step');
+        const hoverElements = document.querySelectorAll('a, button, [role="button"], [data-magnetic], .bento-cell, .service-pillar, .project-item, .why__card, .testimonial, .process-step');
         
         hoverElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
@@ -122,7 +122,7 @@ export function initRippleEffect() {
     if (prefersReducedMotion()) return;
     if (window.matchMedia('(pointer: coarse)').matches) return;
 
-    const rippleElements = document.querySelectorAll('[data-ripple], .btn, .bento-cell, .service-card, .project-item, .why__card');
+    const rippleElements = document.querySelectorAll('[data-ripple], .btn, .bento-cell, .service-pillar, .project-item, .why__card');
     
     rippleElements.forEach(el => {
         el.style.position = 'relative';

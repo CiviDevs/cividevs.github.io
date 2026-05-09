@@ -9,6 +9,7 @@
 // Import modules
 import { initCustomCursor } from './components.js';
 import { initAnimations } from './animations.js';
+import { initMobileAppExperience } from './mobile.js';
 
 /**
  * Initialize Lenis smooth scroll
@@ -158,9 +159,10 @@ function initThemeToggle() {
     const savedTheme = getSavedTheme();
     applyTheme(savedTheme);
 
-    if (themeToggle) {
-        themeToggle.addEventListener('click', toggleTheme);
-    }
+    const themeToggles = document.querySelectorAll('.js-theme-toggle');
+    themeToggles.forEach(btn => {
+        btn.addEventListener('click', toggleTheme);
+    });
 
     const mediaQuery = window.matchMedia('(prefers-color-scheme: light)');
     mediaQuery.addEventListener('change', (e) => {
@@ -197,38 +199,58 @@ const translations = {
         hero_cta: 'Request a Proposal',
         hero_scroll: 'Scroll',
 
-        // Services
-        services_title: 'Services',
-        service_strategy_title: 'Digital Strategy',
-        service_strategy_desc: 'Market positioning, growth roadmaps, and digital transformation frameworks that turn ambition into market authority.',
-        service_design_title: 'Brand & Product Design',
-        service_design_desc: 'UI/UX systems, visual identities, and conversion-optimized interfaces that make your competition irrelevant.',
-        service_engineering_title: 'Engineering & Performance',
-        service_engineering_desc: 'Full-stack architecture, sub-100ms interactions, and zero-framework builds that outperform everything in your vertical.',
+        // Services — Value Pillars
+        services_title: 'Strategic Capabilities',
+        services_intro: 'We don\'t sell hours. We deliver assets that compound in value long after launch.',
+        svc_web_title: 'Digital Flagships',
+        svc_web_result: 'Sub-1s Load · 100/100 Lighthouse',
+        svc_web_outcome: 'High-performance, zero-bloat web platforms that convert visitors into revenue — built without a single framework dependency.',
+        svc_seo_title: 'Organic Dominance',
+        svc_seo_result: '+200% Organic Traffic · Page 1 Rankings',
+        svc_seo_outcome: 'Market dominance through technical authority and strategic content architecture. We engineer the visibility your competitors pay millions to rent.',
+        svc_brand_title: 'Visual Authority',
+        svc_brand_result: 'Premium Positioning · Brand Equity',
+        svc_brand_outcome: 'Visual identities that command premium pricing. From logo systems to full brand ecosystems — we build the perception that justifies your rates.',
+        svc_auto_title: 'Operational Intelligence',
+        svc_auto_result: '40hrs/mo Reclaimed · Zero Manual Errors',
+        svc_auto_outcome: 'Workflow automation and system integration that eliminates repetitive labor. Your team focuses on strategy while the machines handle execution.',
+        svc_mkt_title: 'Growth Engineering',
+        svc_mkt_result: 'Data-Driven · Measurable ROI',
+        svc_mkt_outcome: 'Performance marketing and conversion optimization backed by real data. Every campaign dollar is tracked, tested, and compounded.',
+        services_nudge: 'See how these capabilities apply to your business →',
 
-        // Why Us
-        why_title: 'Why CIVIDEVS',
+        // Why Us — Competitive Moat
+        why_title: 'The Competitive Moat',
         why_lead: 'Other agencies sell templates. We engineer unfair advantages.',
-        why_speed_title: 'Brutal Speed',
-        why_speed_desc: 'No frameworks. No bloat. Pure, hand-crafted code that loads before your users can blink. Core Web Vitals aren\'t a goal — they\'re a floor.',
-        why_aesthetic_title: 'Calculated Aesthetics',
-        why_aesthetic_desc: 'Every pixel serves a purpose. Our Brutalist Luxury approach strips away noise to reveal what matters: your brand\'s authority.',
-        why_ownership_title: 'Full Ownership',
-        why_ownership_desc: 'Zero vendor lock-in. Zero dependencies. You own every line of code. When we ship, you\'re free — not chained to a retainer.',
+        why_speed_title: 'Speed as a Luxury',
+        why_speed_desc: 'Our framework-less approach isn\'t a limitation — it\'s a business weapon. Zero bloat means sub-second loads, perfect Core Web Vitals, and conversion rates your competitors can\'t touch.',
+        why_aesthetic_title: 'Bespoke, Not Template',
+        why_aesthetic_desc: 'Every project is architected from scratch. No themes. No plugins. No compromise. You\'re not buying a commodity — you\'re commissioning a strategic asset.',
+        why_ownership_title: 'Exclusive Access',
+        why_ownership_desc: 'We take 4 clients per quarter. No agency assembly line. Your project gets senior-level attention from discovery to deployment — and you own every line of code.',
+        why_nudge: 'Only 2 slots open this quarter — secure yours →',
 
-        // Work
-        work_title: 'Selected Work',
+        // Work — Proof of Impact
+        work_title: 'Proof of Impact',
         work_cat_fintech: 'Fintech',
         work_title_fintech: 'Quantum Banking',
+        work_metric_fintech_1: '+340% Revenue',
+        work_metric_fintech_2: '0.6s Load',
         work_cat_healthcare: 'Healthcare',
         work_title_healthcare: 'MedSync Platform',
+        work_metric_health_1: '-60% Bounce',
+        work_metric_health_2: '99.9% Uptime',
         work_cat_ecommerce: 'E-Commerce',
         work_title_ecommerce: 'Luxe Retail OS',
+        work_metric_ecom_1: '+200% Conv.',
+        work_metric_ecom_2: '8wk Delivery',
         work_cat_ai: 'AI/ML',
         work_title_ai: 'Neural Analytics',
+        work_metric_ai_1: '100/100 LH',
+        work_metric_ai_2: '3x Faster',
 
         // Testimonials
-        testimonials_title: 'Client Voices',
+        testimonials_title: 'What Decision-Makers Say',
         testimonial_1_text: '"CIVIDEVS didn\'t just build our platform — they engineered our market position. Revenue up 340% in the first quarter post-launch."',
         testimonial_1_author: '— Marcus Chen',
         testimonial_1_role: 'CEO, Quantum Banking',
@@ -240,7 +262,7 @@ const translations = {
         testimonial_3_role: 'Founder, Luxe Retail',
 
         // Process
-        process_title: 'Process',
+        process_title: 'How We Deliver',
         process_1_title: 'Discovery & Strategy',
         process_1_desc: 'We dissect your market, audit competitors, and define the precise digital strategy that positions you for dominance.',
         process_1_duration: 'Week 1–2',
@@ -255,7 +277,7 @@ const translations = {
         process_4_duration: 'Week 8+',
 
         // FAQ
-        faq_title: 'Frequently Asked',
+        faq_title: 'Before We Begin',
         faq_1_q: 'What does "zero-framework" actually mean?',
         faq_1_a: 'We write every line of CSS and JavaScript by hand — no React, no Next.js, no WordPress. The result is a site that loads 3-5x faster than framework-based alternatives.',
         faq_2_q: 'How long does a typical project take?',
@@ -278,14 +300,11 @@ const translations = {
         footer_location: 'Global · Remote · Available'
     },
     it: {
-        // Navigation
         nav_services: 'Servizi',
         nav_work: 'Lavori',
         nav_process: 'Processo',
         nav_about: 'Chi Siamo',
         nav_cta: 'Inizia un Progetto',
-
-        // Hero
         hero_label: 'Costruiamo',
         hero_line1: 'Brand Che',
         hero_line2: 'Dominano',
@@ -293,39 +312,51 @@ const translations = {
         hero_qualifier: 'per brand che rifiutano di confondersi.',
         hero_cta: 'Richiedi una Proposta',
         hero_scroll: 'Scorri',
-
-        // Services
-        services_title: 'Servizi',
-        service_strategy_title: 'Strategia Digitale',
-        service_strategy_desc: 'Posizionamento di mercato, roadmap di crescita e framework di trasformazione digitale che trasformano l\'ambizione in autorità.',
-        service_design_title: 'Brand & Product Design',
-        service_design_desc: 'Sistemi UI/UX, identità visive e interfacce ottimizzate per la conversione che rendono irrilevante la concorrenza.',
-        service_engineering_title: 'Ingegneria & Performance',
-        service_engineering_desc: 'Architettura full-stack, interazioni sotto i 100ms e build zero-framework che superano tutto nel tuo verticale.',
-
-        // Why Us
-        why_title: 'Perché CIVIDEVS',
-        why_lead: 'Le altre agenzie vendono template. Noi progettiamo vantaggi competitivi.',
-        why_speed_title: 'Velocità Brutale',
-        why_speed_desc: 'Niente framework. Niente bloat. Codice puro, artigianale, che carica prima che i tuoi utenti possano battere ciglio.',
-        why_aesthetic_title: 'Estetica Calcolata',
-        why_aesthetic_desc: 'Ogni pixel ha uno scopo. Il nostro approccio Brutalist Luxury elimina il rumore per rivelare ciò che conta.',
-        why_ownership_title: 'Proprietà Totale',
-        why_ownership_desc: 'Zero vendor lock-in. Zero dipendenze. Ogni riga di codice è tua. Quando consegniamo, sei libero.',
-
-        // Work
-        work_title: 'Lavori Selezionati',
+        services_title: 'Capacità Strategiche',
+        services_intro: 'Non vendiamo ore. Consegniamo asset che crescono di valore nel tempo.',
+        svc_web_title: 'Piattaforme Digitali',
+        svc_web_result: 'Caricamento <1s · 100/100 Lighthouse',
+        svc_web_outcome: 'Piattaforme web ad alte prestazioni, zero bloat, che convertono visitatori in ricavi — costruite senza dipendenze da framework.',
+        svc_seo_title: 'Dominanza Organica',
+        svc_seo_result: '+200% Traffico Organico · Pagina 1',
+        svc_seo_outcome: 'Dominanza di mercato attraverso autorità tecnica e architettura strategica dei contenuti.',
+        svc_brand_title: 'Autorità Visiva',
+        svc_brand_result: 'Posizionamento Premium · Brand Equity',
+        svc_brand_outcome: 'Identità visive che giustificano prezzi premium. Dai sistemi di logo agli ecosistemi di brand completi.',
+        svc_auto_title: 'Intelligenza Operativa',
+        svc_auto_result: '40ore/mese Recuperate · Zero Errori',
+        svc_auto_outcome: 'Automazione dei workflow e integrazione dei sistemi che elimina il lavoro ripetitivo.',
+        svc_mkt_title: 'Ingegneria della Crescita',
+        svc_mkt_result: 'Data-Driven · ROI Misurabile',
+        svc_mkt_outcome: 'Marketing performante e ottimizzazione della conversione supportati da dati reali.',
+        services_nudge: 'Scopri come queste capacità si applicano al tuo business →',
+        why_title: 'Il Vantaggio Competitivo',
+        why_lead: 'Le altre agenzie vendono template. Noi progettiamo vantaggi ingiusti.',
+        why_speed_title: 'Velocità come Lusso',
+        why_speed_desc: 'Il nostro approccio senza framework non è un limite — è un\'arma di business. Zero bloat significa caricamenti sotto il secondo e tassi di conversione che i tuoi competitor non possono toccare.',
+        why_aesthetic_title: 'Su Misura, Non Template',
+        why_aesthetic_desc: 'Ogni progetto è architettato da zero. Niente temi. Niente plugin. Nessun compromesso. Non stai comprando una commodity — stai commissionando un asset strategico.',
+        why_ownership_title: 'Accesso Esclusivo',
+        why_ownership_desc: 'Accettiamo 4 clienti a trimestre. Nessuna catena di montaggio. Il tuo progetto riceve attenzione senior dalla scoperta al deployment — e ogni riga di codice è tua.',
+        why_nudge: 'Solo 2 posti disponibili questo trimestre — assicurati il tuo →',
+        work_title: 'Prove d\'Impatto',
         work_cat_fintech: 'Fintech',
         work_title_fintech: 'Quantum Banking',
+        work_metric_fintech_1: '+340% Fatturato',
+        work_metric_fintech_2: '0.6s Caricamento',
         work_cat_healthcare: 'Healthcare',
         work_title_healthcare: 'Piattaforma MedSync',
+        work_metric_health_1: '-60% Bounce',
+        work_metric_health_2: '99.9% Uptime',
         work_cat_ecommerce: 'E-Commerce',
         work_title_ecommerce: 'Luxe Retail OS',
+        work_metric_ecom_1: '+200% Conv.',
+        work_metric_ecom_2: '8 sett. Consegna',
         work_cat_ai: 'AI/ML',
         work_title_ai: 'Neural Analytics',
-
-        // Testimonials
-        testimonials_title: 'Voci dei Clienti',
+        work_metric_ai_1: '100/100 LH',
+        work_metric_ai_2: '3x Più Veloce',
+        testimonials_title: 'Cosa Dicono i Decision-Maker',
         testimonial_1_text: '"CIVIDEVS non ha solo costruito la nostra piattaforma — ha ingegnerizzato la nostra posizione di mercato. Fatturato +340% nel primo trimestre."',
         testimonial_1_author: '— Marcus Chen',
         testimonial_1_role: 'CEO, Quantum Banking',
@@ -335,42 +366,34 @@ const translations = {
         testimonial_3_text: '"Niente fronzoli, niente sprint sprecati. Hanno consegnato in 8 settimane quello che la nostra agenzia precedente non riusciva in 8 mesi."',
         testimonial_3_author: '— David Okafor',
         testimonial_3_role: 'Fondatore, Luxe Retail',
-
-        // Process
-        process_title: 'Processo',
+        process_title: 'Come Consegniamo',
         process_1_title: 'Scoperta & Strategia',
         process_1_desc: 'Analizziamo il tuo mercato, auditiamo i competitor e definiamo la strategia digitale che ti posiziona per il dominio.',
         process_1_duration: 'Settimana 1–2',
         process_2_title: 'Design & Architettura',
-        process_2_desc: 'Prototipi ad alta fedeltà e architettura progettata per scalare. Approvi ogni pixel prima che venga scritta una riga di codice.',
+        process_2_desc: 'Prototipi ad alta fedeltà e architettura progettata per scalare.',
         process_2_duration: 'Settimana 3–4',
         process_3_title: 'Ingegneria & QA',
-        process_3_desc: 'Codice artigianale, test rigorosi e ottimizzazione delle performance. Ogni interazione sotto i 100ms.',
+        process_3_desc: 'Codice artigianale, test rigorosi e ottimizzazione delle performance.',
         process_3_duration: 'Settimana 5–7',
         process_4_title: 'Lancio & Crescita',
-        process_4_desc: 'Deployment, monitoraggio e analytics di crescita. Non spariamoafter il lancio — assicuriamo che il tuo prodotto vinca.',
+        process_4_desc: 'Deployment, monitoraggio e analytics di crescita. Non spariamodopo il lancio.',
         process_4_duration: 'Settimana 8+',
-
-        // FAQ
-        faq_title: 'Domande Frequenti',
+        faq_title: 'Prima di Iniziare',
         faq_1_q: 'Cosa significa "zero-framework"?',
         faq_1_a: 'Scriviamo ogni riga di CSS e JavaScript a mano — niente React, niente Next.js, niente WordPress. Il risultato è un sito 3-5x più veloce.',
         faq_2_q: 'Quanto dura un progetto tipico?',
-        faq_2_a: 'La maggior parte dei progetti viene consegnata in 6–10 settimane. Build enterprise complessi possono estendersi a 12–16 settimane.',
+        faq_2_a: 'La maggior parte dei progetti viene consegnata in 6–10 settimane.',
         faq_3_q: 'Qual è il range di investimento?',
-        faq_3_a: 'I nostri ingaggi partono da €15.000 per siti brand focalizzati e scalano a €80.000+ per piattaforme enterprise full-stack.',
+        faq_3_a: 'I nostri ingaggi partono da €15.000 per siti brand e scalano a €80.000+ per piattaforme enterprise.',
         faq_4_q: 'Lavorate con startup o solo enterprise?',
-        faq_4_a: 'Entrambi. Se sei serio nel costruire una presenza digitale premium e hai il budget adeguato, siamo interessati.',
-
-        // Contact
+        faq_4_a: 'Entrambi. Se sei serio nel costruire una presenza digitale premium, siamo interessati.',
         contact_label: '[ Pronti a Dominare? ]',
         contact_title: 'Costruiamo qualcosa che vince.',
         contact_email: 'hello@cividevs.com',
         contact_linkedin: 'LinkedIn',
         contact_github: 'GitHub',
         contact_twitter: 'Twitter',
-
-        // Footer
         footer_copy: '© 2024 Tutti i Diritti Riservati',
         footer_location: 'Globale · Remoto · Disponibile'
     }
@@ -419,48 +442,51 @@ function initLanguageToggle() {
         });
     };
 
-    const toggleDropdown = () => {
-        langToggle.classList.toggle('is-open');
-    };
-
-    const closeDropdown = () => {
-        langToggle.classList.remove('is-open');
-    };
-
     const setLanguage = (lang) => {
-        langOptions.forEach(opt => {
+        document.querySelectorAll('.js-lang-option').forEach(opt => {
             opt.classList.toggle('is-active', opt.dataset.lang === lang);
         });
         applyTranslations(lang);
         saveLang(lang);
-        closeDropdown();
     };
 
-    if (langToggle && langBtn) {
-        langBtn.addEventListener('click', (e) => {
+    const langDropdowns = document.querySelectorAll('.js-lang-dropdown');
+    
+    // Toggle dropdown
+    document.querySelectorAll('.js-lang-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => {
             e.stopPropagation();
-            toggleDropdown();
-        });
-
-        langOptions.forEach(opt => {
-            opt.addEventListener('click', (e) => {
-                e.stopPropagation();
-                setLanguage(opt.dataset.lang);
-            });
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!langToggle.contains(e.target)) {
-                closeDropdown();
+            const parent = btn.closest('.js-lang-dropdown');
+            const isOpen = parent.classList.contains('is-open');
+            langDropdowns.forEach(d => d.classList.remove('is-open'));
+            if (!isOpen) {
+                parent.classList.add('is-open');
             }
         });
+    });
 
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                closeDropdown();
-            }
+    // Handle selection
+    document.querySelectorAll('.js-lang-option').forEach(option => {
+        option.addEventListener('click', () => {
+            const lang = option.getAttribute('data-lang');
+            setLanguage(lang);
+            langDropdowns.forEach(d => d.classList.remove('is-open'));
         });
-    }
+    });
+
+    // Close dropdown on outside click
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.js-lang-dropdown')) {
+            langDropdowns.forEach(d => d.classList.remove('is-open'));
+        }
+    });
+
+    // Close on escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            langDropdowns.forEach(d => d.classList.remove('is-open'));
+        }
+    });
 
     const savedLang = getSavedLang();
     setLanguage(savedLang);
@@ -487,6 +513,7 @@ function init() {
 
     // Initialize components (non-animated ones)
     initCustomCursor();
+    initMobileAppExperience();
 
     // Initialize animations after preloader completes
     document.addEventListener('preloader:complete', () => {
