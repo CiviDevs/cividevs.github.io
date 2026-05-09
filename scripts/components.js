@@ -481,19 +481,19 @@ export function initContactHub() {
     // Update the native href for fallback/desktop mailto triggers
     emailBtn.href = `mailto:${AGENCY_CONFIG.email}`;
 
-    emailBtn.addEventListener('click', async () => {
-
-        try {
-            await navigator.clipboard.writeText(AGENCY_CONFIG.email);
-            const tooltip = emailBtn.querySelector('.contact__tooltip');
-            if (tooltip) {
-                tooltip.classList.add('is-active');
-                setTimeout(() => {
-                    tooltip.classList.remove('is-active');
-                }, 2000);
-            }
-        } catch (err) {
+    emailBtn.addEventListener('click', () => {
+        // Run clipboard copy synchronously in the background
+        navigator.clipboard.writeText(AGENCY_CONFIG.email).catch(err => {
             console.error('Failed to copy email: ', err);
+        });
+
+        // Trigger tooltip immediately
+        const tooltip = emailBtn.querySelector('.contact__tooltip');
+        if (tooltip) {
+            tooltip.classList.add('is-active');
+            setTimeout(() => {
+                tooltip.classList.remove('is-active');
+            }, 2000);
         }
     });
 }
