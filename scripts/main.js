@@ -127,9 +127,15 @@ function initThemeToggle() {
 
     const getSavedTheme = () => {
         try {
-            return localStorage.getItem(STORAGE_KEY) || 'dark';
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (saved) return saved;
+            // Respect system dark mode, otherwise default to light
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                return 'dark';
+            }
+            return 'light';
         } catch (e) {
-            return 'dark';
+            return 'light';
         }
     };
 

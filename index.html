@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CIVIDEVS — We Build Brands That Dominate</title>
-    <meta name="description" content="CIVIDEVS — Strategic growth partner for premium brands. Strategy, Design & Engineering that drives market authority and measurable ROI.">
-    
+    <meta name="description"
+        content="CIVIDEVS — Strategic growth partner for premium brands. Strategy, Design & Engineering that drives market authority and measurable ROI.">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
     <!-- Styles -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/components.css">
@@ -21,25 +25,34 @@
         (function() {
             try {
                 const theme = localStorage.getItem('cividevs-theme');
-                if (theme === 'light') {
+                if (theme === 'dark') {
+                    // dark is explicitly set
+                } else if (theme === 'light') {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    // system prefers dark
+                } else {
                     document.documentElement.setAttribute('data-theme', 'light');
                 }
-            } catch (e) {}
+            } catch (e) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
         })();
     </script>
 
     <!-- Language anti-flash script -->
     <script>
-        (function() {
+        (function () {
             try {
                 const lang = localStorage.getItem('cividevs-lang');
                 if (lang) {
                     document.documentElement.setAttribute('lang', lang);
                 }
-            } catch (e) {}
+            } catch (e) { }
         })();
     </script>
 </head>
+
 <body>
     <!-- Preloader -->
     <div id="preloader" class="preloader">
@@ -66,24 +79,30 @@
                     <a href="#testimonials" class="header__link" data-i18n="nav_reviews">Reviews</a>
                     <button class="header__link" id="openAboutModal" data-i18n="nav_about">About</button>
                 </div>
-                <a href="#contact" class="header__link header__link--cta" id="navCta" data-i18n="nav_cta">Start a Project</a>
+                <a href="#contact" class="header__link header__link--cta" id="navCta" data-i18n="nav_cta">Start a
+                    Project</a>
                 <div class="header__divider"></div>
                 <div class="header__utility">
                     <button class="header__utility-btn js-theme-toggle" aria-label="Toggle theme" title="Toggle theme">
-                        <svg class="header__utility-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <circle cx="12" cy="12" r="5"/>
-                            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                        <svg class="header__utility-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="5" />
+                            <path
+                                d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
                         </svg>
                     </button>
                     <div class="header__utility-dropdown js-lang-dropdown">
-                        <button class="header__utility-btn js-lang-toggle" aria-label="Select language" title="Select language">
-                            <svg class="header__utility-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
-                                <path d="M2 12h20"/>
+                        <button class="header__utility-btn js-lang-toggle" aria-label="Select language"
+                            title="Select language">
+                            <svg class="header__utility-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                                <path d="M2 12h20" />
                             </svg>
                             <svg class="header__utility-chevron" width="10" height="10" viewBox="0 0 12 12" fill="none">
-                                <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1" stroke-linecap="square"/>
+                                <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1"
+                                    stroke-linecap="square" />
                             </svg>
                         </button>
                         <div class="header__utility-menu">
@@ -106,16 +125,22 @@
                     <span class="hero__label" data-i18n="hero_label">We Build</span>
                     <h1 class="hero__title">
                         <span class="hero__title-line" data-split-text data-i18n="hero_line1">Brands That</span>
-                        <span class="hero__title-line hero__title-line--heavy" data-split-text data-i18n="hero_line2">Dominate</span>
+                        <span class="hero__title-line hero__title-line--heavy" data-split-text
+                            data-i18n="hero_line2">Dominate</span>
                     </h1>
                     <div class="hero__divider"></div>
                     <div class="hero__expertise">
-                        <p class="hero__expertise-statement" data-split-text data-i18n="hero_expertise">Strategy · Design · Engineering</p>
-                        <p class="hero__expertise-qualifier" data-i18n="hero_qualifier">for brands that refuse to blend in.</p>
+                        <p class="hero__expertise-statement" data-split-text data-i18n="hero_expertise">Strategy ·
+                            Design · Engineering</p>
+                        <p class="hero__expertise-qualifier" data-i18n="hero_qualifier">for brands that refuse to blend
+                            in.</p>
                     </div>
                     <a href="#contact" class="hero__cta btn btn--filled" data-magnetic data-i18n="hero_cta">
                         <span>Start a Project</span>
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
                     </a>
                 </div>
                 <div class="hero__scroll-indicator">
@@ -169,17 +194,21 @@
                     <span class="section-header__label">[ 01 ]</span>
                     <h2 class="section-header__title" data-i18n="services_title">Strategic Capabilities</h2>
                 </div>
-                <p class="services__intro" data-i18n="services_intro">We don't sell hours. We deliver assets that compound in value long after launch.</p>
+                <p class="services__intro" data-i18n="services_intro">We don't sell hours. We deliver assets that
+                    compound in value long after launch.</p>
                 <div class="services__list">
                     <article class="service-pillar" data-interactive>
                         <div class="service-pillar__header">
                             <span class="service-pillar__num">01</span>
                             <h3 class="service-pillar__title" data-i18n="svc_web_title">Digital Flagships</h3>
-                            <span class="service-pillar__result" data-i18n="svc_web_result">Sub-1s Load · 100/100 Lighthouse</span>
+                            <span class="service-pillar__result" data-i18n="svc_web_result">Sub-1s Load · 100/100
+                                Lighthouse</span>
                             <span class="service-pillar__toggle">+</span>
                         </div>
                         <div class="service-pillar__body">
-                            <p class="service-pillar__outcome" data-i18n="svc_web_outcome">High-performance, zero-bloat web platforms that convert visitors into revenue — built without a single framework dependency.</p>
+                            <p class="service-pillar__outcome" data-i18n="svc_web_outcome">High-performance, zero-bloat
+                                web platforms that convert visitors into revenue — built without a single framework
+                                dependency.</p>
                             <div class="service-pillar__tags">
                                 <span class="tag">Vanilla JS/CSS</span>
                                 <span class="tag">GSAP Motion</span>
@@ -193,11 +222,14 @@
                         <div class="service-pillar__header">
                             <span class="service-pillar__num">02</span>
                             <h3 class="service-pillar__title" data-i18n="svc_seo_title">Organic Dominance</h3>
-                            <span class="service-pillar__result" data-i18n="svc_seo_result">+200% Organic Traffic · Page 1 Rankings</span>
+                            <span class="service-pillar__result" data-i18n="svc_seo_result">+200% Organic Traffic · Page
+                                1 Rankings</span>
                             <span class="service-pillar__toggle">+</span>
                         </div>
                         <div class="service-pillar__body">
-                            <p class="service-pillar__outcome" data-i18n="svc_seo_outcome">Market dominance through technical authority and strategic content architecture. We engineer the visibility your competitors pay millions to rent.</p>
+                            <p class="service-pillar__outcome" data-i18n="svc_seo_outcome">Market dominance through
+                                technical authority and strategic content architecture. We engineer the visibility your
+                                competitors pay millions to rent.</p>
                             <div class="service-pillar__tags">
                                 <span class="tag">Technical SEO</span>
                                 <span class="tag">Core Web Vitals</span>
@@ -211,11 +243,14 @@
                         <div class="service-pillar__header">
                             <span class="service-pillar__num">03</span>
                             <h3 class="service-pillar__title" data-i18n="svc_brand_title">Visual Authority</h3>
-                            <span class="service-pillar__result" data-i18n="svc_brand_result">Premium Positioning · Brand Equity</span>
+                            <span class="service-pillar__result" data-i18n="svc_brand_result">Premium Positioning ·
+                                Brand Equity</span>
                             <span class="service-pillar__toggle">+</span>
                         </div>
                         <div class="service-pillar__body">
-                            <p class="service-pillar__outcome" data-i18n="svc_brand_outcome">Visual identities that command premium pricing. From logo systems to full brand ecosystems — we build the perception that justifies your rates.</p>
+                            <p class="service-pillar__outcome" data-i18n="svc_brand_outcome">Visual identities that
+                                command premium pricing. From logo systems to full brand ecosystems — we build the
+                                perception that justifies your rates.</p>
                             <div class="service-pillar__tags">
                                 <span class="tag">Brand Identity</span>
                                 <span class="tag">Design Systems</span>
@@ -229,11 +264,14 @@
                         <div class="service-pillar__header">
                             <span class="service-pillar__num">04</span>
                             <h3 class="service-pillar__title" data-i18n="svc_auto_title">Operational Intelligence</h3>
-                            <span class="service-pillar__result" data-i18n="svc_auto_result">40hrs/mo Reclaimed · Zero Manual Errors</span>
+                            <span class="service-pillar__result" data-i18n="svc_auto_result">40hrs/mo Reclaimed · Zero
+                                Manual Errors</span>
                             <span class="service-pillar__toggle">+</span>
                         </div>
                         <div class="service-pillar__body">
-                            <p class="service-pillar__outcome" data-i18n="svc_auto_outcome">Workflow automation and system integration that eliminates repetitive labor. Your team focuses on strategy while the machines handle execution.</p>
+                            <p class="service-pillar__outcome" data-i18n="svc_auto_outcome">Workflow automation and
+                                system integration that eliminates repetitive labor. Your team focuses on strategy while
+                                the machines handle execution.</p>
                             <div class="service-pillar__tags">
                                 <span class="tag">API Integration</span>
                                 <span class="tag">CRM Automation</span>
@@ -247,11 +285,14 @@
                         <div class="service-pillar__header">
                             <span class="service-pillar__num">05</span>
                             <h3 class="service-pillar__title" data-i18n="svc_mkt_title">Growth Engineering</h3>
-                            <span class="service-pillar__result" data-i18n="svc_mkt_result">Data-Driven · Measurable ROI</span>
+                            <span class="service-pillar__result" data-i18n="svc_mkt_result">Data-Driven · Measurable
+                                ROI</span>
                             <span class="service-pillar__toggle">+</span>
                         </div>
                         <div class="service-pillar__body">
-                            <p class="service-pillar__outcome" data-i18n="svc_mkt_outcome">Performance marketing and conversion optimization backed by real data. Every campaign dollar is tracked, tested, and compounded.</p>
+                            <p class="service-pillar__outcome" data-i18n="svc_mkt_outcome">Performance marketing and
+                                conversion optimization backed by real data. Every campaign dollar is tracked, tested,
+                                and compounded.</p>
                             <div class="service-pillar__tags">
                                 <span class="tag">Analytics</span>
                                 <span class="tag">A/B Testing</span>
@@ -263,7 +304,8 @@
                     </article>
                 </div>
                 <div class="services__nudge">
-                    <a href="#contact" class="nudge-link" data-i18n="services_nudge">See how these capabilities apply to your business →</a>
+                    <a href="#contact" class="nudge-link" data-i18n="services_nudge">See how these capabilities apply to
+                        your business →</a>
                 </div>
             </div>
         </section>
@@ -281,26 +323,34 @@
                     <h2 class="section-header__title" data-i18n="why_title">The Competitive Moat</h2>
                 </div>
                 <div class="why__content">
-                    <p class="why__lead" data-split-text data-i18n="why_lead">Other agencies sell templates. We engineer unfair advantages.</p>
+                    <p class="why__lead" data-split-text data-i18n="why_lead">Other agencies sell templates. We engineer
+                        unfair advantages.</p>
                     <div class="why__grid">
                         <div class="why__card" data-interactive data-reveal>
                             <span class="why__card-num">01</span>
                             <h4 class="why__card-title" data-i18n="why_speed_title">Speed as a Luxury</h4>
-                            <p class="why__card-desc" data-i18n="why_speed_desc">Our framework-less approach isn't a limitation — it's a business weapon. Zero bloat means sub-second loads, perfect Core Web Vitals, and conversion rates your competitors can't touch.</p>
+                            <p class="why__card-desc" data-i18n="why_speed_desc">Our framework-less approach isn't a
+                                limitation — it's a business weapon. Zero bloat means sub-second loads, perfect Core Web
+                                Vitals, and conversion rates your competitors can't touch.</p>
                         </div>
                         <div class="why__card" data-interactive data-reveal>
                             <span class="why__card-num">02</span>
                             <h4 class="why__card-title" data-i18n="why_aesthetic_title">Bespoke, Not Template</h4>
-                            <p class="why__card-desc" data-i18n="why_aesthetic_desc">Every project is architected from scratch. No themes. No plugins. No compromise. You're not buying a commodity — you're commissioning a strategic asset.</p>
+                            <p class="why__card-desc" data-i18n="why_aesthetic_desc">Every project is architected from
+                                scratch. No themes. No plugins. No compromise. You're not buying a commodity — you're
+                                commissioning a strategic asset.</p>
                         </div>
                         <div class="why__card" data-interactive data-reveal>
                             <span class="why__card-num">03</span>
                             <h4 class="why__card-title" data-i18n="why_ownership_title">Exclusive Access</h4>
-                            <p class="why__card-desc" data-i18n="why_ownership_desc">We take 4 clients per quarter. No agency assembly line. Your project gets senior-level attention from discovery to deployment — and you own every line of code.</p>
+                            <p class="why__card-desc" data-i18n="why_ownership_desc">We take 4 clients per quarter. No
+                                agency assembly line. Your project gets senior-level attention from discovery to
+                                deployment — and you own every line of code.</p>
                         </div>
                     </div>
                     <div class="why__nudge">
-                        <a href="#contact" class="nudge-link" data-i18n="why_nudge">Only 2 slots open this quarter — secure yours →</a>
+                        <a href="#contact" class="nudge-link" data-i18n="why_nudge">Only 2 slots open this quarter —
+                            secure yours →</a>
                     </div>
                 </div>
             </div>
@@ -389,21 +439,26 @@
                 </div>
                 <div class="testimonials__grid">
                     <blockquote class="testimonial" data-reveal>
-                        <p class="testimonial__text" data-i18n="testimonial_1_text">"CIVIDEVS didn't just build our platform — they engineered our market position. Revenue up 340% in the first quarter post-launch."</p>
+                        <p class="testimonial__text" data-i18n="testimonial_1_text">"CIVIDEVS didn't just build our
+                            platform — they engineered our market position. Revenue up 340% in the first quarter
+                            post-launch."</p>
                         <footer class="testimonial__footer">
                             <cite class="testimonial__author" data-i18n="testimonial_1_author">— Marcus Chen</cite>
                             <span class="testimonial__role" data-i18n="testimonial_1_role">CEO, Quantum Banking</span>
                         </footer>
                     </blockquote>
                     <blockquote class="testimonial" data-reveal>
-                        <p class="testimonial__text" data-i18n="testimonial_2_text">"The fastest site in our entire vertical. Our bounce rate dropped 60% overnight. These people understand performance at a molecular level."</p>
+                        <p class="testimonial__text" data-i18n="testimonial_2_text">"The fastest site in our entire
+                            vertical. Our bounce rate dropped 60% overnight. These people understand performance at a
+                            molecular level."</p>
                         <footer class="testimonial__footer">
                             <cite class="testimonial__author" data-i18n="testimonial_2_author">— Sarah Lindström</cite>
                             <span class="testimonial__role" data-i18n="testimonial_2_role">CTO, MedSync Health</span>
                         </footer>
                     </blockquote>
                     <blockquote class="testimonial" data-reveal>
-                        <p class="testimonial__text" data-i18n="testimonial_3_text">"No fluff, no wasted sprints. They shipped in 8 weeks what our previous agency couldn't deliver in 8 months."</p>
+                        <p class="testimonial__text" data-i18n="testimonial_3_text">"No fluff, no wasted sprints. They
+                            shipped in 8 weeks what our previous agency couldn't deliver in 8 months."</p>
                         <footer class="testimonial__footer">
                             <cite class="testimonial__author" data-i18n="testimonial_3_author">— David Okafor</cite>
                             <span class="testimonial__role" data-i18n="testimonial_3_role">Founder, Luxe Retail</span>
@@ -431,7 +486,9 @@
                             <span class="process-step__num">01</span>
                             <h3 class="process-step__title" data-i18n="process_1_title">Discovery & Strategy</h3>
                         </div>
-                        <p class="process-step__desc" data-i18n="process_1_desc">We dissect your market, audit competitors, and define the precise digital strategy that positions you for dominance. No guesswork.</p>
+                        <p class="process-step__desc" data-i18n="process_1_desc">We dissect your market, audit
+                            competitors, and define the precise digital strategy that positions you for dominance. No
+                            guesswork.</p>
                         <span class="process-step__duration" data-i18n="process_1_duration">Week 1–2</span>
                     </div>
                     <div class="process-step" data-reveal>
@@ -439,7 +496,9 @@
                             <span class="process-step__num">02</span>
                             <h3 class="process-step__title" data-i18n="process_2_title">Design & Architecture</h3>
                         </div>
-                        <p class="process-step__desc" data-i18n="process_2_desc">High-fidelity prototypes and system architecture designed for scale. You approve every pixel before a single line of code is written.</p>
+                        <p class="process-step__desc" data-i18n="process_2_desc">High-fidelity prototypes and system
+                            architecture designed for scale. You approve every pixel before a single line of code is
+                            written.</p>
                         <span class="process-step__duration" data-i18n="process_2_duration">Week 3–4</span>
                     </div>
                     <div class="process-step" data-reveal>
@@ -447,7 +506,8 @@
                             <span class="process-step__num">03</span>
                             <h3 class="process-step__title" data-i18n="process_3_title">Engineering & QA</h3>
                         </div>
-                        <p class="process-step__desc" data-i18n="process_3_desc">Hand-crafted code, rigorous testing, and performance optimization. Every interaction under 100ms. Every page a perfect score.</p>
+                        <p class="process-step__desc" data-i18n="process_3_desc">Hand-crafted code, rigorous testing,
+                            and performance optimization. Every interaction under 100ms. Every page a perfect score.</p>
                         <span class="process-step__duration" data-i18n="process_3_duration">Week 5–7</span>
                     </div>
                     <div class="process-step" data-reveal>
@@ -455,7 +515,8 @@
                             <span class="process-step__num">04</span>
                             <h3 class="process-step__title" data-i18n="process_4_title">Launch & Growth</h3>
                         </div>
-                        <p class="process-step__desc" data-i18n="process_4_desc">Deployment, monitoring, and growth analytics. We don't disappear after launch — we ensure your product wins in the wild.</p>
+                        <p class="process-step__desc" data-i18n="process_4_desc">Deployment, monitoring, and growth
+                            analytics. We don't disappear after launch — we ensure your product wins in the wild.</p>
                         <span class="process-step__duration" data-i18n="process_4_duration">Week 8+</span>
                     </div>
                 </div>
@@ -476,27 +537,38 @@
                 </div>
                 <div class="faq__list">
                     <details class="faq-item">
-                        <summary class="faq-item__question" data-i18n="faq_1_q">What does "zero-framework" actually mean?</summary>
+                        <summary class="faq-item__question" data-i18n="faq_1_q">What does "zero-framework" actually
+                            mean?</summary>
                         <div class="faq-item__answer">
-                            <p data-i18n="faq_1_a">We write every line of CSS and JavaScript by hand — no React, no Next.js, no WordPress. The result is a site that loads 3-5x faster than framework-based alternatives, with zero dependency bloat and full ownership of every byte.</p>
+                            <p data-i18n="faq_1_a">We write every line of CSS and JavaScript by hand — no React, no
+                                Next.js, no WordPress. The result is a site that loads 3-5x faster than framework-based
+                                alternatives, with zero dependency bloat and full ownership of every byte.</p>
                         </div>
                     </details>
                     <details class="faq-item">
-                        <summary class="faq-item__question" data-i18n="faq_2_q">How long does a typical project take?</summary>
+                        <summary class="faq-item__question" data-i18n="faq_2_q">How long does a typical project take?
+                        </summary>
                         <div class="faq-item__answer">
-                            <p data-i18n="faq_2_a">Most projects ship in 6–10 weeks from kickoff to launch. Complex enterprise builds may extend to 12–16 weeks. We prioritize speed without sacrificing quality — every milestone has a fixed date.</p>
+                            <p data-i18n="faq_2_a">Most projects ship in 6–10 weeks from kickoff to launch. Complex
+                                enterprise builds may extend to 12–16 weeks. We prioritize speed without sacrificing
+                                quality — every milestone has a fixed date.</p>
                         </div>
                     </details>
                     <details class="faq-item">
                         <summary class="faq-item__question" data-i18n="faq_3_q">What's the investment range?</summary>
                         <div class="faq-item__answer">
-                            <p data-i18n="faq_3_a">Our engagements start at €15,000 for focused brand sites and scale to €80,000+ for full-stack enterprise platforms. Every project begins with a fixed scope and transparent pricing — no surprise invoices.</p>
+                            <p data-i18n="faq_3_a">Our engagements start at €15,000 for focused brand sites and scale to
+                                €80,000+ for full-stack enterprise platforms. Every project begins with a fixed scope
+                                and transparent pricing — no surprise invoices.</p>
                         </div>
                     </details>
                     <details class="faq-item">
-                        <summary class="faq-item__question" data-i18n="faq_4_q">Do you work with startups or only enterprises?</summary>
+                        <summary class="faq-item__question" data-i18n="faq_4_q">Do you work with startups or only
+                            enterprises?</summary>
                         <div class="faq-item__answer">
-                            <p data-i18n="faq_4_a">Both. If you're serious about building a premium digital presence and have the budget to match, we're interested. We've launched MVPs for Series A startups and redesigned platforms for Fortune 500 companies.</p>
+                            <p data-i18n="faq_4_a">Both. If you're serious about building a premium digital presence and
+                                have the budget to match, we're interested. We've launched MVPs for Series A startups
+                                and redesigned platforms for Fortune 500 companies.</p>
                         </div>
                     </details>
                 </div>
@@ -513,14 +585,21 @@
             <div class="contact__container">
                 <div class="contact__header">
                     <h2 class="contact__title" data-split-text>READY TO SCALE?</h2>
-                    <p class="contact__subheadline">For project inquiries, partnerships, or technical consultations, reach out via your preferred channel.</p>
+                    <p class="contact__subheadline">For project inquiries, partnerships, or technical consultations,
+                        reach out via your preferred channel.</p>
                 </div>
-                
+
                 <div class="contact__hub">
                     <!-- Direct -->
-                    <a href="tel:+1234567890" class="contact__node contact__node--phone" target="_blank" rel="noopener noreferrer">
+                    <a href="tel:+1234567890" class="contact__node contact__node--phone" target="_blank"
+                        rel="noopener noreferrer">
                         <div class="contact__node-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="square">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>
                         </div>
                         <div class="contact__node-content">
                             <span class="contact__node-label">Direct</span>
@@ -531,7 +610,12 @@
                     <!-- Email -->
                     <a href="mailto:cividevs@gmail.com" class="contact__node contact__node--email" id="emailCopyBtn">
                         <div class="contact__node-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="square">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
                         </div>
                         <div class="contact__node-content">
                             <span class="contact__node-label">Formal</span>
@@ -541,9 +625,15 @@
                     </a>
 
                     <!-- WhatsApp -->
-                    <a href="https://wa.me/1234567890" class="contact__node contact__node--whatsapp" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/1234567890" class="contact__node contact__node--whatsapp" target="_blank"
+                        rel="noopener noreferrer">
                         <div class="contact__node-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="square">
+                                <path
+                                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                                </path>
+                            </svg>
                         </div>
                         <div class="contact__node-content">
                             <span class="contact__node-label">Instant</span>
@@ -552,9 +642,14 @@
                     </a>
 
                     <!-- Telegram -->
-                    <a href="https://t.me/cividevs" class="contact__node contact__node--telegram" target="_blank" rel="noopener noreferrer">
+                    <a href="https://t.me/cividevs" class="contact__node contact__node--telegram" target="_blank"
+                        rel="noopener noreferrer">
                         <div class="contact__node-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="square">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
                         </div>
                         <div class="contact__node-content">
                             <span class="contact__node-label">Instant</span>
@@ -563,9 +658,15 @@
                     </a>
 
                     <!-- GitHub -->
-                    <a href="https://github.com/cividevs" class="contact__node contact__node--github" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/cividevs" class="contact__node contact__node--github" target="_blank"
+                        rel="noopener noreferrer">
                         <div class="contact__node-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="square">
+                                <path
+                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                </path>
+                            </svg>
                         </div>
                         <div class="contact__node-content">
                             <span class="contact__node-label">Technical</span>
@@ -575,7 +676,7 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- ════════════════════════════════════════════════════════════════
              FLOATING ACTION BUTTON (High Intent CTA)
              ════════════════════════════════════════════════════════════════ -->
@@ -583,7 +684,8 @@
             <div class="intent-cta__content">
                 <span class="intent-cta__text">Start Project</span>
             </div>
-            <svg class="intent-cta__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <svg class="intent-cta__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.5">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
@@ -596,7 +698,7 @@
             <div class="footer__line"></div>
             <div class="footer__content">
                 <span class="footer__logo">CIVIDEVS</span>
-                <span class="footer__copy" data-i18n="footer_copy">© 2024 All Rights Reserved</span>
+                <span class="footer__copy" data-i18n="footer_copy">© 2026 All Rights Reserved</span>
                 <span class="footer__location" data-i18n="footer_location">Global · Remote · Available</span>
             </div>
         </div>
@@ -609,21 +711,38 @@
         <div class="mobile-dock__container">
             <!-- Active indicator that slides -->
             <div class="mobile-dock__indicator" id="dockIndicator"></div>
-            
+
             <a href="#services" class="mobile-dock__item" data-section="services">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
                 <span data-i18n="nav_services">Services</span>
             </a>
             <a href="#work" class="mobile-dock__item" data-section="work">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                    </polygon>
+                </svg>
                 <span data-i18n="nav_work">Work</span>
             </a>
             <button class="mobile-dock__item" id="openAboutModalDock">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
                 <span data-i18n="nav_about">About</span>
             </button>
             <button class="mobile-dock__item mobile-dock__menu-btn" id="mobileMenuBtn">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
                 <span>Menu</span>
             </button>
         </div>
@@ -638,40 +757,56 @@
             <div class="mobile-menu__header">
                 <span class="mobile-menu__logo">CIVIDEVS</span>
                 <button class="mobile-menu__close" id="mobileMenuClose">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
                 </button>
             </div>
             <div class="mobile-menu__content">
                 <div class="mobile-menu__nav">
-                    <a href="#services" class="mobile-menu__link mobile-menu__link--nav" data-i18n="nav_services">Services</a>
+                    <a href="#services" class="mobile-menu__link mobile-menu__link--nav"
+                        data-i18n="nav_services">Services</a>
                     <a href="#work" class="mobile-menu__link mobile-menu__link--nav" data-i18n="nav_work">Work</a>
-                    <a href="#process" class="mobile-menu__link mobile-menu__link--nav" data-i18n="nav_process">Process</a>
-                    <a href="#testimonials" class="mobile-menu__link mobile-menu__link--nav" data-i18n="nav_reviews">Reviews</a>
-                    <button class="mobile-menu__link mobile-menu__link--nav" id="openAboutModalMobile" data-i18n="nav_about">About</button>
-                    <a href="#contact" class="mobile-menu__link mobile-menu__link--nav" data-i18n="nav_cta">Start a Project</a>
+                    <a href="#process" class="mobile-menu__link mobile-menu__link--nav"
+                        data-i18n="nav_process">Process</a>
+                    <a href="#testimonials" class="mobile-menu__link mobile-menu__link--nav"
+                        data-i18n="nav_reviews">Reviews</a>
+                    <button class="mobile-menu__link mobile-menu__link--nav" id="openAboutModalMobile"
+                        data-i18n="nav_about">About</button>
+                    <a href="#contact" class="mobile-menu__link mobile-menu__link--nav" data-i18n="nav_cta">Start a
+                        Project</a>
                 </div>
                 <div class="mobile-menu__footer">
                     <div class="header__utility">
                         <button class="header__utility-btn js-theme-toggle" aria-label="Toggle theme">
-                            <svg class="header__utility-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <circle cx="12" cy="12" r="5"/>
-                                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                            <svg class="header__utility-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="5" />
+                                <path
+                                    d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
                             </svg>
                         </button>
                         <div class="header__utility-dropdown js-lang-dropdown">
                             <button class="header__utility-btn js-lang-toggle" aria-label="Select language">
-                                <svg class="header__utility-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
-                                    <path d="M2 12h20"/>
+                                <svg class="header__utility-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="1.5">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                                    <path d="M2 12h20" />
                                 </svg>
-                                <svg class="header__utility-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none">
-                                    <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1" stroke-linecap="square"/>
+                                <svg class="header__utility-chevron" width="12" height="12" viewBox="0 0 12 12"
+                                    fill="none">
+                                    <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1"
+                                        stroke-linecap="square" />
                                 </svg>
                             </button>
                             <div class="header__utility-menu">
-                                <button class="header__utility-option js-lang-option" data-lang="en">EN — English</button>
-                                <button class="header__utility-option js-lang-option" data-lang="it">IT — Italiano</button>
+                                <button class="header__utility-option js-lang-option" data-lang="en">EN —
+                                    English</button>
+                                <button class="header__utility-option js-lang-option" data-lang="it">IT —
+                                    Italiano</button>
                             </div>
                         </div>
                     </div>
@@ -689,15 +824,22 @@
             <div class="about-modal__header">
                 <span class="about-modal__label">[ The Agency ]</span>
                 <button class="about-modal__close" id="aboutModalClose">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
                 </button>
             </div>
             <div class="about-modal__content">
                 <h2 class="about-modal__title">We engineer digital supremacy.</h2>
                 <div class="about-modal__grid">
                     <div class="about-modal__text">
-                        <p>CIVIDEVS is an independent digital product agency founded by engineers and designers who were tired of bloated frameworks, slow deliveries, and generic templates.</p>
-                        <p>We build with raw code and mathematical precision. Our zero-framework philosophy guarantees perfect Lighthouse scores, sub-100ms interactions, and architectures that scale without the technical debt of passing trends.</p>
+                        <p>CIVIDEVS is an independent digital product agency founded by engineers and designers who were
+                            tired of bloated frameworks, slow deliveries, and generic templates.</p>
+                        <p>We build with raw code and mathematical precision. Our zero-framework philosophy guarantees
+                            perfect Lighthouse scores, sub-100ms interactions, and architectures that scale without the
+                            technical debt of passing trends.</p>
                         <p>For us, performance isn't a feature. It's the foundation of luxury.</p>
                     </div>
                     <div class="about-modal__stats">
@@ -721,4 +863,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script type="module" src="scripts/main.js"></script>
 </body>
+
 </html>
