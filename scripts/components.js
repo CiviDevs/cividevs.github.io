@@ -16,9 +16,9 @@ import { prefersReducedMotion } from './main.js';
  */
 export const AGENCY_CONFIG = {
     email: 'cividevs@gmail.com',
-    phone: '+1234567890',          // International format (e.g., +1234567890)
-    whatsapp: '1234567890',        // Just numbers, no spaces or plus signs
-    telegram: 'cividevs',          // Telegram username without '@'
+    phone: '+393715207035',          // International format (e.g., +1234567890)
+    whatsapp: '3715207035',        // Just numbers, no spaces or plus signs
+    telegram: 'cividev',          // Telegram username without '@'
     github: 'cividevs'             // GitHub username
 };
 
@@ -480,6 +480,9 @@ export function initContactHub() {
 
     emailBtn.addEventListener('click', async (e) => {
         e.preventDefault();
+        
+        // Open default email client
+        window.location.href = `mailto:${AGENCY_CONFIG.email}`;
 
         try {
             await navigator.clipboard.writeText(AGENCY_CONFIG.email);
