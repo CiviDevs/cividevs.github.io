@@ -7,7 +7,7 @@
 'use strict';
 
 import { prefersReducedMotion } from './main.js';
-import { initRippleEffect, initTiltEffect, initLinkSweep, initMagneticEffect } from './components.js';
+import { initRippleEffect, initTiltEffect, initLinkSweep, initMagneticEffect, initContactHub } from './components.js';
 
 /**
  * Split text into characters or words for animation
@@ -468,10 +468,9 @@ function animateFaq() {
  * Contact section reveal
  */
 function animateContact() {
-    const label = document.querySelector('.contact__label');
     const title = document.querySelector('.contact__title');
-    const email = document.querySelector('.contact__email');
-    const links = document.querySelectorAll('.contact__link');
+    const subheadline = document.querySelector('.contact__subheadline');
+    const nodes = document.querySelectorAll('.contact__node');
 
     const tl = gsap.timeline({
         scrollTrigger: {
@@ -481,32 +480,22 @@ function animateContact() {
         }
     });
 
-    if (label) {
-        gsap.set(label, { y: 20, opacity: 0 });
-        tl.to(label, {
-            y: 0,
+    if (title) {
+        const words = splitText(title, 'words');
+        gsap.set(words, { y: '100%', opacity: 0 });
+        
+        tl.to(words, {
+            y: '0%',
             opacity: 1,
-            duration: 0.6,
+            duration: 0.8,
+            stagger: 0.05,
             ease: 'expo.out'
         });
     }
 
-    if (title) {
-        const words = splitText(title, 'words');
-        gsap.set(words, { y: 40, opacity: 0 });
-        
-        tl.to(words, {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            stagger: 0.1,
-            ease: 'expo.out'
-        }, '-=0.3');
-    }
-
-    if (email) {
-        gsap.set(email, { y: 30, opacity: 0 });
-        tl.to(email, {
+    if (subheadline) {
+        gsap.set(subheadline, { y: 20, opacity: 0 });
+        tl.to(subheadline, {
             y: 0,
             opacity: 1,
             duration: 0.6,
@@ -514,15 +503,15 @@ function animateContact() {
         }, '-=0.4');
     }
 
-    if (links.length) {
-        gsap.set(links, { y: 20, opacity: 0 });
-        tl.to(links, {
+    if (nodes.length) {
+        gsap.set(nodes, { y: 40, opacity: 0 });
+        tl.to(nodes, {
             y: 0,
             opacity: 1,
-            duration: 0.5,
+            duration: 0.8,
             stagger: 0.1,
             ease: 'expo.out'
-        }, '-=0.3');
+        }, '-=0.4');
     }
 }
 

@@ -394,7 +394,7 @@ export function initProjectPreview() {
 export function initMagneticEffect() {
     if (prefersReducedMotion() || window.matchMedia('(pointer: coarse)').matches) return;
 
-    const magneticElements = document.querySelectorAll('.btn, .header__utility-btn');
+    const magneticElements = document.querySelectorAll('.btn, .header__utility-btn, .contact__node');
     
     magneticElements.forEach(el => {
         el.addEventListener('mousemove', (e) => {
@@ -444,6 +444,32 @@ export function initMagneticEffect() {
 }
 
 /**
+ * Initialize Contact Hub specific interactions (Copy to Clipboard)
+ */
+export function initContactHub() {
+    const emailBtn = document.getElementById('emailCopyBtn');
+    if (!emailBtn) return;
+
+    emailBtn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const email = 'hello@cividevs.com';
+        
+        try {
+            await navigator.clipboard.writeText(email);
+            const tooltip = emailBtn.querySelector('.contact__tooltip');
+            if (tooltip) {
+                tooltip.classList.add('is-active');
+                setTimeout(() => {
+                    tooltip.classList.remove('is-active');
+                }, 2000);
+            }
+        } catch (err) {
+            console.error('Failed to copy email: ', err);
+        }
+    });
+}
+
+/**
  * Initialize all components
  */
 export function initComponents() {
@@ -452,5 +478,6 @@ export function initComponents() {
     initTiltEffect();
     initLinkSweep();
     initMagneticEffect();
+    initContactHub();
     // initProjectPreview(); // Disabled - floating project preview removed
 }
