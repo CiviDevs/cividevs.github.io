@@ -208,27 +208,70 @@ function animateSectionHeaders() {
 }
 
 /**
- * Services cards reveal animation
+ * Services pillars reveal + accordion toggle
  */
 function animateServices() {
-    const cards = document.querySelectorAll('.service-card');
-    if (!cards.length) return;
+    const pillars = document.querySelectorAll('.service-pillar');
+    if (!pillars.length) return;
 
-    gsap.fromTo(cards,
-        { y: 40, opacity: 0 },
+    // Stagger reveal
+    gsap.fromTo(pillars,
+        { y: 30, opacity: 0 },
         {
             y: 0,
             opacity: 1,
-            duration: 0.7,
-            stagger: 0.12,
+            duration: 0.6,
+            stagger: 0.08,
             ease: 'expo.out',
             scrollTrigger: {
-                trigger: '.services__grid',
+                trigger: '.services__list',
                 start: 'top 80%',
                 toggleActions: 'play none none none'
             }
         }
     );
+
+    // Accordion toggle logic
+    pillars.forEach(pillar => {
+        const header = pillar.querySelector('.service-pillar__header');
+        if (!header) return;
+
+        header.addEventListener('click', () => {
+            const wasOpen = pillar.classList.contains('is-open');
+            
+            // Close all others
+            pillars.forEach(p => p.classList.remove('is-open'));
+            
+            // Toggle current
+            if (!wasOpen) {
+                pillar.classList.add('is-open');
+            }
+            
+            // Refresh ScrollTrigger after CSS transition to recalculate trigger positions
+            setTimeout(() => {
+                ScrollTrigger.refresh();
+            }, 550); // Matches --duration-slow plus a tiny buffer
+        });
+    });
+
+    // Nudge link reveal
+    const nudge = document.querySelector('.services__nudge');
+    if (nudge) {
+        gsap.fromTo(nudge,
+            { y: 15, opacity: 0 },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 0.5,
+                ease: 'expo.out',
+                scrollTrigger: {
+                    trigger: nudge,
+                    start: 'top 90%',
+                    toggleActions: 'play none none none'
+                }
+            }
+        );
+    }
 }
 
 /**
@@ -272,6 +315,18 @@ function animateWhy() {
             }
         );
     }
+
+    // Nudge link
+    const nudge = document.querySelector('.why__nudge');
+    if (nudge) {
+        gsap.fromTo(nudge,
+            { y: 15, opacity: 0 },
+            {
+                y: 0, opacity: 1, duration: 0.5, ease: 'expo.out',
+                scrollTrigger: { trigger: nudge, start: 'top 90%', toggleActions: 'play none none none' }
+            }
+        );
+    }
 }
 
 /**
@@ -297,6 +352,26 @@ function animateProjects() {
             }
         );
     });
+
+    // Animate metric badges inside project items
+    const badges = document.querySelectorAll('.metric-badge');
+    if (badges.length) {
+        gsap.fromTo(badges,
+            { scale: 0.8, opacity: 0 },
+            {
+                scale: 1,
+                opacity: 1,
+                duration: 0.4,
+                stagger: 0.05,
+                ease: 'expo.out',
+                scrollTrigger: {
+                    trigger: '.projects__list',
+                    start: 'top 75%',
+                    toggleActions: 'play none none none'
+                }
+            }
+        );
+    }
 }
 
 /**
@@ -369,6 +444,16 @@ function animateFaq() {
             }
         }
     );
+
+    // Refresh ScrollTrigger when FAQ details are toggled
+    items.forEach(item => {
+        item.addEventListener('toggle', () => {
+            // Need a slight delay for the DOM to fully render the opened state
+            setTimeout(() => {
+                ScrollTrigger.refresh();
+            }, 50);
+        });
+    });
 }
 
 /**
@@ -506,9 +591,10 @@ export function initAnimations() {
     if (prefersReducedMotion()) {
         // Just make everything visible without animations
         document.querySelectorAll(
-            '[data-split-text], .service-card, .project-item, .why__card, ' +
+            '[data-split-text], .service-pillar, .project-item, .why__card, ' +
             '.testimonial, .process-step, .faq-item, .hero__label, ' +
-            '.hero__divider, .hero__cta, .hero__expertise-qualifier'
+            '.hero__divider, .hero__cta, .hero__expertise-qualifier, ' +
+            '.metric-badge, .nudge-link, .services__intro'
         ).forEach(el => {
             el.style.opacity = '1';
             el.style.transform = 'none';
@@ -537,4 +623,10 @@ export function initAnimations() {
     initRippleEffect();
     initTiltEffect();
     initLinkSweep();
+
+    // Global resize observer to fix ScrollTrigger bugs on dynamic height changes
+    const ro = new ResizeObserver(() => {
+        ScrollTrigger.refresh();
+    });
+    ro.observe(document.body);
 }
