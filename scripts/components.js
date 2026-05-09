@@ -480,9 +480,6 @@ export function initContactHub() {
 
     emailBtn.addEventListener('click', async (e) => {
         e.preventDefault();
-        
-        // Open default email client
-        window.location.href = `mailto:${AGENCY_CONFIG.email}`;
 
         try {
             await navigator.clipboard.writeText(AGENCY_CONFIG.email);
@@ -496,6 +493,13 @@ export function initContactHub() {
         } catch (err) {
             console.error('Failed to copy email: ', err);
         }
+
+        // Trigger mailto via temporary anchor for better desktop browser support
+        setTimeout(() => {
+            const a = document.createElement('a');
+            a.href = `mailto:${AGENCY_CONFIG.email}`;
+            a.click();
+        }, 150);
     });
 }
 
