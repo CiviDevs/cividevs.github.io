@@ -27,10 +27,6 @@
                 const theme = localStorage.getItem('cividevs-theme');
                 if (theme === 'dark') {
                     // dark is explicitly set
-                } else if (theme === 'light') {
-                    document.documentElement.setAttribute('data-theme', 'light');
-                } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                    // system prefers dark
                 } else {
                     document.documentElement.setAttribute('data-theme', 'light');
                 }

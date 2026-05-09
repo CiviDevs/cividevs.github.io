@@ -129,10 +129,7 @@ function initThemeToggle() {
         try {
             const saved = localStorage.getItem(STORAGE_KEY);
             if (saved) return saved;
-            // Respect system dark mode, otherwise default to light
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                return 'dark';
-            }
+            // Strictly default to light
             return 'light';
         } catch (e) {
             return 'light';
@@ -302,7 +299,7 @@ const translations = {
         contact_twitter: 'Twitter',
 
         // Footer
-        footer_copy: '© 2024 All Rights Reserved',
+        footer_copy: `© ${new Date().getFullYear()} All Rights Reserved`,
         footer_location: 'Global · Remote · Available'
     },
     it: {
@@ -400,7 +397,7 @@ const translations = {
         contact_linkedin: 'LinkedIn',
         contact_github: 'GitHub',
         contact_twitter: 'Twitter',
-        footer_copy: '© 2024 Tutti i Diritti Riservati',
+        footer_copy: `© ${new Date().getFullYear()} Tutti i Diritti Riservati`,
         footer_location: 'Globale · Remoto · Disponibile'
     }
 };
