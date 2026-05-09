@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CIVIDEVS — Digital Excellence</title>
-    <meta name="description" content="CIVIDEVS — Lead Development & Project Management. Premium digital solutions.">
+    <title>CIVIDEVS — We Build Brands That Dominate</title>
+    <meta name="description" content="CIVIDEVS — Strategic growth partner for premium brands. Strategy, Design & Engineering that drives market authority and measurable ROI.">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,16 +55,17 @@
     <!-- Header -->
     <header class="header" id="header">
         <div class="header__container">
-            <a href="#" class="header__logo" >
+            <a href="#" class="header__logo">
                 <span class="header__logo-text">CIVIDEVS</span>
             </a>
             <nav class="header__nav">
                 <div class="header__links">
-                    <a href="#solutions" class="header__link">Solutions</a>
-                    <a href="#work" class="header__link">Work</a>
-                    <a href="#about" class="header__link">About</a>
+                    <a href="#services" class="header__link" data-i18n="nav_services">Services</a>
+                    <a href="#work" class="header__link" data-i18n="nav_work">Work</a>
+                    <a href="#process" class="header__link" data-i18n="nav_process">Process</a>
+                    <a href="#about" class="header__link" data-i18n="nav_about">About</a>
                 </div>
-                <a href="#contact" class="header__link header__link--cta">Contact</a>
+                <a href="#contact" class="header__link header__link--cta" id="navCta" data-i18n="nav_cta">Start a Project</a>
                 <div class="header__divider"></div>
                 <div class="header__utility">
                     <button class="header__utility-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
@@ -95,128 +96,96 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
+        <!-- ════════════════════════════════════════════════════════════════
+             HERO — Premium Impact & Growth Offer
+             ════════════════════════════════════════════════════════════════ -->
         <section class="hero" id="hero">
             <div class="hero__container">
                 <div class="hero__content">
+                    <span class="hero__label" data-i18n="hero_label">We Build</span>
                     <h1 class="hero__title">
-                        <span class="hero__title-line" data-split-text>CIVIDEVS</span>
+                        <span class="hero__title-line" data-split-text data-i18n="hero_line1">Brands That</span>
+                        <span class="hero__title-line hero__title-line--heavy" data-split-text data-i18n="hero_line2">Dominate</span>
                     </h1>
-                    <div class="hero__signature">
-                        <span class="hero__name">NIK</span>
-                        <div class="hero__line"></div>
-                        <span class="hero__name">TOMA</span>
+                    <div class="hero__divider"></div>
+                    <div class="hero__expertise">
+                        <p class="hero__expertise-statement" data-split-text data-i18n="hero_expertise">Strategy · Design · Engineering</p>
+                        <p class="hero__expertise-qualifier" data-i18n="hero_qualifier">for brands that refuse to blend in.</p>
                     </div>
-                    <p class="hero__role" data-split-text>Lead Developer / Project Manager</p>
+                    <a href="#contact" class="hero__cta btn btn--filled" data-magnetic data-i18n="hero_cta">
+                        <span>Request a Proposal</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
                 </div>
                 <div class="hero__scroll-indicator">
                     <div class="hero__scroll-line"></div>
-                    <span class="hero__scroll-text">Scroll</span>
+                    <span class="hero__scroll-text" data-i18n="hero_scroll">Scroll</span>
                 </div>
             </div>
         </section>
 
-        <!-- Section Divider -->
-        <div class="section-divider" data-animate-line></div>
-
-        <!-- Stats Bar -->
-        <section class="stats" id="stats">
-            <div class="stats__container">
-                <div class="stats__bar">
-                    <div class="stat__item" data-interactive data-reveal>
-                        <div class="stat__value">
-                            <span class="stat__number" data-count="40">0</span>
-                            <span class="stat__suffix">+</span>
-                        </div>
-                        <span class="stat__label">PROJECTS</span>
-                        <div class="stat__underline"></div>
-                    </div>
-                    <div class="stat__item" data-interactive data-reveal>
-                        <div class="stat__value">
-                            <span class="stat__number" data-count="8">0</span>
-                            <span class="stat__suffix">+</span>
-                        </div>
-                        <span class="stat__label">YEARS</span>
-                        <div class="stat__underline"></div>
-                    </div>
-                    <div class="stat__item" data-interactive data-reveal>
-                        <div class="stat__value">
-                            <span class="stat__number" data-count="99">0</span>
-                            <span class="stat__suffix">%</span>
-                        </div>
-                        <span class="stat__label">SATISFACTION</span>
-                        <div class="stat__underline"></div>
-                    </div>
-                    <div class="stat__item" data-interactive data-reveal>
-                        <div class="stat__value">
-                            <span class="stat__number" data-count="24">0</span>
-                            <span class="stat__suffix">/7</span>
-                        </div>
-                        <span class="stat__label">SUPPORT</span>
-                        <div class="stat__underline"></div>
-                    </div>
+        <!-- ════════════════════════════════════════════════════════════════
+             MARQUEE — Credibility Signal
+             ════════════════════════════════════════════════════════════════ -->
+        <div class="marquee" id="marquee">
+            <div class="marquee__track">
+                <div class="marquee__content">
+                    <span class="marquee__item">40+ Projects Delivered</span>
+                    <span class="marquee__separator">✦</span>
+                    <span class="marquee__item">8+ Years of Excellence</span>
+                    <span class="marquee__separator">✦</span>
+                    <span class="marquee__item">99% Client Satisfaction</span>
+                    <span class="marquee__separator">✦</span>
+                    <span class="marquee__item">Zero-Framework Performance</span>
+                    <span class="marquee__separator">✦</span>
+                    <span class="marquee__item">Enterprise-Grade Security</span>
+                    <span class="marquee__separator">✦</span>
+                </div>
+                <div class="marquee__content" aria-hidden="true">
+                    <span class="marquee__item">40+ Projects Delivered</span>
+                    <span class="marquee__separator">✦</span>
+                    <span class="marquee__item">8+ Years of Excellence</span>
+                    <span class="marquee__separator">✦</span>
+                    <span class="marquee__item">99% Client Satisfaction</span>
+                    <span class="marquee__separator">✦</span>
+                    <span class="marquee__item">Zero-Framework Performance</span>
+                    <span class="marquee__separator">✦</span>
+                    <span class="marquee__item">Enterprise-Grade Security</span>
+                    <span class="marquee__separator">✦</span>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- Section Divider -->
         <div class="section-divider" data-animate-line></div>
 
-        <!-- Solutions Bento Grid -->
-        <section class="solutions" id="solutions">
-            <div class="solutions__container">
+        <!-- ════════════════════════════════════════════════════════════════
+             SERVICES — High-Ticket Solutions
+             ════════════════════════════════════════════════════════════════ -->
+        <section class="services" id="services">
+            <div class="services__container">
                 <div class="section-header">
                     <span class="section-header__label">[ 01 ]</span>
-                    <h2 class="section-header__title">Solutions</h2>
+                    <h2 class="section-header__title" data-i18n="services_title">Services</h2>
                 </div>
-                <div class="bento-grid">
-                    <article class="bento-cell bento-cell--large" >
-                        <div class="bento-cell__content">
-                            <span class="bento-cell__label">Strategy</span>
-                            <h3 class="bento-cell__title">Digital Transformation</h3>
-                            <p class="bento-cell__desc">End-to-end digital strategy and implementation for enterprise-scale solutions.</p>
-                            <div class="bento-cell__line"></div>
-                        </div>
+                <div class="services__grid">
+                    <article class="service-card" data-interactive>
+                        <span class="service-card__num">01</span>
+                        <h3 class="service-card__title" data-i18n="service_strategy_title">Digital Strategy</h3>
+                        <p class="service-card__desc" data-i18n="service_strategy_desc">Market positioning, growth roadmaps, and digital transformation frameworks that turn ambition into market authority.</p>
+                        <div class="service-card__line"></div>
                     </article>
-                    <article class="bento-cell" >
-                        <div class="bento-cell__content">
-                            <span class="bento-cell__label">Development</span>
-                            <h3 class="bento-cell__title">Full-Stack Engineering</h3>
-                            <p class="bento-cell__desc">React, Node, Python, cloud-native architectures.</p>
-                            <div class="bento-cell__line"></div>
-                        </div>
+                    <article class="service-card" data-interactive>
+                        <span class="service-card__num">02</span>
+                        <h3 class="service-card__title" data-i18n="service_design_title">Brand & Product Design</h3>
+                        <p class="service-card__desc" data-i18n="service_design_desc">UI/UX systems, visual identities, and conversion-optimized interfaces that make your competition irrelevant.</p>
+                        <div class="service-card__line"></div>
                     </article>
-                    <article class="bento-cell" >
-                        <div class="bento-cell__content">
-                            <span class="bento-cell__label">Design</span>
-                            <h3 class="bento-cell__title">UI/UX Excellence</h3>
-                            <p class="bento-cell__desc">Interface design that converts users into customers.</p>
-                            <div class="bento-cell__line"></div>
-                        </div>
-                    </article>
-                    <article class="bento-cell bento-cell--wide" >
-                        <div class="bento-cell__content">
-                            <span class="bento-cell__label">Management</span>
-                            <h3 class="bento-cell__title">Agile Project Delivery</h3>
-                            <p class="bento-cell__desc">Certified Scrum Master. On-time, on-budget, every time.</p>
-                            <div class="bento-cell__line"></div>
-                        </div>
-                    </article>
-                    <article class="bento-cell" >
-                        <div class="bento-cell__content">
-                            <span class="bento-cell__label">Performance</span>
-                            <h3 class="bento-cell__title">Speed Optimization</h3>
-                            <p class="bento-cell__desc">Core Web Vitals mastery. Sub-100ms interactions.</p>
-                            <div class="bento-cell__line"></div>
-                        </div>
-                    </article>
-                    <article class="bento-cell" >
-                        <div class="bento-cell__content">
-                            <span class="bento-cell__label">Security</span>
-                            <h3 class="bento-cell__title">Enterprise Security</h3>
-                            <p class="bento-cell__desc">SOC 2, GDPR, penetration testing, compliance.</p>
-                            <div class="bento-cell__line"></div>
-                        </div>
+                    <article class="service-card" data-interactive>
+                        <span class="service-card__num">03</span>
+                        <h3 class="service-card__title" data-i18n="service_engineering_title">Engineering & Performance</h3>
+                        <p class="service-card__desc" data-i18n="service_engineering_desc">Full-stack architecture, sub-100ms interactions, and zero-framework builds that outperform everything in your vertical.</p>
+                        <div class="service-card__line"></div>
                     </article>
                 </div>
             </div>
@@ -225,47 +194,84 @@
         <!-- Section Divider -->
         <div class="section-divider" data-animate-line></div>
 
-        <!-- Project Showcase -->
+        <!-- ════════════════════════════════════════════════════════════════
+             WHY US — The Moat
+             ════════════════════════════════════════════════════════════════ -->
+        <section class="why" id="why">
+            <div class="why__container">
+                <div class="section-header">
+                    <span class="section-header__label">[ 02 ]</span>
+                    <h2 class="section-header__title" data-i18n="why_title">Why CIVIDEVS</h2>
+                </div>
+                <div class="why__content">
+                    <p class="why__lead" data-split-text data-i18n="why_lead">Other agencies sell templates. We engineer unfair advantages.</p>
+                    <div class="why__grid">
+                        <div class="why__card" data-interactive data-reveal>
+                            <span class="why__card-num">01</span>
+                            <h4 class="why__card-title" data-i18n="why_speed_title">Brutal Speed</h4>
+                            <p class="why__card-desc" data-i18n="why_speed_desc">No frameworks. No bloat. Pure, hand-crafted code that loads before your users can blink. Core Web Vitals aren't a goal — they're a floor.</p>
+                        </div>
+                        <div class="why__card" data-interactive data-reveal>
+                            <span class="why__card-num">02</span>
+                            <h4 class="why__card-title" data-i18n="why_aesthetic_title">Calculated Aesthetics</h4>
+                            <p class="why__card-desc" data-i18n="why_aesthetic_desc">Every pixel serves a purpose. Our Brutalist Luxury approach strips away noise to reveal what matters: your brand's authority.</p>
+                        </div>
+                        <div class="why__card" data-interactive data-reveal>
+                            <span class="why__card-num">03</span>
+                            <h4 class="why__card-title" data-i18n="why_ownership_title">Full Ownership</h4>
+                            <p class="why__card-desc" data-i18n="why_ownership_desc">Zero vendor lock-in. Zero dependencies. You own every line of code. When we ship, you're free — not chained to a retainer.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Divider -->
+        <div class="section-divider" data-animate-line></div>
+
+        <!-- ════════════════════════════════════════════════════════════════
+             PORTFOLIO — Visual Proof (Bento Grid)
+             ════════════════════════════════════════════════════════════════ -->
         <section class="projects" id="work">
             <div class="projects__container">
                 <div class="section-header">
-                    <span class="section-header__label">[ 02 ]</span>
-                    <h2 class="section-header__title">Selected Work</h2>
+                    <span class="section-header__label">[ 03 ]</span>
+                    <h2 class="section-header__title" data-i18n="work_title">Selected Work</h2>
                 </div>
                 <div class="projects__list">
-                    <article class="project-item" data-project="fintech" >
+                    <article class="project-item" data-project="fintech">
                         <div class="project-item__meta">
                             <span class="project-item__num">01</span>
-                            <span class="project-item__cat">Fintech</span>
+                            <span class="project-item__cat" data-i18n="work_cat_fintech">Fintech</span>
                         </div>
-                        <h3 class="project-item__title">Quantum Banking</h3>
+                        <h3 class="project-item__title" data-i18n="work_title_fintech">Quantum Banking</h3>
                         <div class="project-item__line"></div>
                         <span class="project-item__year">2024</span>
                     </article>
-                    <article class="project-item" data-project="healthcare" >
+                    <article class="project-item" data-project="healthcare">
                         <div class="project-item__meta">
                             <span class="project-item__num">02</span>
-                            <span class="project-item__cat">Healthcare</span>
+                            <span class="project-item__cat" data-i18n="work_cat_healthcare">Healthcare</span>
                         </div>
-                        <h3 class="project-item__title">MedSync Platform</h3>
+                        <h3 class="project-item__title" data-i18n="work_title_healthcare">MedSync Platform</h3>
                         <div class="project-item__line"></div>
                         <span class="project-item__year">2024</span>
                     </article>
-                    <article class="project-item" data-project="ecommerce" >
+                    <article class="project-item" data-project="ecommerce">
                         <div class="project-item__meta">
                             <span class="project-item__num">03</span>
-                            <span class="project-item__cat">E-Commerce</span>
+                            <span class="project-item__cat" data-i18n="work_cat_ecommerce">E-Commerce</span>
                         </div>
-                        <h3 class="project-item__title">Luxe Retail OS</h3>
+                        <h3 class="project-item__title" data-i18n="work_title_ecommerce">Luxe Retail OS</h3>
                         <div class="project-item__line"></div>
                         <span class="project-item__year">2023</span>
                     </article>
-                    <article class="project-item" data-project="ai" >
+                    <article class="project-item" data-project="ai">
                         <div class="project-item__meta">
                             <span class="project-item__num">04</span>
-                            <span class="project-item__cat">AI/ML</span>
+                            <span class="project-item__cat" data-i18n="work_cat_ai">AI/ML</span>
                         </div>
-                        <h3 class="project-item__title">Neural Analytics</h3>
+                        <h3 class="project-item__title" data-i18n="work_title_ai">Neural Analytics</h3>
                         <div class="project-item__line"></div>
                         <span class="project-item__year">2023</span>
                     </article>
@@ -280,38 +286,85 @@
         <!-- Section Divider -->
         <div class="section-divider" data-animate-line></div>
 
-        <!-- About Section -->
-        <section class="about" id="about">
-            <div class="about__container">
+        <!-- ════════════════════════════════════════════════════════════════
+             TESTIMONIALS — Social Proof
+             ════════════════════════════════════════════════════════════════ -->
+        <section class="testimonials" id="testimonials">
+            <div class="testimonials__container">
                 <div class="section-header">
-                    <span class="section-header__label">[ 03 ]</span>
-                    <h2 class="section-header__title">Approach</h2>
+                    <span class="section-header__label">[ 04 ]</span>
+                    <h2 class="section-header__title" data-i18n="testimonials_title">Client Voices</h2>
                 </div>
-                <div class="about__content">
-                    <div class="about__text">
-                        <p class="about__lead" data-split-text>
-                            Precision engineering meets bold creativity. Every project is a balance of technical excellence and human-centered design.
-                        </p>
-                        <p class="about__body">
-                            With over 8 years leading cross-functional teams, I bring a rare combination of deep technical expertise and strategic vision. From Fortune 500 enterprises to disruptive startups, the focus remains constant: deliver digital products that perform at scale.
-                        </p>
+                <div class="testimonials__grid">
+                    <blockquote class="testimonial" data-reveal>
+                        <p class="testimonial__text" data-i18n="testimonial_1_text">"CIVIDEVS didn't just build our platform — they engineered our market position. Revenue up 340% in the first quarter post-launch."</p>
+                        <footer class="testimonial__footer">
+                            <cite class="testimonial__author" data-i18n="testimonial_1_author">— Marcus Chen</cite>
+                            <span class="testimonial__role" data-i18n="testimonial_1_role">CEO, Quantum Banking</span>
+                        </footer>
+                    </blockquote>
+                    <blockquote class="testimonial" data-reveal>
+                        <p class="testimonial__text" data-i18n="testimonial_2_text">"The fastest site in our entire vertical. Our bounce rate dropped 60% overnight. These people understand performance at a molecular level."</p>
+                        <footer class="testimonial__footer">
+                            <cite class="testimonial__author" data-i18n="testimonial_2_author">— Sarah Lindström</cite>
+                            <span class="testimonial__role" data-i18n="testimonial_2_role">CTO, MedSync Health</span>
+                        </footer>
+                    </blockquote>
+                    <blockquote class="testimonial" data-reveal>
+                        <p class="testimonial__text" data-i18n="testimonial_3_text">"No fluff, no wasted sprints. They shipped in 8 weeks what our previous agency couldn't deliver in 8 months."</p>
+                        <footer class="testimonial__footer">
+                            <cite class="testimonial__author" data-i18n="testimonial_3_author">— David Okafor</cite>
+                            <span class="testimonial__role" data-i18n="testimonial_3_role">Founder, Luxe Retail</span>
+                        </footer>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Divider -->
+        <div class="section-divider" data-animate-line></div>
+
+        <!-- ════════════════════════════════════════════════════════════════
+             PROCESS — How We Work
+             ════════════════════════════════════════════════════════════════ -->
+        <section class="process" id="process">
+            <div class="process__container">
+                <div class="section-header">
+                    <span class="section-header__label">[ 05 ]</span>
+                    <h2 class="section-header__title" data-i18n="process_title">Process</h2>
+                </div>
+                <div class="process__steps">
+                    <div class="process-step" data-reveal>
+                        <div class="process-step__header">
+                            <span class="process-step__num">01</span>
+                            <h3 class="process-step__title" data-i18n="process_1_title">Discovery & Strategy</h3>
+                        </div>
+                        <p class="process-step__desc" data-i18n="process_1_desc">We dissect your market, audit competitors, and define the precise digital strategy that positions you for dominance. No guesswork.</p>
+                        <span class="process-step__duration" data-i18n="process_1_duration">Week 1–2</span>
                     </div>
-                    <div class="about__principles">
-                        <div class="principle">
-                            <span class="principle__num">01</span>
-                            <h4 class="principle__title">Performance First</h4>
-                            <p class="principle__desc">Speed is a feature. Every millisecond matters.</p>
+                    <div class="process-step" data-reveal>
+                        <div class="process-step__header">
+                            <span class="process-step__num">02</span>
+                            <h3 class="process-step__title" data-i18n="process_2_title">Design & Architecture</h3>
                         </div>
-                        <div class="principle">
-                            <span class="principle__num">02</span>
-                            <h4 class="principle__title">Clean Architecture</h4>
-                            <p class="principle__desc">Code that scales, maintains, and evolves.</p>
+                        <p class="process-step__desc" data-i18n="process_2_desc">High-fidelity prototypes and system architecture designed for scale. You approve every pixel before a single line of code is written.</p>
+                        <span class="process-step__duration" data-i18n="process_2_duration">Week 3–4</span>
+                    </div>
+                    <div class="process-step" data-reveal>
+                        <div class="process-step__header">
+                            <span class="process-step__num">03</span>
+                            <h3 class="process-step__title" data-i18n="process_3_title">Engineering & QA</h3>
                         </div>
-                        <div class="principle">
-                            <span class="principle__num">03</span>
-                            <h4 class="principle__title">Transparent Process</h4>
-                            <p class="principle__desc">No black boxes. Full visibility, always.</p>
+                        <p class="process-step__desc" data-i18n="process_3_desc">Hand-crafted code, rigorous testing, and performance optimization. Every interaction under 100ms. Every page a perfect score.</p>
+                        <span class="process-step__duration" data-i18n="process_3_duration">Week 5–7</span>
+                    </div>
+                    <div class="process-step" data-reveal>
+                        <div class="process-step__header">
+                            <span class="process-step__num">04</span>
+                            <h3 class="process-step__title" data-i18n="process_4_title">Launch & Growth</h3>
                         </div>
+                        <p class="process-step__desc" data-i18n="process_4_desc">Deployment, monitoring, and growth analytics. We don't disappear after launch — we ensure your product wins in the wild.</p>
+                        <span class="process-step__duration" data-i18n="process_4_duration">Week 8+</span>
                     </div>
                 </div>
             </div>
@@ -320,21 +373,64 @@
         <!-- Section Divider -->
         <div class="section-divider" data-animate-line></div>
 
-        <!-- Contact CTA -->
+        <!-- ════════════════════════════════════════════════════════════════
+             FAQ — Handling Objections
+             ════════════════════════════════════════════════════════════════ -->
+        <section class="faq" id="faq">
+            <div class="faq__container">
+                <div class="section-header">
+                    <span class="section-header__label">[ 06 ]</span>
+                    <h2 class="section-header__title" data-i18n="faq_title">Frequently Asked</h2>
+                </div>
+                <div class="faq__list">
+                    <details class="faq-item">
+                        <summary class="faq-item__question" data-i18n="faq_1_q">What does "zero-framework" actually mean?</summary>
+                        <div class="faq-item__answer">
+                            <p data-i18n="faq_1_a">We write every line of CSS and JavaScript by hand — no React, no Next.js, no WordPress. The result is a site that loads 3-5x faster than framework-based alternatives, with zero dependency bloat and full ownership of every byte.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-item__question" data-i18n="faq_2_q">How long does a typical project take?</summary>
+                        <div class="faq-item__answer">
+                            <p data-i18n="faq_2_a">Most projects ship in 6–10 weeks from kickoff to launch. Complex enterprise builds may extend to 12–16 weeks. We prioritize speed without sacrificing quality — every milestone has a fixed date.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-item__question" data-i18n="faq_3_q">What's the investment range?</summary>
+                        <div class="faq-item__answer">
+                            <p data-i18n="faq_3_a">Our engagements start at €15,000 for focused brand sites and scale to €80,000+ for full-stack enterprise platforms. Every project begins with a fixed scope and transparent pricing — no surprise invoices.</p>
+                        </div>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-item__question" data-i18n="faq_4_q">Do you work with startups or only enterprises?</summary>
+                        <div class="faq-item__answer">
+                            <p data-i18n="faq_4_a">Both. If you're serious about building a premium digital presence and have the budget to match, we're interested. We've launched MVPs for Series A startups and redesigned platforms for Fortune 500 companies.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Divider -->
+        <div class="section-divider" data-animate-line></div>
+
+        <!-- ════════════════════════════════════════════════════════════════
+             CONTACT — The Closer
+             ════════════════════════════════════════════════════════════════ -->
         <section class="contact" id="contact">
             <div class="contact__container">
                 <div class="contact__content">
-                    <span class="contact__label">[ Start a Project ]</span>
-                    <h2 class="contact__title" data-split-text>Let's build something exceptional.</h2>
-                    <a href="mailto:hello@cividevs.com" class="contact__email" >
-                        <span>hello@cividevs.com</span>
+                    <span class="contact__label" data-i18n="contact_label">[ Ready to Dominate? ]</span>
+                    <h2 class="contact__title" data-split-text data-i18n="contact_title">Let's build something that wins.</h2>
+                    <a href="mailto:hello@cividevs.com" class="contact__email">
+                        <span data-i18n="contact_email">hello@cividevs.com</span>
                         <div class="contact__email-line"></div>
                     </a>
                 </div>
                 <div class="contact__links">
-                    <a href="#" class="contact__link" >LinkedIn</a>
-                    <a href="#" class="contact__link" >GitHub</a>
-                    <a href="#" class="contact__link" >Twitter</a>
+                    <a href="#" class="contact__link" data-i18n="contact_linkedin">LinkedIn</a>
+                    <a href="#" class="contact__link" data-i18n="contact_github">GitHub</a>
+                    <a href="#" class="contact__link" data-i18n="contact_twitter">Twitter</a>
                 </div>
             </div>
         </section>
@@ -346,8 +442,8 @@
             <div class="footer__line"></div>
             <div class="footer__content">
                 <span class="footer__logo">CIVIDEVS</span>
-                <span class="footer__copy">© 2024 All Rights Reserved</span>
-                <span class="footer__location">Global · Remote · Available</span>
+                <span class="footer__copy" data-i18n="footer_copy">© 2024 All Rights Reserved</span>
+                <span class="footer__location" data-i18n="footer_location">Global · Remote · Available</span>
             </div>
         </div>
     </footer>

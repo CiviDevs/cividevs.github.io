@@ -1,7 +1,7 @@
 /**
  * CIVIDEVS — Main Entry Point
  * Initializes Lenis smooth scroll, GSAP plugins, and all modules
- * @version 1.0.0
+ * @version 2.0.0
  */
 
 'use strict';
@@ -118,14 +118,12 @@ export function prefersReducedMotion() {
 
 /**
  * Theme Toggle functionality
- * Handles theme switching between dark and light modes - Text button style
  */
 function initThemeToggle() {
     const themeToggle = document.getElementById('themeToggle');
     const html = document.documentElement;
     const STORAGE_KEY = 'cividevs-theme';
 
-    // Get saved theme or default to dark
     const getSavedTheme = () => {
         try {
             return localStorage.getItem(STORAGE_KEY) || 'dark';
@@ -134,7 +132,6 @@ function initThemeToggle() {
         }
     };
 
-    // Save theme preference
     const saveTheme = (theme) => {
         try {
             localStorage.setItem(STORAGE_KEY, theme);
@@ -143,7 +140,6 @@ function initThemeToggle() {
         }
     };
 
-    // Apply theme to document
     const applyTheme = (theme) => {
         if (theme === 'light') {
             html.setAttribute('data-theme', 'light');
@@ -152,7 +148,6 @@ function initThemeToggle() {
         }
     };
 
-    // Toggle between themes
     const toggleTheme = () => {
         const currentTheme = html.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
         const newTheme = currentTheme === 'light' ? 'dark' : 'light';
@@ -160,19 +155,15 @@ function initThemeToggle() {
         saveTheme(newTheme);
     };
 
-    // Initialize
     const savedTheme = getSavedTheme();
     applyTheme(savedTheme);
 
-    // Event listener
     if (themeToggle) {
         themeToggle.addEventListener('click', toggleTheme);
     }
 
-    // Listen for system preference changes
     const mediaQuery = window.matchMedia('(prefers-color-scheme: light)');
     mediaQuery.addEventListener('change', (e) => {
-        // Only apply if no saved preference
         try {
             const hasSaved = localStorage.getItem(STORAGE_KEY);
             if (!hasSaved) {
@@ -191,43 +182,41 @@ function initThemeToggle() {
 const translations = {
     en: {
         // Navigation
-        nav_solutions: 'Solutions',
+        nav_services: 'Services',
         nav_work: 'Work',
+        nav_process: 'Process',
         nav_about: 'About',
-        nav_contact: 'Contact',
+        nav_cta: 'Start a Project',
 
         // Hero
-        hero_role: 'Lead Developer / Project Manager',
+        hero_label: 'We Build',
+        hero_line1: 'Brands That',
+        hero_line2: 'Dominate',
+        hero_expertise: 'Strategy · Design · Engineering',
+        hero_qualifier: 'for brands that refuse to blend in.',
+        hero_cta: 'Request a Proposal',
         hero_scroll: 'Scroll',
 
-        // Stats
-        stat_projects: 'PROJECTS',
-        stat_years: 'YEARS',
-        stat_satisfaction: 'SATISFACTION',
-        stat_support: 'SUPPORT',
+        // Services
+        services_title: 'Services',
+        service_strategy_title: 'Digital Strategy',
+        service_strategy_desc: 'Market positioning, growth roadmaps, and digital transformation frameworks that turn ambition into market authority.',
+        service_design_title: 'Brand & Product Design',
+        service_design_desc: 'UI/UX systems, visual identities, and conversion-optimized interfaces that make your competition irrelevant.',
+        service_engineering_title: 'Engineering & Performance',
+        service_engineering_desc: 'Full-stack architecture, sub-100ms interactions, and zero-framework builds that outperform everything in your vertical.',
 
-        // Solutions section
-        solutions_title: 'Solutions',
-        solutions_label_strategy: 'Strategy',
-        solutions_title_digital: 'Digital Transformation',
-        solutions_desc_digital: 'End-to-end digital strategy and implementation for enterprise-scale solutions.',
-        solutions_label_dev: 'Development',
-        solutions_title_fullstack: 'Full-Stack Engineering',
-        solutions_desc_fullstack: 'React, Node, Python, cloud-native architectures.',
-        solutions_label_design: 'Design',
-        solutions_title_uiux: 'UI/UX Excellence',
-        solutions_desc_uiux: 'Interface design that converts users into customers.',
-        solutions_label_mgmt: 'Management',
-        solutions_title_agile: 'Agile Project Delivery',
-        solutions_desc_agile: 'Certified Scrum Master. On-time, on-budget, every time.',
-        solutions_label_perf: 'Performance',
-        solutions_title_speed: 'Speed Optimization',
-        solutions_desc_speed: 'Core Web Vitals mastery. Sub-100ms interactions.',
-        solutions_label_security: 'Security',
-        solutions_title_security: 'Enterprise Security',
-        solutions_desc_security: 'SOC 2, GDPR, penetration testing, compliance.',
+        // Why Us
+        why_title: 'Why CIVIDEVS',
+        why_lead: 'Other agencies sell templates. We engineer unfair advantages.',
+        why_speed_title: 'Brutal Speed',
+        why_speed_desc: 'No frameworks. No bloat. Pure, hand-crafted code that loads before your users can blink. Core Web Vitals aren\'t a goal — they\'re a floor.',
+        why_aesthetic_title: 'Calculated Aesthetics',
+        why_aesthetic_desc: 'Every pixel serves a purpose. Our Brutalist Luxury approach strips away noise to reveal what matters: your brand\'s authority.',
+        why_ownership_title: 'Full Ownership',
+        why_ownership_desc: 'Zero vendor lock-in. Zero dependencies. You own every line of code. When we ship, you\'re free — not chained to a retainer.',
 
-        // Work section
+        // Work
         work_title: 'Selected Work',
         work_cat_fintech: 'Fintech',
         work_title_fintech: 'Quantum Banking',
@@ -238,20 +227,47 @@ const translations = {
         work_cat_ai: 'AI/ML',
         work_title_ai: 'Neural Analytics',
 
-        // About section
-        about_title: 'Approach',
-        about_lead: 'Precision engineering meets bold creativity. Every project is a balance of technical excellence and human-centered design.',
-        about_body: 'With over 8 years leading cross-functional teams, I bring a rare combination of deep technical expertise and strategic vision. From Fortune 500 enterprises to disruptive startups, the focus remains constant: deliver digital products that perform at scale.',
-        about_p1_title: 'Performance First',
-        about_p1_desc: 'Speed is a feature. Every millisecond matters.',
-        about_p2_title: 'Clean Architecture',
-        about_p2_desc: 'Code that scales, maintains, and evolves.',
-        about_p3_title: 'Transparent Process',
-        about_p3_desc: 'No black boxes. Full visibility, always.',
+        // Testimonials
+        testimonials_title: 'Client Voices',
+        testimonial_1_text: '"CIVIDEVS didn\'t just build our platform — they engineered our market position. Revenue up 340% in the first quarter post-launch."',
+        testimonial_1_author: '— Marcus Chen',
+        testimonial_1_role: 'CEO, Quantum Banking',
+        testimonial_2_text: '"The fastest site in our entire vertical. Our bounce rate dropped 60% overnight. These people understand performance at a molecular level."',
+        testimonial_2_author: '— Sarah Lindström',
+        testimonial_2_role: 'CTO, MedSync Health',
+        testimonial_3_text: '"No fluff, no wasted sprints. They shipped in 8 weeks what our previous agency couldn\'t deliver in 8 months."',
+        testimonial_3_author: '— David Okafor',
+        testimonial_3_role: 'Founder, Luxe Retail',
 
-        // Contact section
-        contact_label: '[ Start a Project ]',
-        contact_title: "Let's build something exceptional.",
+        // Process
+        process_title: 'Process',
+        process_1_title: 'Discovery & Strategy',
+        process_1_desc: 'We dissect your market, audit competitors, and define the precise digital strategy that positions you for dominance.',
+        process_1_duration: 'Week 1–2',
+        process_2_title: 'Design & Architecture',
+        process_2_desc: 'High-fidelity prototypes and system architecture designed for scale. You approve every pixel before a single line of code is written.',
+        process_2_duration: 'Week 3–4',
+        process_3_title: 'Engineering & QA',
+        process_3_desc: 'Hand-crafted code, rigorous testing, and performance optimization. Every interaction under 100ms.',
+        process_3_duration: 'Week 5–7',
+        process_4_title: 'Launch & Growth',
+        process_4_desc: 'Deployment, monitoring, and growth analytics. We don\'t disappear after launch — we ensure your product wins.',
+        process_4_duration: 'Week 8+',
+
+        // FAQ
+        faq_title: 'Frequently Asked',
+        faq_1_q: 'What does "zero-framework" actually mean?',
+        faq_1_a: 'We write every line of CSS and JavaScript by hand — no React, no Next.js, no WordPress. The result is a site that loads 3-5x faster than framework-based alternatives.',
+        faq_2_q: 'How long does a typical project take?',
+        faq_2_a: 'Most projects ship in 6–10 weeks from kickoff to launch. Complex enterprise builds may extend to 12–16 weeks.',
+        faq_3_q: 'What\'s the investment range?',
+        faq_3_a: 'Our engagements start at €15,000 for focused brand sites and scale to €80,000+ for full-stack enterprise platforms.',
+        faq_4_q: 'Do you work with startups or only enterprises?',
+        faq_4_a: 'Both. If you\'re serious about building a premium digital presence and have the budget to match, we\'re interested.',
+
+        // Contact
+        contact_label: '[ Ready to Dominate? ]',
+        contact_title: "Let's build something that wins.",
         contact_email: 'hello@cividevs.com',
         contact_linkedin: 'LinkedIn',
         contact_github: 'GitHub',
@@ -263,43 +279,41 @@ const translations = {
     },
     it: {
         // Navigation
-        nav_solutions: 'Soluzioni',
+        nav_services: 'Servizi',
         nav_work: 'Lavori',
+        nav_process: 'Processo',
         nav_about: 'Chi Siamo',
-        nav_contact: 'Contatti',
+        nav_cta: 'Inizia un Progetto',
 
         // Hero
-        hero_role: 'Lead Developer / Project Manager',
+        hero_label: 'Costruiamo',
+        hero_line1: 'Brand Che',
+        hero_line2: 'Dominano',
+        hero_expertise: 'Strategia · Design · Ingegneria',
+        hero_qualifier: 'per brand che rifiutano di confondersi.',
+        hero_cta: 'Richiedi una Proposta',
         hero_scroll: 'Scorri',
 
-        // Stats
-        stat_projects: 'PROGETTI',
-        stat_years: 'ANNI',
-        stat_satisfaction: 'SODDISFAZIONE',
-        stat_support: 'SUPPORTO',
+        // Services
+        services_title: 'Servizi',
+        service_strategy_title: 'Strategia Digitale',
+        service_strategy_desc: 'Posizionamento di mercato, roadmap di crescita e framework di trasformazione digitale che trasformano l\'ambizione in autorità.',
+        service_design_title: 'Brand & Product Design',
+        service_design_desc: 'Sistemi UI/UX, identità visive e interfacce ottimizzate per la conversione che rendono irrilevante la concorrenza.',
+        service_engineering_title: 'Ingegneria & Performance',
+        service_engineering_desc: 'Architettura full-stack, interazioni sotto i 100ms e build zero-framework che superano tutto nel tuo verticale.',
 
-        // Solutions section
-        solutions_title: 'Soluzioni',
-        solutions_label_strategy: 'Strategia',
-        solutions_title_digital: 'Trasformazione Digitale',
-        solutions_desc_digital: 'Strategia digitale end-to-end e implementazione per soluzioni enterprise.',
-        solutions_label_dev: 'Sviluppo',
-        solutions_title_fullstack: 'Ingegneria Full-Stack',
-        solutions_desc_fullstack: 'React, Node, Python, architetture cloud-native.',
-        solutions_label_design: 'Design',
-        solutions_title_uiux: 'Eccellenza UI/UX',
-        solutions_desc_uiux: 'Design di interfacce che convertono utenti in clienti.',
-        solutions_label_mgmt: 'Gestione',
-        solutions_title_agile: 'Consegna Agile',
-        solutions_desc_agile: 'Scrum Master certificato. In tempo, nel budget, sempre.',
-        solutions_label_perf: 'Performance',
-        solutions_title_speed: 'Ottimizzazione Velocità',
-        solutions_desc_speed: 'Maestria Core Web Vitals. Interazioni sotto i 100ms.',
-        solutions_label_security: 'Sicurezza',
-        solutions_title_security: 'Sicurezza Enterprise',
-        solutions_desc_security: 'SOC 2, GDPR, penetration testing, compliance.',
+        // Why Us
+        why_title: 'Perché CIVIDEVS',
+        why_lead: 'Le altre agenzie vendono template. Noi progettiamo vantaggi competitivi.',
+        why_speed_title: 'Velocità Brutale',
+        why_speed_desc: 'Niente framework. Niente bloat. Codice puro, artigianale, che carica prima che i tuoi utenti possano battere ciglio.',
+        why_aesthetic_title: 'Estetica Calcolata',
+        why_aesthetic_desc: 'Ogni pixel ha uno scopo. Il nostro approccio Brutalist Luxury elimina il rumore per rivelare ciò che conta.',
+        why_ownership_title: 'Proprietà Totale',
+        why_ownership_desc: 'Zero vendor lock-in. Zero dipendenze. Ogni riga di codice è tua. Quando consegniamo, sei libero.',
 
-        // Work section
+        // Work
         work_title: 'Lavori Selezionati',
         work_cat_fintech: 'Fintech',
         work_title_fintech: 'Quantum Banking',
@@ -310,20 +324,47 @@ const translations = {
         work_cat_ai: 'AI/ML',
         work_title_ai: 'Neural Analytics',
 
-        // About section
-        about_title: 'Approccio',
-        about_lead: "L'ingegneria di precisione incontra la creatività audace. Ogni progetto è un equilibrio tra eccellenza tecnica e design centrato sull'utente.",
-        about_body: "Con oltre 8 anni di leadership di team cross-funzionali, porto una rara combinazione di profonda competenza tecnica e visione strategica. Dalle imprese Fortune 500 alle startup disruptive, l'attenzione rimane costante: consegnare prodotti digitali che performano su larga scala.",
-        about_p1_title: 'Performance First',
-        about_p1_desc: 'La velocità è una feature. Ogni millisecondo conta.',
-        about_p2_title: 'Architettura Pulita',
-        about_p2_desc: 'Codice che scala, si mantiene e si evolve.',
-        about_p3_title: 'Processo Trasparente',
-        about_p3_desc: 'Niente scatole nere. Piena visibilità, sempre.',
+        // Testimonials
+        testimonials_title: 'Voci dei Clienti',
+        testimonial_1_text: '"CIVIDEVS non ha solo costruito la nostra piattaforma — ha ingegnerizzato la nostra posizione di mercato. Fatturato +340% nel primo trimestre."',
+        testimonial_1_author: '— Marcus Chen',
+        testimonial_1_role: 'CEO, Quantum Banking',
+        testimonial_2_text: '"Il sito più veloce del nostro intero verticale. Il bounce rate è calato del 60% dalla sera alla mattina."',
+        testimonial_2_author: '— Sarah Lindström',
+        testimonial_2_role: 'CTO, MedSync Health',
+        testimonial_3_text: '"Niente fronzoli, niente sprint sprecati. Hanno consegnato in 8 settimane quello che la nostra agenzia precedente non riusciva in 8 mesi."',
+        testimonial_3_author: '— David Okafor',
+        testimonial_3_role: 'Fondatore, Luxe Retail',
 
-        // Contact section
-        contact_label: '[ Inizia un Progetto ]',
-        contact_title: 'Costruiamo qualcosa di eccezionale.',
+        // Process
+        process_title: 'Processo',
+        process_1_title: 'Scoperta & Strategia',
+        process_1_desc: 'Analizziamo il tuo mercato, auditiamo i competitor e definiamo la strategia digitale che ti posiziona per il dominio.',
+        process_1_duration: 'Settimana 1–2',
+        process_2_title: 'Design & Architettura',
+        process_2_desc: 'Prototipi ad alta fedeltà e architettura progettata per scalare. Approvi ogni pixel prima che venga scritta una riga di codice.',
+        process_2_duration: 'Settimana 3–4',
+        process_3_title: 'Ingegneria & QA',
+        process_3_desc: 'Codice artigianale, test rigorosi e ottimizzazione delle performance. Ogni interazione sotto i 100ms.',
+        process_3_duration: 'Settimana 5–7',
+        process_4_title: 'Lancio & Crescita',
+        process_4_desc: 'Deployment, monitoraggio e analytics di crescita. Non spariamoafter il lancio — assicuriamo che il tuo prodotto vinca.',
+        process_4_duration: 'Settimana 8+',
+
+        // FAQ
+        faq_title: 'Domande Frequenti',
+        faq_1_q: 'Cosa significa "zero-framework"?',
+        faq_1_a: 'Scriviamo ogni riga di CSS e JavaScript a mano — niente React, niente Next.js, niente WordPress. Il risultato è un sito 3-5x più veloce.',
+        faq_2_q: 'Quanto dura un progetto tipico?',
+        faq_2_a: 'La maggior parte dei progetti viene consegnata in 6–10 settimane. Build enterprise complessi possono estendersi a 12–16 settimane.',
+        faq_3_q: 'Qual è il range di investimento?',
+        faq_3_a: 'I nostri ingaggi partono da €15.000 per siti brand focalizzati e scalano a €80.000+ per piattaforme enterprise full-stack.',
+        faq_4_q: 'Lavorate con startup o solo enterprise?',
+        faq_4_a: 'Entrambi. Se sei serio nel costruire una presenza digitale premium e hai il budget adeguato, siamo interessati.',
+
+        // Contact
+        contact_label: '[ Pronti a Dominare? ]',
+        contact_title: 'Costruiamo qualcosa che vince.',
         contact_email: 'hello@cividevs.com',
         contact_linkedin: 'LinkedIn',
         contact_github: 'GitHub',
@@ -337,7 +378,6 @@ const translations = {
 
 /**
  * Language Toggle functionality
- * Handles language switching with dropdown
  */
 function initLanguageToggle() {
     const langToggle = document.getElementById('langToggle');
@@ -347,7 +387,6 @@ function initLanguageToggle() {
     const html = document.documentElement;
     const STORAGE_KEY = 'cividevs-lang';
 
-    // Get saved language or default to English
     const getSavedLang = () => {
         try {
             return localStorage.getItem(STORAGE_KEY) || 'en';
@@ -356,161 +395,47 @@ function initLanguageToggle() {
         }
     };
 
-    // Save language preference
     const saveLang = (lang) => {
         try {
             localStorage.setItem(STORAGE_KEY, lang);
-        } catch (e) {
-            // Ignore localStorage errors
-        }
+        } catch (e) {}
     };
 
-    // Apply translations to the page
+    /**
+     * Apply translations using data-i18n attributes
+     */
     const applyTranslations = (lang) => {
         const t = translations[lang];
         if (!t) return;
 
-        // Update lang attribute
         html.setAttribute('lang', lang);
 
-        // Navigation
-        updateText('[href="#solutions"]', t.nav_solutions);
-        updateText('[href="#work"]', t.nav_work);
-        updateText('[href="#about"]', t.nav_about);
-        updateText('.header__link--cta', t.nav_contact);
-
-        // Hero
-        updateText('.hero__role', t.hero_role, true);
-        updateText('.hero__scroll-text', t.hero_scroll);
-
-        // Stats
-        updateText('.stat__item:nth-child(1) .stat__label', t.stat_projects);
-        updateText('.stat__item:nth-child(3) .stat__label', t.stat_years);
-        updateText('.stat__item:nth-child(5) .stat__label', t.stat_satisfaction);
-        updateText('.stat__item:nth-child(7) .stat__label', t.stat_support);
-
-        // Solutions
-        updateText('.solutions .section-header__title', t.solutions_title);
-        const bentoLabels = document.querySelectorAll('.bento-cell__label');
-        if (bentoLabels[0]) bentoLabels[0].textContent = t.solutions_label_strategy;
-        if (bentoLabels[1]) bentoLabels[1].textContent = t.solutions_label_dev;
-        if (bentoLabels[2]) bentoLabels[2].textContent = t.solutions_label_design;
-        if (bentoLabels[3]) bentoLabels[3].textContent = t.solutions_label_mgmt;
-        if (bentoLabels[4]) bentoLabels[4].textContent = t.solutions_label_perf;
-        if (bentoLabels[5]) bentoLabels[5].textContent = t.solutions_label_security;
-
-        const bentoTitles = document.querySelectorAll('.bento-cell__title');
-        if (bentoTitles[0]) bentoTitles[0].textContent = t.solutions_title_digital;
-        if (bentoTitles[1]) bentoTitles[1].textContent = t.solutions_title_fullstack;
-        if (bentoTitles[2]) bentoTitles[2].textContent = t.solutions_title_uiux;
-        if (bentoTitles[3]) bentoTitles[3].textContent = t.solutions_title_agile;
-        if (bentoTitles[4]) bentoTitles[4].textContent = t.solutions_title_speed;
-        if (bentoTitles[5]) bentoTitles[5].textContent = t.solutions_title_security;
-
-        const bentoDescs = document.querySelectorAll('.bento-cell__desc');
-        if (bentoDescs[0]) bentoDescs[0].textContent = t.solutions_desc_digital;
-        if (bentoDescs[1]) bentoDescs[1].textContent = t.solutions_desc_fullstack;
-        if (bentoDescs[2]) bentoDescs[2].textContent = t.solutions_desc_uiux;
-        if (bentoDescs[3]) bentoDescs[3].textContent = t.solutions_desc_agile;
-        if (bentoDescs[4]) bentoDescs[4].textContent = t.solutions_desc_speed;
-        if (bentoDescs[5]) bentoDescs[5].textContent = t.solutions_desc_security;
-
-        // Work
-        updateText('.projects .section-header__title', t.work_title);
-        const projectCats = document.querySelectorAll('.project-item__cat');
-        if (projectCats[0]) projectCats[0].textContent = t.work_cat_fintech;
-        if (projectCats[1]) projectCats[1].textContent = t.work_cat_healthcare;
-        if (projectCats[2]) projectCats[2].textContent = t.work_cat_ecommerce;
-        if (projectCats[3]) projectCats[3].textContent = t.work_cat_ai;
-
-        const projectTitles = document.querySelectorAll('.project-item__title');
-        if (projectTitles[0]) projectTitles[0].textContent = t.work_title_fintech;
-        if (projectTitles[1]) projectTitles[1].textContent = t.work_title_healthcare;
-        if (projectTitles[2]) projectTitles[2].textContent = t.work_title_ecommerce;
-        if (projectTitles[3]) projectTitles[3].textContent = t.work_title_ai;
-
-        // About
-        updateText('.about .section-header__title', t.about_title);
-        const aboutLead = document.querySelector('.about__lead');
-        if (aboutLead) {
-            aboutLead.textContent = t.about_lead;
-            // Re-trigger split text animation if needed
-            if (aboutLead.hasAttribute('data-split-text')) {
-                aboutLead.setAttribute('data-split-text', '');
+        // Update all elements with data-i18n attribute
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (t[key] !== undefined) {
+                el.textContent = t[key];
             }
-        }
-        updateText('.about__body', t.about_body);
-
-        const principles = document.querySelectorAll('.principle');
-        if (principles[0]) {
-            principles[0].querySelector('.principle__title').textContent = t.about_p1_title;
-            principles[0].querySelector('.principle__desc').textContent = t.about_p1_desc;
-        }
-        if (principles[1]) {
-            principles[1].querySelector('.principle__title').textContent = t.about_p2_title;
-            principles[1].querySelector('.principle__desc').textContent = t.about_p2_desc;
-        }
-        if (principles[2]) {
-            principles[2].querySelector('.principle__title').textContent = t.about_p3_title;
-            principles[2].querySelector('.principle__desc').textContent = t.about_p3_desc;
-        }
-
-        // Contact
-        updateText('.contact__label', t.contact_label);
-        const contactTitle = document.querySelector('.contact__title');
-        if (contactTitle) {
-            contactTitle.textContent = t.contact_title;
-            if (contactTitle.hasAttribute('data-split-text')) {
-                contactTitle.setAttribute('data-split-text', '');
-            }
-        }
-
-        const contactLinks = document.querySelectorAll('.contact__link');
-        if (contactLinks[0]) contactLinks[0].textContent = t.contact_linkedin;
-        if (contactLinks[1]) contactLinks[1].textContent = t.contact_github;
-        if (contactLinks[2]) contactLinks[2].textContent = t.contact_twitter;
-
-        // Footer
-        updateText('.footer__copy', t.footer_copy);
-        updateText('.footer__location', t.footer_location);
+        });
     };
 
-    // Helper to update text content
-    const updateText = (selector, text, useSplit = false) => {
-        const el = document.querySelector(selector);
-        if (el) {
-            el.textContent = text;
-        }
-    };
-
-    // Toggle dropdown
     const toggleDropdown = () => {
         langToggle.classList.toggle('is-open');
     };
 
-    // Close dropdown
     const closeDropdown = () => {
         langToggle.classList.remove('is-open');
     };
 
-    // Set language
     const setLanguage = (lang) => {
-        // Update active state on options
         langOptions.forEach(opt => {
             opt.classList.toggle('is-active', opt.dataset.lang === lang);
         });
-
-        // Apply translations
         applyTranslations(lang);
-
-        // Save preference
         saveLang(lang);
-
-        // Close dropdown
         closeDropdown();
     };
 
-    // Event listeners
     if (langToggle && langBtn) {
         langBtn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -524,14 +449,12 @@ function initLanguageToggle() {
             });
         });
 
-        // Close on outside click
         document.addEventListener('click', (e) => {
             if (!langToggle.contains(e.target)) {
                 closeDropdown();
             }
         });
 
-        // Close on Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeDropdown();
@@ -539,7 +462,6 @@ function initLanguageToggle() {
         });
     }
 
-    // Initialize with saved language
     const savedLang = getSavedLang();
     setLanguage(savedLang);
 }
