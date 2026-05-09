@@ -527,6 +527,8 @@ function animateHeader() {
     if (!header) return;
 
     let lastScroll = 0;
+    let isHidden = false;
+    let isFilled = false;
     
     ScrollTrigger.create({
         start: 'top -100',
@@ -536,26 +538,38 @@ function animateHeader() {
             
             if (currentScroll > lastScroll && currentScroll > 100) {
                 // Scrolling down — hide header
-                gsap.to(header, {
-                    y: -100,
-                    duration: 0.3,
-                    ease: 'power2.out'
-                });
+                if (!isHidden) {
+                    gsap.to(header, {
+                        yPercent: -100,
+                        duration: 0.3,
+                        ease: 'power2.out',
+                        overwrite: true
+                    });
+                    isHidden = true;
+                }
             } else {
                 // Scrolling up — show header
-                gsap.to(header, {
-                    y: 0,
-                    duration: 0.3,
-                    ease: 'power2.out'
-                });
+                if (isHidden || currentScroll <= 100) {
+                    gsap.to(header, {
+                        yPercent: 0,
+                        duration: 0.3,
+                        ease: 'power2.out',
+                        overwrite: true
+                    });
+                    isHidden = false;
+                }
             }
 
             // CTA morph — when past hero, change to filled style
             if (navCta) {
-                if (currentScroll > window.innerHeight * 0.8) {
-                    navCta.classList.add('header__link--filled');
-                } else {
-                    navCta.classList.remove('header__link--filled');
+                const shouldBeFilled = currentScroll > window.innerHeight * 0.8;
+                if (shouldBeFilled !== isFilled) {
+                    if (shouldBeFilled) {
+                        navCta.classList.add('header__link--filled');
+                    } else {
+                        navCta.classList.remove('header__link--filled');
+                    }
+                    isFilled = shouldBeFilled;
                 }
             }
             
