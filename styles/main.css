@@ -797,13 +797,12 @@ p {
         gap: var(--space-sm);
     }
 
-    .header__link:not(.header__link--cta) {
+    .header__link {
         display: none;
     }
 
     .header__divider {
-        height: 16px;
-        margin-inline: var(--space-xs);
+        display: none;
     }
 
     .header__utility {
@@ -832,11 +831,7 @@ p {
 .mobile-menu { display: none; }
 
 @media (max-width: 768px) {
-    /* Hide desktop header completely on mobile to use Bottom Dock */
-    .header {
-        display: none !important;
-    }
-
+    /* The desktop header remains visible on mobile, but links are hidden by previous rules, leaving only Logo and Utilities */
     /* Mobile Bottom Navigation Dock */
     .mobile-dock {
         display: block;

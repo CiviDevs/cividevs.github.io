@@ -474,7 +474,11 @@ export function initContactHub() {
  */
 export function initAboutModal() {
     const modal = document.getElementById('aboutModal');
-    const openBtns = [document.getElementById('openAboutModal'), document.getElementById('openAboutModalMobile')];
+    const openBtns = [
+        document.getElementById('openAboutModal'), 
+        document.getElementById('openAboutModalMobile'),
+        document.getElementById('openAboutModalDock')
+    ];
     const closeBtn = document.getElementById('aboutModalClose');
     const overlay = document.getElementById('aboutModalOverlay');
     

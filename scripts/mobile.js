@@ -6,7 +6,7 @@ export function initMobileAppExperience() {
     const mobileMenu = document.getElementById('mobileMenu');
     const mobileMenuClose = document.getElementById('mobileMenuClose');
     const dockIndicator = document.getElementById('dockIndicator');
-    const dockItems = document.querySelectorAll('.mobile-dock__item[data-section]');
+    const dockItems = document.querySelectorAll('.mobile-dock__item:not(.mobile-dock__menu-btn)');
     const menuLinks = document.querySelectorAll('.mobile-menu__link');
     
     if (!mobileDock) return;
