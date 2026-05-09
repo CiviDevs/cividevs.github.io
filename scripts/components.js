@@ -474,12 +474,14 @@ export function initContactHub() {
     const ghLink = document.querySelector('.contact__node--github');
     if (ghLink) ghLink.href = `https://github.com/${AGENCY_CONFIG.github}`;
 
-    // 2. Setup Email Copy-to-Clipboard
+    // 2. Setup Email Copy-to-Clipboard & Mailto
     const emailBtn = document.getElementById('emailCopyBtn');
     if (!emailBtn) return;
+    
+    // Update the native href for fallback/desktop mailto triggers
+    emailBtn.href = `mailto:${AGENCY_CONFIG.email}`;
 
-    emailBtn.addEventListener('click', async (e) => {
-        e.preventDefault();
+    emailBtn.addEventListener('click', async () => {
 
         try {
             await navigator.clipboard.writeText(AGENCY_CONFIG.email);
@@ -493,13 +495,6 @@ export function initContactHub() {
         } catch (err) {
             console.error('Failed to copy email: ', err);
         }
-
-        // Trigger mailto via temporary anchor for better desktop browser support
-        setTimeout(() => {
-            const a = document.createElement('a');
-            a.href = `mailto:${AGENCY_CONFIG.email}`;
-            a.click();
-        }, 150);
     });
 }
 
