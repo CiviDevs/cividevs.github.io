@@ -338,31 +338,30 @@ function animateWhy() {
 }
 
 /**
- * Project items reveal animation
+ * Project cards reveal animation
  */
 function animateProjects() {
-    const items = document.querySelectorAll('.project-item');
+    const cards = document.querySelectorAll('.impact-card');
+    if (!cards.length) return;
     
-    items.forEach((item, index) => {
-        gsap.fromTo(item,
-            { x: -30, opacity: 0 },
-            {
-                x: 0,
-                opacity: 1,
-                duration: 0.5,
-                delay: index * 0.06,
-                ease: 'expo.out',
-                scrollTrigger: {
-                    trigger: item,
-                    start: 'top 85%',
-                    toggleActions: 'play none none none'
-                }
+    gsap.fromTo(cards,
+        { y: 50, opacity: 0 },
+        {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: 'expo.out',
+            scrollTrigger: {
+                trigger: '.projects__grid',
+                start: 'top 80%',
+                toggleActions: 'play none none none'
             }
-        );
-    });
+        }
+    );
 
-    // Animate metric badges inside project items
-    const badges = document.querySelectorAll('.metric-badge');
+    // Animate metric badges inside cards
+    const badges = document.querySelectorAll('.impact-card__badge');
     if (badges.length) {
         gsap.fromTo(badges,
             { scale: 0.8, opacity: 0 },
@@ -370,11 +369,11 @@ function animateProjects() {
                 scale: 1,
                 opacity: 1,
                 duration: 0.4,
-                stagger: 0.05,
+                stagger: 0.03,
                 ease: 'expo.out',
                 scrollTrigger: {
-                    trigger: '.projects__list',
-                    start: 'top 75%',
+                    trigger: '.projects__grid',
+                    start: 'top 70%',
                     toggleActions: 'play none none none'
                 }
             }

@@ -12,6 +12,91 @@ import { initAnimations } from './animations.js';
 import { initMobileAppExperience } from './mobile.js';
 
 /**
+ * PROOF OF IMPACT — Project Data
+ * Manually update this array to add or remove projects.
+ */
+const PROJECTS_DATA = [
+    {
+        id: '01',
+        name: "Quantum Banking",
+        client: "Swiss Global Bank",
+        category: "Fintech",
+        description: "Next-gen core banking engine with sub-100ms response times and real-time transaction processing.",
+        productUrl: "https://example.com/quantum",
+        reviewUrl: "https://example.com/reviews/quantum",
+        year: "2024"
+    },
+    {
+        id: '02',
+        name: "MedSync Platform",
+        client: "National Health Service",
+        category: "Healthcare",
+        description: "Unified healthcare data platform connecting 500+ clinics with patient records in real-time.",
+        productUrl: "https://example.com/medsync",
+        reviewUrl: "https://example.com/reviews/medsync",
+        year: "2024"
+    },
+    {
+        id: '03',
+        name: "Luxe Retail OS",
+        client: "Vogue Group",
+        category: "E-Commerce",
+        description: "High-performance storefront for premium brands. Achieving perfect 100/100 Lighthouse scores.",
+        productUrl: "https://example.com/luxe",
+        reviewUrl: "https://example.com/reviews/luxe",
+        year: "2023"
+    },
+    {
+        id: '04',
+        name: "Neural Analytics",
+        client: "DataPath Corp",
+        category: "AI/ML",
+        description: "Predictive analytics dashboard processing 1B+ data points per day for enterprise clients.",
+        productUrl: "https://example.com/neural",
+        reviewUrl: "https://example.com/reviews/neural",
+        year: "2023"
+    }
+];
+
+/**
+ * Render Project Cards dynamically
+ */
+function renderProjects() {
+    const grid = document.getElementById('project-grid');
+    if (!grid) return;
+
+    grid.innerHTML = PROJECTS_DATA.map(project => {
+        return `
+            <article class="impact-card" data-reveal>
+                <div class="impact-card__header">
+                    <span class="impact-card__num">${project.id}</span>
+                    <span class="impact-card__cat">${project.category}</span>
+                </div>
+                <div class="impact-card__content">
+                    <h3 class="impact-card__title">${project.name}</h3>
+                    <div class="impact-card__client">
+                        <span class="impact-card__client-label">Client:</span>
+                        <span class="impact-card__client-name">${project.client}</span>
+                    </div>
+                    <p class="impact-card__desc">${project.description}</p>
+                </div>
+                <div class="impact-card__footer">
+                    <div class="impact-card__actions">
+                        <a href="${project.productUrl}" target="_blank" class="impact-btn impact-btn--primary" data-magnetic>
+                            <span>Visit Site</span>
+                        </a>
+                        <a href="${project.reviewUrl}" target="_blank" class="impact-btn impact-btn--secondary" data-magnetic>
+                            <span>View Review</span>
+                        </a>
+                    </div>
+                    <span class="impact-card__year">${project.year}</span>
+                </div>
+            </article>
+        `;
+    }).join('');
+}
+
+/**
  * Initialize Lenis smooth scroll
  * @returns {Lenis} Lenis instance
  */
@@ -532,6 +617,7 @@ function init() {
 
     // Initialize components (non-animated ones)
     initCustomCursor();
+    renderProjects();
     initMobileAppExperience();
 
     // Initialize animations after preloader completes
