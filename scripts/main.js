@@ -7,7 +7,7 @@
 'use strict';
 
 // Import modules
-import { initCustomCursor } from './components.js';
+import { initCustomCursor } from './components.js?v=2';
 import { initAnimations } from './animations.js';
 import { initMobileAppExperience } from './mobile.js';
 
@@ -96,6 +96,79 @@ function renderProjects() {
             </article>
         `;
     }).join('');
+}
+
+/**
+ * Initialize Mobile Project Slider
+ */
+function initProjectSlider() {
+    const grid = document.getElementById('project-grid');
+    const prevBtn = document.getElementById('projectsPrev');
+    const nextBtn = document.getElementById('projectsNext');
+    
+    if (!grid || !prevBtn || !nextBtn) return;
+    
+    // Scroll amount per click (one card width + gap)
+    const getScrollAmount = () => {
+        const card = grid.querySelector('.impact-card');
+        if (!card) return 300;
+        const style = window.getComputedStyle(grid);
+        const gap = parseFloat(style.gap) || 0;
+        return card.offsetWidth + gap;
+    };
+    
+    prevBtn.addEventListener('click', () => {
+        grid.scrollBy({
+            left: -getScrollAmount(),
+            behavior: 'smooth'
+        });
+    });
+    
+    nextBtn.addEventListener('click', () => {
+        grid.scrollBy({
+            left: getScrollAmount(),
+            behavior: 'smooth'
+        });
+    });
+    
+    // Optional: Hide arrows if at edges
+    const updateButtons = () => {
+        const isAtStart = grid.scrollLeft <= 10;
+        const isAtEnd = grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 10;
+        
+        prevBtn.style.opacity = isAtStart ? '0.5' : '1';
+        prevBtn.style.pointerEvents = isAtStart ? 'none' : 'auto';
+        
+        nextBtn.style.opacity = isAtEnd ? '0.5' : '1';
+        nextBtn.style.pointerEvents = isAtEnd ? 'none' : 'auto';
+    };
+    
+    grid.addEventListener('scroll', updateButtons, { passive: true });
+    window.addEventListener('resize', updateButtons, { passive: true });
+    updateButtons();
+    
+    // Swipe Animation Observer (Mobile)
+    if (window.matchMedia('(max-width: 768px)').matches) {
+        const cards = grid.querySelectorAll('.impact-card');
+        if (cards.length > 0) {
+            // Set first card active immediately
+            cards[0].classList.add('is-active');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        cards.forEach(c => c.classList.remove('is-active'));
+                        entry.target.classList.add('is-active');
+                    }
+                });
+            }, {
+                root: grid,
+                threshold: 0.6 // Card must be 60% visible to become active
+            });
+            
+            cards.forEach(card => observer.observe(card));
+        }
+    }
 }
 
 /**
@@ -620,6 +693,7 @@ function init() {
     // Initialize components (non-animated ones)
     initCustomCursor();
     renderProjects();
+    initProjectSlider();
     initMobileAppExperience();
 
     // Initialize animations after preloader completes

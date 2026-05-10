@@ -506,7 +506,9 @@ export function initAboutModal() {
     const openBtns = [
         document.getElementById('openAboutModal'),
         document.getElementById('openAboutModalMobile'),
-        document.getElementById('openAboutModalDock')
+        document.getElementById('openAboutModalDock'),
+        document.getElementById('openAboutModalServices'),
+        document.getElementById('openAboutModalWhy')
     ];
     const closeBtn = document.getElementById('aboutModalClose');
     const overlay = document.getElementById('aboutModalOverlay');

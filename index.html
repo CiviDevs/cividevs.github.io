@@ -18,7 +18,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/components.css">
-    <link rel="stylesheet" href="styles/sections.css?v=4">
+    <link rel="stylesheet" href="styles/sections.css?v=13">
 
     <!-- Theme anti-flash script -->
     <script>
@@ -298,9 +298,28 @@
                         <div class="service-pillar__line"></div>
                     </article>
                 </div>
-                <div class="services__nudge">
-                    <a href="#contact" class="nudge-link" data-i18n="services_nudge">See how these capabilities apply to
-                        your business →</a>
+                <div class="services__nudge" style="display: flex; flex-direction: column; gap: var(--space-xl);">
+                    <div style="display: flex; justify-content: space-between;">
+                        <a href="#contact" class="nudge-link" data-i18n="services_nudge">See how these capabilities apply to your business →</a>
+                    </div>
+                    
+                    <div class="about-banner border-box border-box--corners" data-interactive style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; padding: var(--space-2xl); background: var(--color-bg-elevated); gap: var(--space-xl);">
+                        <div style="display: flex; flex-direction: column; gap: var(--space-md); max-width: 65ch;">
+                            <span style="font-family: var(--font-heading); font-size: var(--text-small); letter-spacing: var(--tracking-widest); color: var(--color-text-muted); text-transform: uppercase;">[ Behind the Code ]</span>
+                            <h3 style="font-family: var(--font-heading); font-size: var(--text-h2); font-weight: 400; line-height: var(--leading-tight); margin: 0;">Curious who builds this?</h3>
+                            <p style="font-size: var(--text-small); color: var(--color-text-muted); line-height: var(--leading-relaxed); margin: 0;">
+                                We are a specialized collective of senior engineers and designers crafting premium digital assets. No junior devs. No templates. Just pure, unfiltered expertise applied directly to your business goals.
+                            </p>
+                            <div style="display: flex; gap: var(--space-sm); margin-top: var(--space-xs); flex-wrap: wrap;">
+                                <span class="tag" style="border-color: var(--color-border); padding: 4px 12px; border-radius: 2px;">0 Frameworks</span>
+                                <span class="tag" style="border-color: var(--color-border); padding: 4px 12px; border-radius: 2px;">Sub-100ms Load</span>
+                                <span class="tag" style="border-color: var(--color-border); padding: 4px 12px; border-radius: 2px;">Premium Code</span>
+                            </div>
+                        </div>
+                        <button class="btn btn--filled" id="openAboutModalServices" data-magnetic style="font-size: var(--text-body); padding: var(--space-md) var(--space-2xl); white-space: nowrap;">
+                            <span data-i18n="nav_about">Meet the Agency</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -336,8 +355,28 @@
                             <p class="why__card-desc" data-i18n="why_ownership_desc">We take on a limited number of clients per quarter. Your project receives senior-level expertise from discovery to launch — and you own every line of code.</p>
                         </div>
                     </div>
-                    <div class="why__nudge">
-                        <a href="#contact" class="nudge-link" data-i18n="why_nudge">Limited availability this quarter — get in touch →</a>
+                    <div class="why__nudge" style="display: flex; flex-direction: column; gap: var(--space-xl);">
+                        <div style="display: flex; justify-content: space-between;">
+                            <a href="#contact" class="nudge-link" data-i18n="why_nudge">Limited availability this quarter — get in touch →</a>
+                        </div>
+                        
+                        <div class="about-banner border-box border-box--corners" data-interactive style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; padding: var(--space-2xl); background: var(--color-bg-elevated); gap: var(--space-xl);">
+                            <div style="display: flex; flex-direction: column; gap: var(--space-md); max-width: 65ch;">
+                                <span style="font-family: var(--font-heading); font-size: var(--text-small); letter-spacing: var(--tracking-widest); color: var(--color-text-muted); text-transform: uppercase;">[ The Architects ]</span>
+                                <h3 style="font-family: var(--font-heading); font-size: var(--text-h2); font-weight: 400; line-height: var(--leading-tight); margin: 0;">Want to learn more?</h3>
+                                <p style="font-size: var(--text-small); color: var(--color-text-muted); line-height: var(--leading-relaxed); margin: 0;">
+                                    CIVIDEVS operates at the intersection of high-end aesthetics and molecular-level performance. We build digital flagships for brands that cannot afford to compromise on quality or speed.
+                                </p>
+                                <div style="display: flex; gap: var(--space-sm); margin-top: var(--space-xs); flex-wrap: wrap;">
+                                    <span class="tag" style="border-color: var(--color-border); padding: 4px 12px; border-radius: 2px;">Bespoke Design</span>
+                                    <span class="tag" style="border-color: var(--color-border); padding: 4px 12px; border-radius: 2px;">Vanilla JS</span>
+                                    <span class="tag" style="border-color: var(--color-border); padding: 4px 12px; border-radius: 2px;">Global Scale</span>
+                                </div>
+                            </div>
+                            <button class="btn btn--filled" id="openAboutModalWhy" data-magnetic style="font-size: var(--text-body); padding: var(--space-md) var(--space-2xl); white-space: nowrap;">
+                                <span data-i18n="nav_about">Meet the Agency</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -351,12 +390,24 @@
              ════════════════════════════════════════════════════════════════ -->
         <section class="projects" id="work">
             <div class="projects__container">
-                <div class="section-header">
-                    <span class="section-header__label">[ 03 ]</span>
-                    <h2 class="section-header__title" data-i18n="work_title">Proof of Impact</h2>
+                <div class="section-header projects__header">
+                    <div class="section-header__main">
+                        <span class="section-header__label">[ 03 ]</span>
+                        <h2 class="section-header__title" data-i18n="work_title">Proof of Impact</h2>
+                    </div>
                 </div>
-                <div id="project-grid" class="projects__grid">
-                    <!-- Dynamic rendering via main.js -->
+                <div class="projects__slider-wrapper">
+                    <div id="project-grid" class="projects__grid">
+                        <!-- Dynamic rendering via main.js -->
+                    </div>
+                    <div class="projects__nav">
+                        <button class="projects__nav-btn" id="projectsPrev" aria-label="Previous project" data-magnetic>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg>
+                        </button>
+                        <button class="projects__nav-btn" id="projectsNext" aria-label="Next project" data-magnetic>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -819,7 +870,7 @@
     <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script type="module" src="scripts/main.js?v=4"></script>
+    <script type="module" src="scripts/main.js?v=13"></script>
 </body>
 
 </html>
