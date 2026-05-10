@@ -66,6 +66,11 @@ function renderProjects() {
     if (!grid) return;
 
     grid.innerHTML = PROJECTS_DATA.map(project => {
+        const reviewBtn = project.reviewUrl ? `
+                        <a href="${project.reviewUrl}" target="_blank" class="impact-btn impact-btn--secondary" data-magnetic>
+                            <span>View Review</span>
+                        </a>` : '';
+
         return `
             <article class="impact-card" data-reveal>
                 <div class="impact-card__header">
@@ -85,11 +90,8 @@ function renderProjects() {
                         <a href="${project.productUrl}" target="_blank" class="impact-btn impact-btn--primary" data-magnetic>
                             <span>Visit Site</span>
                         </a>
-                        <a href="${project.reviewUrl}" target="_blank" class="impact-btn impact-btn--secondary" data-magnetic>
-                            <span>View Review</span>
-                        </a>
+                        ${reviewBtn}
                     </div>
-                    <span class="impact-card__year">${project.year}</span>
                 </div>
             </article>
         `;
