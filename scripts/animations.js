@@ -6,7 +6,7 @@
 
 'use strict';
 
-import { prefersReducedMotion } from './main.js';
+import { prefersReducedMotion } from './utils.js';
 import { initRippleEffect, initTiltEffect, initLinkSweep, initMagneticEffect, initContactHub, initAboutModal } from './components.js';
 
 /**

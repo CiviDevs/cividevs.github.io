@@ -6,7 +6,7 @@
 
 'use strict';
 
-import { prefersReducedMotion } from './main.js';
+import { prefersReducedMotion } from './utils.js';
 
 /**
  * ════════════════════════════════════════════════════════════════
@@ -507,8 +507,7 @@ export function initAboutModal() {
         document.getElementById('openAboutModal'),
         document.getElementById('openAboutModalMobile'),
         document.getElementById('openAboutModalDock'),
-        document.getElementById('openAboutModalServices'),
-        document.getElementById('openAboutModalWhy')
+        document.getElementById('openAboutModalServices')
     ];
     const closeBtn = document.getElementById('aboutModalClose');
     const overlay = document.getElementById('aboutModalOverlay');

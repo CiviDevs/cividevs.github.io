@@ -16,23 +16,21 @@
         rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/components.css">
-    <link rel="stylesheet" href="styles/sections.css?v=13">
+    <link rel="stylesheet" href="styles/main.css?v=19">
+    <link rel="stylesheet" href="styles/components.css?v=19">
+    <link rel="stylesheet" href="styles/sections.css?v=19">
 
     <!-- Theme anti-flash script -->
     <script>
-        (function() {
+        (function () {
             try {
                 const theme = localStorage.getItem('cividevs-theme');
                 if (theme === 'dark') {
-                    // dark is explicitly set
+                    document.documentElement.removeAttribute('data-theme');
                 } else {
                     document.documentElement.setAttribute('data-theme', 'light');
                 }
-            } catch (e) {
-                document.documentElement.setAttribute('data-theme', 'light');
-            }
+            } catch (e) { }
         })();
     </script>
 
@@ -96,6 +94,7 @@
                                 <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
                                 <path d="M2 12h20" />
                             </svg>
+                            <span class="header__utility-label js-lang-current">EN</span>
                             <svg class="header__utility-chevron" width="10" height="10" viewBox="0 0 12 12" fill="none">
                                 <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1"
                                     stroke-linecap="square" />
@@ -128,7 +127,8 @@
                     <div class="hero__expertise">
                         <p class="hero__expertise-statement" data-split-text data-i18n="hero_expertise">Strategy ·
                             Design · Engineering</p>
-                        <p class="hero__expertise-qualifier" data-i18n="hero_qualifier">from concept to high-end solution.</p>
+                        <p class="hero__expertise-qualifier" data-i18n="hero_qualifier">from concept to high-end
+                            solution.</p>
                     </div>
                     <a href="#contact" class="hero__cta btn btn--filled" data-magnetic data-i18n="hero_cta">
                         <span>Start a Project</span>
@@ -151,27 +151,27 @@
         <div class="marquee" id="marquee">
             <div class="marquee__track">
                 <div class="marquee__content">
-                    <span class="marquee__item">40+ Projects Delivered</span>
+                    <span class="marquee__item" data-i18n="marquee_projects">40+ Projects Delivered</span>
                     <span class="marquee__separator">✦</span>
-                    <span class="marquee__item">8+ Years of Excellence</span>
+                    <span class="marquee__item" data-i18n="marquee_years">8+ Years of Excellence</span>
                     <span class="marquee__separator">✦</span>
-                    <span class="marquee__item">99% Client Satisfaction</span>
+                    <span class="marquee__item" data-i18n="marquee_satisfaction">99% Client Satisfaction</span>
                     <span class="marquee__separator">✦</span>
-                    <span class="marquee__item">Zero-Framework Performance</span>
+                    <span class="marquee__item" data-i18n="marquee_performance">Zero-Framework Performance</span>
                     <span class="marquee__separator">✦</span>
-                    <span class="marquee__item">Enterprise-Grade Security</span>
+                    <span class="marquee__item" data-i18n="marquee_security">Enterprise-Grade Security</span>
                     <span class="marquee__separator">✦</span>
                 </div>
                 <div class="marquee__content" aria-hidden="true">
-                    <span class="marquee__item">40+ Projects Delivered</span>
+                    <span class="marquee__item" data-i18n="marquee_projects">40+ Projects Delivered</span>
                     <span class="marquee__separator">✦</span>
-                    <span class="marquee__item">8+ Years of Excellence</span>
+                    <span class="marquee__item" data-i18n="marquee_years">8+ Years of Excellence</span>
                     <span class="marquee__separator">✦</span>
-                    <span class="marquee__item">99% Client Satisfaction</span>
+                    <span class="marquee__item" data-i18n="marquee_satisfaction">99% Client Satisfaction</span>
                     <span class="marquee__separator">✦</span>
-                    <span class="marquee__item">Zero-Framework Performance</span>
+                    <span class="marquee__item" data-i18n="marquee_performance">Zero-Framework Performance</span>
                     <span class="marquee__separator">✦</span>
-                    <span class="marquee__item">Enterprise-Grade Security</span>
+                    <span class="marquee__item" data-i18n="marquee_security">Enterprise-Grade Security</span>
                     <span class="marquee__separator">✦</span>
                 </div>
             </div>
@@ -300,25 +300,8 @@
                 </div>
                 <div class="services__nudge" style="display: flex; flex-direction: column; gap: var(--space-xl);">
                     <div style="display: flex; justify-content: space-between;">
-                        <a href="#contact" class="nudge-link" data-i18n="services_nudge">See how these capabilities apply to your business →</a>
-                    </div>
-                    
-                    <div class="about-banner border-box border-box--corners" data-interactive style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; padding: var(--space-2xl); background: var(--color-bg-elevated); gap: var(--space-xl);">
-                        <div style="display: flex; flex-direction: column; gap: var(--space-md); max-width: 65ch;">
-                            <span style="font-family: var(--font-heading); font-size: var(--text-small); letter-spacing: var(--tracking-widest); color: var(--color-text-muted); text-transform: uppercase;">[ Behind the Code ]</span>
-                            <h3 style="font-family: var(--font-heading); font-size: var(--text-h2); font-weight: 400; line-height: var(--leading-tight); margin: 0;">Curious who builds this?</h3>
-                            <p style="font-size: var(--text-small); color: var(--color-text-muted); line-height: var(--leading-relaxed); margin: 0;">
-                                We are a specialized collective of senior engineers and designers crafting premium digital assets. No junior devs. No templates. Just pure, unfiltered expertise applied directly to your business goals.
-                            </p>
-                            <div style="display: flex; gap: var(--space-sm); margin-top: var(--space-xs); flex-wrap: wrap;">
-                                <span class="tag" style="border-color: var(--color-border); padding: 4px 12px; border-radius: 2px;">0 Frameworks</span>
-                                <span class="tag" style="border-color: var(--color-border); padding: 4px 12px; border-radius: 2px;">Sub-100ms Load</span>
-                                <span class="tag" style="border-color: var(--color-border); padding: 4px 12px; border-radius: 2px;">Premium Code</span>
-                            </div>
-                        </div>
-                        <button class="btn btn--filled" id="openAboutModalServices" data-magnetic style="font-size: var(--text-body); padding: var(--space-md) var(--space-2xl); white-space: nowrap;">
-                            <span data-i18n="nav_about">Meet the Agency</span>
-                        </button>
+                        <a href="#contact" class="nudge-link" data-i18n="services_nudge">See how these capabilities
+                            apply to your business →</a>
                     </div>
                 </div>
             </div>
@@ -333,50 +316,73 @@
         <section class="why" id="why">
             <div class="why__container">
                 <div class="section-header">
-                    <span class="section-header__label">[ 02 ]</span>
-                    <h2 class="section-header__title" data-i18n="why_title">Why CIVIDEVS</h2>
+                    <div class="section-header__main">
+                        <span class="section-header__label">[ 02 ]</span>
+                        <h2 class="section-header__title" data-i18n="why_title">Why CIVIDEVS</h2>
+                    </div>
                 </div>
                 <div class="why__content">
-                    <p class="why__lead" data-split-text data-i18n="why_lead">Other agencies sell templates. We build competitive advantages.</p>
-                    <div class="why__grid">
-                        <div class="why__card" data-interactive data-reveal>
-                            <span class="why__card-num">01</span>
-                            <h4 class="why__card-title" data-i18n="why_speed_title">Performance First</h4>
-                            <p class="why__card-desc" data-i18n="why_speed_desc">Hand-crafted code with zero framework overhead. Sub-second load times, perfect Core Web Vitals, and conversion rates that consistently outperform industry benchmarks.</p>
-                        </div>
-                        <div class="why__card" data-interactive data-reveal>
-                            <span class="why__card-num">02</span>
-                            <h4 class="why__card-title" data-i18n="why_aesthetic_title">Custom Built</h4>
-                            <p class="why__card-desc" data-i18n="why_aesthetic_desc">Every project is designed and developed from scratch. No themes, no plugins, no compromises. You receive a unique digital asset tailored to your business goals.</p>
-                        </div>
-                        <div class="why__card" data-interactive data-reveal>
-                            <span class="why__card-num">03</span>
-                            <h4 class="why__card-title" data-i18n="why_ownership_title">Dedicated Attention</h4>
-                            <p class="why__card-desc" data-i18n="why_ownership_desc">We take on a limited number of clients per quarter. Your project receives senior-level expertise from discovery to launch — and you own every line of code.</p>
-                        </div>
-                    </div>
-                    <div class="why__nudge" style="display: flex; flex-direction: column; gap: var(--space-xl);">
-                        <div style="display: flex; justify-content: space-between;">
-                            <a href="#contact" class="nudge-link" data-i18n="why_nudge">Limited availability this quarter — get in touch →</a>
-                        </div>
-                        
-                        <div class="about-banner border-box border-box--corners" data-interactive style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; padding: var(--space-2xl); background: var(--color-bg-elevated); gap: var(--space-xl);">
-                            <div style="display: flex; flex-direction: column; gap: var(--space-md); max-width: 65ch;">
-                                <span style="font-family: var(--font-heading); font-size: var(--text-small); letter-spacing: var(--tracking-widest); color: var(--color-text-muted); text-transform: uppercase;">[ The Architects ]</span>
-                                <h3 style="font-family: var(--font-heading); font-size: var(--text-h2); font-weight: 400; line-height: var(--leading-tight); margin: 0;">Want to learn more?</h3>
-                                <p style="font-size: var(--text-small); color: var(--color-text-muted); line-height: var(--leading-relaxed); margin: 0;">
-                                    CIVIDEVS operates at the intersection of high-end aesthetics and molecular-level performance. We build digital flagships for brands that cannot afford to compromise on quality or speed.
-                                </p>
-                                <div style="display: flex; gap: var(--space-sm); margin-top: var(--space-xs); flex-wrap: wrap;">
-                                    <span class="tag" style="border-color: var(--color-border); padding: 4px 12px; border-radius: 2px;">Bespoke Design</span>
-                                    <span class="tag" style="border-color: var(--color-border); padding: 4px 12px; border-radius: 2px;">Vanilla JS</span>
-                                    <span class="tag" style="border-color: var(--color-border); padding: 4px 12px; border-radius: 2px;">Global Scale</span>
+                    <p class="why__lead" data-split-text data-i18n="why_lead">Other agencies sell templates. We build
+                        competitive advantages.</p>
+                    <div class="slider-wrapper">
+                        <div class="why__grid" id="whyGrid">
+                            <article class="impact-card why__card" data-interactive data-reveal>
+                                <div class="impact-card__header">
+                                    <span class="impact-card__num">01</span>
+                                    <span class="impact-card__cat" data-i18n="why_speed_title">Performance First</span>
                                 </div>
-                            </div>
-                            <button class="btn btn--filled" id="openAboutModalWhy" data-magnetic style="font-size: var(--text-body); padding: var(--space-md) var(--space-2xl); white-space: nowrap;">
-                                <span data-i18n="nav_about">Meet the Agency</span>
+                                <div class="impact-card__content">
+                                    <h3 class="impact-card__title" data-i18n="why_speed_title">Performance First</h3>
+                                    <p class="impact-card__desc" data-i18n="why_speed_desc">Hand-crafted code with zero
+                                        framework overhead. Sub-second load times, perfect Core Web Vitals, and
+                                        conversion rates that consistently outperform industry benchmarks.</p>
+                                </div>
+                            </article>
+                            <article class="impact-card why__card" data-interactive data-reveal>
+                                <div class="impact-card__header">
+                                    <span class="impact-card__num">02</span>
+                                    <span class="impact-card__cat" data-i18n="why_aesthetic_title">Custom Built</span>
+                                </div>
+                                <div class="impact-card__content">
+                                    <h3 class="impact-card__title" data-i18n="why_aesthetic_title">Custom Built</h3>
+                                    <p class="impact-card__desc" data-i18n="why_aesthetic_desc">Every project is
+                                        designed and developed from scratch. No themes, no plugins, no compromises. You
+                                        receive a unique digital asset tailored to your business goals.</p>
+                                </div>
+                            </article>
+                            <article class="impact-card why__card" data-interactive data-reveal>
+                                <div class="impact-card__header">
+                                    <span class="impact-card__num">03</span>
+                                    <span class="impact-card__cat" data-i18n="why_ownership_title">Dedicated
+                                        Attention</span>
+                                </div>
+                                <div class="impact-card__content">
+                                    <h3 class="impact-card__title" data-i18n="why_ownership_title">Dedicated Attention
+                                    </h3>
+                                    <p class="impact-card__desc" data-i18n="why_ownership_desc">We take on a limited
+                                        number of clients per quarter. Your project receives senior-level expertise from
+                                        discovery to launch — and you own every line of code.</p>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="slider-nav">
+                            <button class="slider-nav__btn" data-slider-prev="whyGrid" aria-label="Previous">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path d="M15 18l-6-6 6-6" />
+                                </svg>
+                            </button>
+                            <button class="slider-nav__btn" data-slider-next="whyGrid" aria-label="Next">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path d="M9 18l6-6-6-6" />
+                                </svg>
                             </button>
                         </div>
+                    </div>
+                    <div class="why__nudge">
+                        <a href="#contact" class="nudge-link" data-i18n="why_nudge">Limited availability this quarter —
+                            get in touch →</a>
                     </div>
                 </div>
             </div>
@@ -396,16 +402,22 @@
                         <h2 class="section-header__title" data-i18n="work_title">Proof of Impact</h2>
                     </div>
                 </div>
-                <div class="projects__slider-wrapper">
+                <div class="slider-wrapper">
                     <div id="project-grid" class="projects__grid">
                         <!-- Dynamic rendering via main.js -->
                     </div>
-                    <div class="projects__nav">
-                        <button class="projects__nav-btn" id="projectsPrev" aria-label="Previous project" data-magnetic>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg>
+                    <div class="slider-nav">
+                        <button class="slider-nav__btn" data-slider-prev="project-grid" aria-label="Previous project">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg>
                         </button>
-                        <button class="projects__nav-btn" id="projectsNext" aria-label="Next project" data-magnetic>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+                        <button class="slider-nav__btn" data-slider-next="project-grid" aria-label="Next project">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg>
                         </button>
                     </div>
                 </div>
@@ -421,36 +433,85 @@
         <section class="testimonials" id="testimonials">
             <div class="testimonials__container">
                 <div class="section-header">
-                    <span class="section-header__label">[ 04 ]</span>
-                    <h2 class="section-header__title" data-i18n="testimonials_title">What Decision-Makers Say</h2>
+                    <div class="section-header__main">
+                        <span class="section-header__label">[ 04 ]</span>
+                        <h2 class="section-header__title" data-i18n="testimonials_title">What Decision-Makers Say</h2>
+                    </div>
                 </div>
-                <div class="testimonials__grid">
-                    <blockquote class="testimonial" data-reveal>
-                        <p class="testimonial__text" data-i18n="testimonial_1_text">"CIVIDEVS didn't just build our
-                            platform — they engineered our market position. Revenue up 340% in the first quarter
-                            post-launch."</p>
-                        <footer class="testimonial__footer">
-                            <cite class="testimonial__author" data-i18n="testimonial_1_author">— Marcus Chen</cite>
-                            <span class="testimonial__role" data-i18n="testimonial_1_role">CEO, Quantum Banking</span>
-                        </footer>
-                    </blockquote>
-                    <blockquote class="testimonial" data-reveal>
-                        <p class="testimonial__text" data-i18n="testimonial_2_text">"The fastest site in our entire
-                            vertical. Our bounce rate dropped 60% overnight. These people understand performance at a
-                            molecular level."</p>
-                        <footer class="testimonial__footer">
-                            <cite class="testimonial__author" data-i18n="testimonial_2_author">— Sarah Lindström</cite>
-                            <span class="testimonial__role" data-i18n="testimonial_2_role">CTO, MedSync Health</span>
-                        </footer>
-                    </blockquote>
-                    <blockquote class="testimonial" data-reveal>
-                        <p class="testimonial__text" data-i18n="testimonial_3_text">"No fluff, no wasted sprints. They
-                            shipped in 8 weeks what our previous agency couldn't deliver in 8 months."</p>
-                        <footer class="testimonial__footer">
-                            <cite class="testimonial__author" data-i18n="testimonial_3_author">— David Okafor</cite>
-                            <span class="testimonial__role" data-i18n="testimonial_3_role">Founder, Luxe Retail</span>
-                        </footer>
-                    </blockquote>
+                <div class="slider-wrapper">
+                    <div class="testimonials__grid" id="testimonialsGrid">
+                        <article class="impact-card testimonial" data-reveal>
+                            <div class="impact-card__header">
+                                <span class="impact-card__num">01</span>
+                                <span class="impact-card__cat" data-i18n="testimonial_cat">Testimonial</span>
+                            </div>
+                            <div class="impact-card__content">
+                                <p class="impact-card__desc" data-i18n="testimonial_1_text">"CIVIDEVS didn't just build
+                                    our platform — they engineered our market position. Revenue up 340% in the first
+                                    quarter post-launch."</p>
+                            </div>
+                            <div class="impact-card__footer">
+                                <div class="testimonial__cite">
+                                    <cite class="testimonial__author" data-i18n="testimonial_1_author">— Marcus
+                                        Chen</cite>
+                                    <span class="testimonial__role" data-i18n="testimonial_1_role">CEO, Quantum
+                                        Banking</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="impact-card testimonial" data-reveal>
+                            <div class="impact-card__header">
+                                <span class="impact-card__num">02</span>
+                                <span class="impact-card__cat" data-i18n="testimonial_cat">Testimonial</span>
+                            </div>
+                            <div class="impact-card__content">
+                                <p class="impact-card__desc" data-i18n="testimonial_2_text">"The fastest site in our
+                                    entire vertical. Our bounce rate dropped 60% overnight. These people understand
+                                    performance at a molecular level."</p>
+                            </div>
+                            <div class="impact-card__footer">
+                                <div class="testimonial__cite">
+                                    <cite class="testimonial__author" data-i18n="testimonial_2_author">— Sarah
+                                        Lindström</cite>
+                                    <span class="testimonial__role" data-i18n="testimonial_2_role">CTO, MedSync
+                                        Health</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="impact-card testimonial" data-reveal>
+                            <div class="impact-card__header">
+                                <span class="impact-card__num">03</span>
+                                <span class="impact-card__cat" data-i18n="testimonial_cat">Testimonial</span>
+                            </div>
+                            <div class="impact-card__content">
+                                <p class="impact-card__desc" data-i18n="testimonial_3_text">"No fluff, no wasted
+                                    sprints. They shipped in 8 weeks what our previous agency couldn't deliver in 8
+                                    months."</p>
+                            </div>
+                            <div class="impact-card__footer">
+                                <div class="testimonial__cite">
+                                    <cite class="testimonial__author" data-i18n="testimonial_3_author">— David
+                                        Okafor</cite>
+                                    <span class="testimonial__role" data-i18n="testimonial_3_role">Founder, Luxe
+                                        Retail</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="slider-nav">
+                        <button class="slider-nav__btn" data-slider-prev="testimonialsGrid" aria-label="Previous">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg>
+                        </button>
+                        <button class="slider-nav__btn" data-slider-next="testimonialsGrid" aria-label="Next">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -571,8 +632,9 @@
         <section class="contact" id="contact">
             <div class="contact__container">
                 <div class="contact__header">
-                    <h2 class="contact__title" data-split-text>LET'S WORK TOGETHER</h2>
-                    <p class="contact__subheadline">For project inquiries, partnerships, or technical consultations,
+                    <h2 class="contact__title" data-split-text data-i18n="contact_title">LET'S WORK TOGETHER</h2>
+                    <p class="contact__subheadline" data-i18n="contact_subheadline">For project inquiries, partnerships,
+                        or technical consultations,
                         reach out via your preferred channel.</p>
                 </div>
 
@@ -589,8 +651,8 @@
                             </svg>
                         </div>
                         <div class="contact__node-content">
-                            <span class="contact__node-label">Direct</span>
-                            <span class="contact__node-value">Call Us</span>
+                            <span class="contact__node-label" data-i18n="contact_node_phone_label">Direct</span>
+                            <span class="contact__node-value" data-i18n="contact_node_phone_value">Call Us</span>
                         </div>
                     </a>
 
@@ -605,10 +667,10 @@
                             </svg>
                         </div>
                         <div class="contact__node-content">
-                            <span class="contact__node-label">Formal</span>
-                            <span class="contact__node-value">Email Us</span>
+                            <span class="contact__node-label" data-i18n="contact_node_email_label">Formal</span>
+                            <span class="contact__node-value" data-i18n="contact_node_email_value">Email Us</span>
                         </div>
-                        <div class="contact__tooltip">Copied!</div>
+                        <div class="contact__tooltip" data-i18n="contact_copied">Copied!</div>
                     </a>
 
                     <!-- WhatsApp -->
@@ -623,7 +685,7 @@
                             </svg>
                         </div>
                         <div class="contact__node-content">
-                            <span class="contact__node-label">Instant</span>
+                            <span class="contact__node-label" data-i18n="contact_node_whatsapp_label">Instant</span>
                             <span class="contact__node-value">WhatsApp</span>
                         </div>
                     </a>
@@ -639,7 +701,7 @@
                             </svg>
                         </div>
                         <div class="contact__node-content">
-                            <span class="contact__node-label">Instant</span>
+                            <span class="contact__node-label" data-i18n="contact_node_telegram_label">Instant</span>
                             <span class="contact__node-value">Telegram</span>
                         </div>
                     </a>
@@ -656,7 +718,7 @@
                             </svg>
                         </div>
                         <div class="contact__node-content">
-                            <span class="contact__node-label">Technical</span>
+                            <span class="contact__node-label" data-i18n="contact_node_github_label">Technical</span>
                             <span class="contact__node-value">GitHub</span>
                         </div>
                     </a>
@@ -669,7 +731,7 @@
              ════════════════════════════════════════════════════════════════ -->
         <a href="#contact" class="intent-cta" id="intentCta">
             <div class="intent-cta__content">
-                <span class="intent-cta__text">Start Project</span>
+                <span class="intent-cta__text" data-i18n="intent_cta">Start Project</span>
             </div>
             <svg class="intent-cta__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="1.5">
@@ -692,17 +754,19 @@
                 </div>
                 <!-- Column 2: Navigation -->
                 <div class="footer__nav">
-                    <span class="footer__nav-title">Navigate</span>
+                    <span class="footer__nav-title" data-i18n="footer_nav_title">Navigate</span>
                     <a href="#services" class="footer__nav-link" data-i18n="nav_services">Services</a>
                     <a href="#work" class="footer__nav-link" data-i18n="nav_work">Work</a>
                     <a href="#process" class="footer__nav-link" data-i18n="nav_process">Process</a>
-                    <a href="#contact" class="footer__nav-link">Contact</a>
+                    <a href="#contact" class="footer__nav-link" data-i18n="footer_contact">Contact</a>
                 </div>
                 <!-- Column 3: Connect -->
                 <div class="footer__nav">
-                    <span class="footer__nav-title">Connect</span>
-                    <a href="https://github.com/cividevs" target="_blank" rel="noopener noreferrer" class="footer__nav-link">GitHub</a>
-                    <a href="https://t.me/cividev" target="_blank" rel="noopener noreferrer" class="footer__nav-link">Telegram</a>
+                    <span class="footer__nav-title" data-i18n="footer_connect_title">Connect</span>
+                    <a href="https://github.com/cividevs" target="_blank" rel="noopener noreferrer"
+                        class="footer__nav-link">GitHub</a>
+                    <a href="https://t.me/cividev" target="_blank" rel="noopener noreferrer"
+                        class="footer__nav-link">Telegram</a>
                     <a href="mailto:cividevs@gmail.com" class="footer__nav-link">Email</a>
                 </div>
             </div>
@@ -752,7 +816,7 @@
                     <line x1="3" y1="6" x2="21" y2="6"></line>
                     <line x1="3" y1="18" x2="21" y2="18"></line>
                 </svg>
-                <span>Menu</span>
+                <span data-i18n="nav_menu">Menu</span>
             </button>
         </div>
     </nav>
@@ -805,6 +869,7 @@
                                     <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
                                     <path d="M2 12h20" />
                                 </svg>
+                                <span class="header__utility-label js-lang-current">EN</span>
                                 <svg class="header__utility-chevron" width="12" height="12" viewBox="0 0 12 12"
                                     fill="none">
                                     <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1"
@@ -831,7 +896,7 @@
         <div class="about-modal__overlay" id="aboutModalOverlay"></div>
         <div class="about-modal__panel" data-lenis-prevent>
             <div class="about-modal__header">
-                <span class="about-modal__label">[ The Agency ]</span>
+                <span class="about-modal__label" data-i18n="about_modal_label">[ The Agency ]</span>
                 <button class="about-modal__close" id="aboutModalClose">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-width="1.5">
@@ -841,24 +906,29 @@
                 </button>
             </div>
             <div class="about-modal__content">
-                <h2 class="about-modal__title">We engineer digital supremacy.</h2>
+                <h2 class="about-modal__title" data-i18n="about_modal_title">We engineer digital supremacy.</h2>
                 <div class="about-modal__grid">
                     <div class="about-modal__text">
-                        <p>CIVIDEVS is an independent digital product agency founded by engineers and designers who were
+                        <p data-i18n="about_modal_p1">CIVIDEVS is an independent digital product agency founded by
+                            engineers and designers who were
                             tired of bloated frameworks, slow deliveries, and generic templates.</p>
-                        <p>We build with raw code and mathematical precision. Our zero-framework philosophy guarantees
+                        <p data-i18n="about_modal_p2">We build with raw code and mathematical precision. Our
+                            zero-framework philosophy guarantees
                             perfect Lighthouse scores, sub-100ms interactions, and architectures that scale without the
                             technical debt of passing trends.</p>
-                        <p>For us, performance isn't a feature. It's the foundation of luxury.</p>
+                        <p data-i18n="about_modal_p3">For us, performance isn't a feature. It's the foundation of
+                            luxury.</p>
                     </div>
                     <div class="about-modal__stats">
                         <div class="about-modal__stat">
                             <span class="about-modal__stat-num">8+</span>
-                            <span class="about-modal__stat-label">Years of Mastery</span>
+                            <span class="about-modal__stat-label" data-i18n="about_modal_stat_years">Years of
+                                Mastery</span>
                         </div>
                         <div class="about-modal__stat">
                             <span class="about-modal__stat-num">0</span>
-                            <span class="about-modal__stat-label">Frameworks Used</span>
+                            <span class="about-modal__stat-label" data-i18n="about_modal_stat_frameworks">Frameworks
+                                Used</span>
                         </div>
                     </div>
                 </div>
@@ -870,7 +940,7 @@
     <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script type="module" src="scripts/main.js?v=13"></script>
+    <script type="module" src="scripts/main.js?v=19"></script>
 </body>
 
 </html>
