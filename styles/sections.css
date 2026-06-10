@@ -57,6 +57,10 @@
 	display: block;
 }
 
+.hero__title-line--mobile {
+	display: none;
+}
+
 .hero__title-line--heavy {
 	font-weight: 900;
 	font-style: italic;
@@ -180,20 +184,28 @@
 	}
 
 	.hero__title {
-		font-size: clamp(2.6rem, 14vw, 5rem);
-		line-height: 0.96;
+		font-size: clamp(4.2rem, 24vw, 8rem);
+		line-height: 0.9;
 		max-width: 7ch;
 	}
 
+	.hero__title-line--desktop {
+		display: none;
+	}
+
+	.hero__title-line--mobile {
+		display: block;
+	}
+
 	.hero__scroll-indicator {
-		bottom: 90px; /* Above mobile dock */
+		bottom: 120px; /* Above mobile dock */
 	}
 }
 
 @media (max-width: 480px) {
 	.hero__title {
-		font-size: clamp(2.2rem, 12vw, 3.6rem);
-		line-height: 1;
+		font-size: clamp(3.8rem, 22vw, 7rem);
+		line-height: 0.9;
 		max-width: 6.5ch;
 	}
 
@@ -202,7 +214,7 @@
 	}
 
 	.hero__scroll-indicator {
-		bottom: 84px;
+		bottom: 110px;
 	}
 }
 
