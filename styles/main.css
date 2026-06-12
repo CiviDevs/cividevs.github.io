@@ -616,7 +616,7 @@ p {
    Footer
    -------------------------------------------------------------------------- */
 .footer {
-	padding: var(--space-3xl) var(--gutter) var(--space-xl);
+	padding: var(--space-xl) var(--gutter) var(--space-xl);
 }
 
 .footer__container {

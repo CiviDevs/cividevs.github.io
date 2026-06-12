@@ -475,8 +475,7 @@ const translations = {
 
 		// Services — Value Pillars
 		services_title: 'Strategic Capabilities',
-		services_intro:
-			"We don't sell hours. We deliver assets that compound in value long after launch.",
+		services_intro: '',
 		svc_web_title: 'Digital Flagships',
 		svc_web_result: 'Sub-1s Load · 100/100 Lighthouse',
 		svc_web_outcome:
@@ -518,7 +517,7 @@ const translations = {
 
 		// Why Us — Competitive Moat
 		why_title: 'Why CIVIDEVS',
-		why_lead: 'Other agencies sell templates. We build competitive advantages.',
+		why_lead: '',
 		why_speed_title: 'Performance First',
 		why_speed_desc:
 			'Hand-crafted code with zero framework overhead. Sub-second load times, perfect Core Web Vitals, and conversion rates that consistently outperform industry benchmarks.',
@@ -661,8 +660,7 @@ const translations = {
 		marquee_performance: 'Performance zero-framework',
 		marquee_security: 'Sicurezza di livello enterprise',
 		services_title: 'Capacità Strategiche',
-		services_intro:
-			'Non vendiamo ore. Consegniamo asset che crescono di valore nel tempo.',
+		services_intro: '',
 		svc_web_title: 'Piattaforme Digitali',
 		svc_web_result: 'Caricamento <1s · 100/100 Lighthouse',
 		svc_web_outcome:
@@ -704,8 +702,7 @@ const translations = {
 		about_banner2_tag3: 'Scala Globale',
 
 		why_title: 'Perché CIVIDEVS',
-		why_lead:
-			'Le altre agenzie vendono template. Noi costruiamo vantaggi competitivi.',
+		why_lead: '',
 		why_speed_title: 'Performance al Primo Posto',
 		why_speed_desc:
 			'Codice scritto a mano, senza dipendenze da framework. Tempi di caricamento sotto il secondo, Core Web Vitals eccellenti e conversioni che superano con continuita i benchmark di settore.',

@@ -75,7 +75,6 @@ function animateHero() {
     const heroExpertise = document.querySelector('.hero__expertise-statement');
     const heroQualifier = document.querySelector('.hero__expertise-qualifier');
     const heroCta = document.querySelector('.hero__cta');
-    const heroScroll = document.querySelector('.hero__scroll-indicator');
 
     const tl = gsap.timeline({ delay: 0.15 });
 
@@ -138,17 +137,6 @@ function animateHero() {
             stagger: 0.06,
             ease: 'expo.out'
         }, '-=0.8');
-    }
-
-    // T+2.2s — Scroll indicator
-    if (heroScroll) {
-        gsap.set(heroScroll, { opacity: 0, y: 20 });
-        tl.to(heroScroll, {
-            opacity: 1,
-            y: 0,
-            duration: 0.4,
-            ease: 'expo.out'
-        }, '-=0.1');
     }
 }
 
